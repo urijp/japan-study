@@ -163,6 +163,10 @@
     object-fit: contain;
     margin-bottom: 10px;
     border-radius: 8px;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    pointer-events: none;
   }
 
   .face .text {
@@ -384,6 +388,7 @@
       const img = document.createElement('img');
       img.src = card.image;
       img.alt = '';
+      img.draggable = false;
       face.appendChild(img);
     }
 
