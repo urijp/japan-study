@@ -285,11 +285,11 @@
       <button data-lang="japanese" aria-label="Japonés" title="Japonés">🇯🇵</button>
     </div>
     <div class="mode-group" id="viewGroup">
-      <button data-view="grid" aria-label="Cuadrícula" title="Cuadrícula">
-        <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="currentColor"/></svg>
-      </button>
       <button data-view="single" aria-label="Una a una" title="Una a una">
         <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><rect x="7" y="2" width="10" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="5" width="10" height="14" rx="2" fill="currentColor"/></svg>
+      </button>
+      <button data-view="grid" aria-label="Cuadrícula" title="Cuadrícula">
+        <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="currentColor"/></svg>
       </button>
     </div>
     <button class="icon-btn" id="shuffleBtn">Barajar</button>
@@ -306,7 +306,7 @@
   const CARDS_URL = 'cards.json';
   let cards = [];
   let language = 'spanish';
-  let view = 'grid';
+  let view = 'single';
   let currentIndex = 0;
   let flipped = false;
   let history = [];
