@@ -1,0 +1,1202 @@
+[
+  {
+    "id": 1,
+    "spanish": "Como sushi",
+    "japanese": "sushi o tabemasu",
+    "image": "images/1.svg"
+  },
+  {
+    "id": 2,
+    "spanish": "Bebo agua",
+    "japanese": "mizu o nomimasu",
+    "image": "images/2.svg"
+  },
+  {
+    "id": 3,
+    "spanish": "Voy al dojo",
+    "japanese": "doujou ni ikimasu",
+    "image": "images/3.svg"
+  },
+  {
+    "id": 4,
+    "spanish": "Vengo mañana",
+    "japanese": "ashita kimasu",
+    "image": "images/4.svg"
+  },
+  {
+    "id": 5,
+    "spanish": "Vuelvo a casa",
+    "japanese": "ie ni kaerimasu",
+    "image": "images/5.svg"
+  },
+  {
+    "id": 6,
+    "spanish": "Veo la televisión",
+    "japanese": "terebi o mimasu",
+    "image": "images/6.svg"
+  },
+  {
+    "id": 7,
+    "spanish": "Escucho música",
+    "japanese": "ongaku o kikimasu",
+    "image": "images/7.svg"
+  },
+  {
+    "id": 8,
+    "spanish": "Hablo japonés",
+    "japanese": "nihongo o hanashimasu",
+    "image": "images/8.svg"
+  },
+  {
+    "id": 9,
+    "spanish": "Lo digo en japonés",
+    "japanese": "nihongo de iimasu",
+    "image": "images/9.svg"
+  },
+  {
+    "id": 10,
+    "spanish": "Hago karate",
+    "japanese": "karate o shimasu",
+    "image": "images/10.svg"
+  },
+  {
+    "id": 11,
+    "spanish": "Practico karate",
+    "japanese": "karate o renshuu shimasu",
+    "image": "images/11.svg"
+  },
+  {
+    "id": 12,
+    "spanish": "Trabajo en casa",
+    "japanese": "ie de hatarakimasu",
+    "image": "images/12.svg"
+  },
+  {
+    "id": 13,
+    "spanish": "Duermo pronto",
+    "japanese": "hayaku nemasu",
+    "image": "images/13.svg"
+  },
+  {
+    "id": 14,
+    "spanish": "Me levanto a las siete",
+    "japanese": "shichi-ji ni okimasu",
+    "image": "images/14.svg"
+  },
+  {
+    "id": 15,
+    "spanish": "Compro esto",
+    "japanese": "kore o kaimasu",
+    "image": "images/15.svg"
+  },
+  {
+    "id": 16,
+    "spanish": "Espero aquí",
+    "japanese": "koko de machimasu",
+    "image": "images/16.svg"
+  },
+  {
+    "id": 17,
+    "spanish": "Entiendo japonés",
+    "japanese": "nihongo ga wakarimasu",
+    "image": "images/17.svg"
+  },
+  {
+    "id": 18,
+    "spanish": "No lo entiendo",
+    "japanese": "wakarimasen",
+    "image": "images/18.svg"
+  },
+  {
+    "id": 19,
+    "spanish": "Conozco ese lugar",
+    "japanese": "sono basho o shitteimasu",
+    "image": "images/19.svg"
+  },
+  {
+    "id": 20,
+    "spanish": "No lo sé",
+    "japanese": "shirimasen",
+    "image": "images/20.svg"
+  },
+  {
+    "id": 21,
+    "spanish": "Lo recuerdo",
+    "japanese": "oboeteimasu",
+    "image": "images/21.svg"
+  },
+  {
+    "id": 22,
+    "spanish": "Lo olvidé",
+    "japanese": "wasuremashita",
+    "image": "images/22.svg"
+  },
+  {
+    "id": 23,
+    "spanish": "Entro en el dojo",
+    "japanese": "doujou ni hairimasu",
+    "image": "images/23.svg"
+  },
+  {
+    "id": 24,
+    "spanish": "Salgo de casa",
+    "japanese": "ie o demasu",
+    "image": "images/24.svg"
+  },
+  {
+    "id": 25,
+    "spanish": "Me siento aquí",
+    "japanese": "koko ni suwarimasu",
+    "image": "images/25.svg"
+  },
+  {
+    "id": 26,
+    "spanish": "Me pongo de pie",
+    "japanese": "tachimasu",
+    "image": "images/26.svg"
+  },
+  {
+    "id": 27,
+    "spanish": "Uso esto",
+    "japanese": "kore o tsukaimasu",
+    "image": "images/27.svg"
+  },
+  {
+    "id": 28,
+    "spanish": "Lo intento",
+    "japanese": "yatte mimasu",
+    "image": "images/28.svg"
+  },
+  {
+    "id": 29,
+    "spanish": "Ayudo",
+    "japanese": "tetsudaimasu",
+    "image": "images/29.svg"
+  },
+  {
+    "id": 30,
+    "spanish": "Estudio japonés",
+    "japanese": "nihongo o benkyou shimasu",
+    "image": "images/30.svg"
+  },
+  {
+    "id": 31,
+    "spanish": "Quiero comer ramen",
+    "japanese": "ramen o tabetai desu",
+    "image": "images/31.svg"
+  },
+  {
+    "id": 32,
+    "spanish": "Quiero beber agua",
+    "japanese": "mizu o nomitai desu",
+    "image": "images/32.svg"
+  },
+  {
+    "id": 33,
+    "spanish": "Quiero ir a Japón",
+    "japanese": "Nihon ni ikitai desu",
+    "image": "images/33.svg"
+  },
+  {
+    "id": 34,
+    "spanish": "Hoy entrené",
+    "japanese": "kyou renshuu shimashita",
+    "image": "images/34.svg"
+  },
+  {
+    "id": 35,
+    "spanish": "Mañana entreno",
+    "japanese": "ashita renshuu shimasu",
+    "image": "images/35.svg"
+  },
+  {
+    "id": 36,
+    "spanish": "Casa",
+    "japanese": "ie",
+    "image": "images/36.svg"
+  },
+  {
+    "id": 37,
+    "spanish": "Habitación",
+    "japanese": "heya",
+    "image": "images/37.svg"
+  },
+  {
+    "id": 38,
+    "spanish": "Lavabo / WC",
+    "japanese": "toire",
+    "image": "images/38.svg"
+  },
+  {
+    "id": 39,
+    "spanish": "Coche",
+    "japanese": "kuruma",
+    "image": "images/39.svg"
+  },
+  {
+    "id": 40,
+    "spanish": "Tren",
+    "japanese": "densha",
+    "image": "images/40.svg"
+  },
+  {
+    "id": 41,
+    "spanish": "Estación",
+    "japanese": "eki",
+    "image": "images/41.svg"
+  },
+  {
+    "id": 42,
+    "spanish": "Tienda",
+    "japanese": "mise",
+    "image": "images/42.svg"
+  },
+  {
+    "id": 43,
+    "spanish": "Restaurante",
+    "japanese": "resutoran",
+    "image": "images/43.svg"
+  },
+  {
+    "id": 44,
+    "spanish": "Hotel",
+    "japanese": "hoteru",
+    "image": "images/44.svg"
+  },
+  {
+    "id": 45,
+    "spanish": "Camino / calle",
+    "japanese": "michi",
+    "image": "images/45.svg"
+  },
+  {
+    "id": 46,
+    "spanish": "Lugar",
+    "japanese": "basho",
+    "image": "images/46.svg"
+  },
+  {
+    "id": 47,
+    "spanish": "Japón",
+    "japanese": "Nihon",
+    "image": "images/47.svg"
+  },
+  {
+    "id": 48,
+    "spanish": "España",
+    "japanese": "Supein",
+    "image": "images/48.svg"
+  },
+  {
+    "id": 49,
+    "spanish": "Familia",
+    "japanese": "kazoku",
+    "image": "images/49.svg"
+  },
+  {
+    "id": 50,
+    "spanish": "Mi padre",
+    "japanese": "chichi",
+    "image": "images/50.svg"
+  },
+  {
+    "id": 51,
+    "spanish": "Mi madre",
+    "japanese": "haha",
+    "image": "images/51.svg"
+  },
+  {
+    "id": 52,
+    "spanish": "Padre / papá",
+    "japanese": "otousan",
+    "image": "images/52.svg"
+  },
+  {
+    "id": 53,
+    "spanish": "Madre / mamá",
+    "japanese": "okaasan",
+    "image": "images/53.svg"
+  },
+  {
+    "id": 54,
+    "spanish": "Amigo",
+    "japanese": "tomodachi",
+    "image": "images/54.svg"
+  },
+  {
+    "id": 55,
+    "spanish": "Persona",
+    "japanese": "hito",
+    "image": "images/55.svg"
+  },
+  {
+    "id": 56,
+    "spanish": "Comida",
+    "japanese": "tabemono",
+    "image": "images/56.svg"
+  },
+  {
+    "id": 57,
+    "spanish": "Bebida",
+    "japanese": "nomimono",
+    "image": "images/57.svg"
+  },
+  {
+    "id": 58,
+    "spanish": "Agua",
+    "japanese": "mizu",
+    "image": "images/58.svg"
+  },
+  {
+    "id": 59,
+    "spanish": "Té",
+    "japanese": "ocha",
+    "image": "images/59.svg"
+  },
+  {
+    "id": 60,
+    "spanish": "Café",
+    "japanese": "koohii",
+    "image": "images/60.svg"
+  },
+  {
+    "id": 61,
+    "spanish": "Arroz / comida",
+    "japanese": "gohan",
+    "image": "images/61.svg"
+  },
+  {
+    "id": 62,
+    "spanish": "Carne",
+    "japanese": "niku",
+    "image": "images/62.svg"
+  },
+  {
+    "id": 63,
+    "spanish": "Pescado",
+    "japanese": "sakana",
+    "image": "images/63.svg"
+  },
+  {
+    "id": 64,
+    "spanish": "Verduras",
+    "japanese": "yasai",
+    "image": "images/64.svg"
+  },
+  {
+    "id": 65,
+    "spanish": "Fruta",
+    "japanese": "kudamono",
+    "image": "images/65.svg"
+  },
+  {
+    "id": 66,
+    "spanish": "Cerveza",
+    "japanese": "biiru",
+    "image": "images/66.svg"
+  },
+  {
+    "id": 67,
+    "spanish": "Dinero",
+    "japanese": "okane",
+    "image": "images/67.svg"
+  },
+  {
+    "id": 68,
+    "spanish": "Trabajo",
+    "japanese": "shigoto",
+    "image": "images/68.svg"
+  },
+  {
+    "id": 69,
+    "spanish": "Tiempo / hora",
+    "japanese": "jikan",
+    "image": "images/69.svg"
+  },
+  {
+    "id": 70,
+    "spanish": "Japonés (idioma)",
+    "japanese": "nihongo",
+    "image": "images/70.svg"
+  },
+  {
+    "id": 71,
+    "spanish": "Mañana (parte del día)",
+    "japanese": "asa",
+    "image": "images/71.svg"
+  },
+  {
+    "id": 72,
+    "spanish": "Mediodía",
+    "japanese": "hiru",
+    "image": "images/72.svg"
+  },
+  {
+    "id": 73,
+    "spanish": "Tarde",
+    "japanese": "gogo",
+    "image": "images/73.svg"
+  },
+  {
+    "id": 74,
+    "spanish": "Atardecer / vespre",
+    "japanese": "yuugata",
+    "image": "images/74.svg"
+  },
+  {
+    "id": 75,
+    "spanish": "Noche",
+    "japanese": "yoru",
+    "image": "images/75.svg"
+  },
+  {
+    "id": 76,
+    "spanish": "Hoy",
+    "japanese": "kyou",
+    "image": "images/76.svg"
+  },
+  {
+    "id": 77,
+    "spanish": "Mañana",
+    "japanese": "ashita",
+    "image": "images/77.svg"
+  },
+  {
+    "id": 78,
+    "spanish": "Ayer",
+    "japanese": "kinou",
+    "image": "images/78.svg"
+  },
+  {
+    "id": 79,
+    "spanish": "Esta semana",
+    "japanese": "konshuu",
+    "image": "images/79.svg"
+  },
+  {
+    "id": 80,
+    "spanish": "Fin de semana",
+    "japanese": "shuumatsu",
+    "image": "images/80.svg"
+  },
+  {
+    "id": 81,
+    "spanish": "Está bien / es bueno",
+    "japanese": "ii desu",
+    "image": "images/81.svg"
+  },
+  {
+    "id": 82,
+    "spanish": "Malo",
+    "japanese": "warui",
+    "image": "images/82.svg"
+  },
+  {
+    "id": 83,
+    "spanish": "Grande",
+    "japanese": "ookii",
+    "image": "images/83.svg"
+  },
+  {
+    "id": 84,
+    "spanish": "Pequeño",
+    "japanese": "chiisai",
+    "image": "images/84.svg"
+  },
+  {
+    "id": 85,
+    "spanish": "Nuevo",
+    "japanese": "atarashii",
+    "image": "images/85.svg"
+  },
+  {
+    "id": 86,
+    "spanish": "Viejo",
+    "japanese": "furui",
+    "image": "images/86.svg"
+  },
+  {
+    "id": 87,
+    "spanish": "Hace calor",
+    "japanese": "atsui desu",
+    "image": "images/87.svg"
+  },
+  {
+    "id": 88,
+    "spanish": "Hace frío",
+    "japanese": "samui desu",
+    "image": "images/88.svg"
+  },
+  {
+    "id": 89,
+    "spanish": "Está caliente",
+    "japanese": "atsui desu",
+    "image": "images/89.svg"
+  },
+  {
+    "id": 90,
+    "spanish": "Está frío",
+    "japanese": "tsumetai desu",
+    "image": "images/90.svg"
+  },
+  {
+    "id": 91,
+    "spanish": "Rápido",
+    "japanese": "hayai",
+    "image": "images/91.svg"
+  },
+  {
+    "id": 92,
+    "spanish": "Lento",
+    "japanese": "osoi",
+    "image": "images/92.svg"
+  },
+  {
+    "id": 93,
+    "spanish": "Difícil",
+    "japanese": "muzukashii",
+    "image": "images/93.svg"
+  },
+  {
+    "id": 94,
+    "spanish": "Fácil / sencillo",
+    "japanese": "kantan",
+    "image": "images/94.svg"
+  },
+  {
+    "id": 95,
+    "spanish": "Interesante",
+    "japanese": "omoshiroi",
+    "image": "images/95.svg"
+  },
+  {
+    "id": 96,
+    "spanish": "Divertido",
+    "japanese": "tanoshii",
+    "image": "images/96.svg"
+  },
+  {
+    "id": 97,
+    "spanish": "Delicioso",
+    "japanese": "oishii",
+    "image": "images/97.svg"
+  },
+  {
+    "id": 98,
+    "spanish": "Bonito / limpio",
+    "japanese": "kirei",
+    "image": "images/98.svg"
+  },
+  {
+    "id": 99,
+    "spanish": "Tranquilo",
+    "japanese": "shizuka",
+    "image": "images/99.svg"
+  },
+  {
+    "id": 100,
+    "spanish": "Ruidoso",
+    "japanese": "urusai",
+    "image": "images/100.svg"
+  },
+  {
+    "id": 101,
+    "spanish": "Fuerte",
+    "japanese": "tsuyoi",
+    "image": "images/101.svg"
+  },
+  {
+    "id": 102,
+    "spanish": "Débil",
+    "japanese": "yowai",
+    "image": "images/102.svg"
+  },
+  {
+    "id": 103,
+    "spanish": "Estoy cansado",
+    "japanese": "tsukareteimasu",
+    "image": "images/103.svg"
+  },
+  {
+    "id": 104,
+    "spanish": "Tengo sueño",
+    "japanese": "nemui desu",
+    "image": "images/104.svg"
+  },
+  {
+    "id": 105,
+    "spanish": "Tengo hambre",
+    "japanese": "onaka ga sukimashita",
+    "image": "images/105.svg"
+  },
+  {
+    "id": 106,
+    "spanish": "Tengo sed",
+    "japanese": "nodo ga kawakimashita",
+    "image": "images/106.svg"
+  },
+  {
+    "id": 107,
+    "spanish": "Estoy bien",
+    "japanese": "genki desu",
+    "image": "images/107.svg"
+  },
+  {
+    "id": 108,
+    "spanish": "Estoy ocupado",
+    "japanese": "isogashii desu",
+    "image": "images/108.svg"
+  },
+  {
+    "id": 109,
+    "spanish": "Estoy libre",
+    "japanese": "hima desu",
+    "image": "images/109.svg"
+  },
+  {
+    "id": 110,
+    "spanish": "Estoy contento",
+    "japanese": "ureshii desu",
+    "image": "images/110.svg"
+  },
+  {
+    "id": 111,
+    "spanish": "Derecha",
+    "japanese": "migi",
+    "image": "images/111.svg"
+  },
+  {
+    "id": 112,
+    "spanish": "Izquierda",
+    "japanese": "hidari",
+    "image": "images/112.svg"
+  },
+  {
+    "id": 113,
+    "spanish": "Delante",
+    "japanese": "mae",
+    "image": "images/113.svg"
+  },
+  {
+    "id": 114,
+    "spanish": "Detrás",
+    "japanese": "ushiro",
+    "image": "images/114.svg"
+  },
+  {
+    "id": 115,
+    "spanish": "Arriba",
+    "japanese": "ue",
+    "image": "images/115.svg"
+  },
+  {
+    "id": 116,
+    "spanish": "Abajo",
+    "japanese": "shita",
+    "image": "images/116.svg"
+  },
+  {
+    "id": 117,
+    "spanish": "Dentro",
+    "japanese": "naka",
+    "image": "images/117.svg"
+  },
+  {
+    "id": 118,
+    "spanish": "Fuera",
+    "japanese": "soto",
+    "image": "images/118.svg"
+  },
+  {
+    "id": 119,
+    "spanish": "Mano",
+    "japanese": "te",
+    "image": "images/119.svg"
+  },
+  {
+    "id": 120,
+    "spanish": "Brazo",
+    "japanese": "ude",
+    "image": "images/120.svg"
+  },
+  {
+    "id": 121,
+    "spanish": "Pierna / pie",
+    "japanese": "ashi",
+    "image": "images/121.svg"
+  },
+  {
+    "id": 122,
+    "spanish": "Cabeza",
+    "japanese": "atama",
+    "image": "images/122.svg"
+  },
+  {
+    "id": 123,
+    "spanish": "Cara",
+    "japanese": "kao",
+    "image": "images/123.svg"
+  },
+  {
+    "id": 124,
+    "spanish": "Ojo",
+    "japanese": "me",
+    "image": "images/124.svg"
+  },
+  {
+    "id": 125,
+    "spanish": "Espalda",
+    "japanese": "senaka",
+    "image": "images/125.svg"
+  },
+  {
+    "id": 126,
+    "spanish": "Cuerpo",
+    "japanese": "karada",
+    "image": "images/126.svg"
+  },
+  {
+    "id": 127,
+    "spanish": "Puño",
+    "japanese": "kobushi",
+    "image": "images/127.svg"
+  },
+  {
+    "id": 128,
+    "spanish": "Rodilla",
+    "japanese": "hiza",
+    "image": "images/128.svg"
+  },
+  {
+    "id": 129,
+    "spanish": "Cadera",
+    "japanese": "koshi",
+    "image": "images/129.svg"
+  },
+  {
+    "id": 130,
+    "spanish": "Hombro",
+    "japanese": "kata",
+    "image": "images/130.svg"
+  },
+  {
+    "id": 131,
+    "spanish": "Cuello",
+    "japanese": "kubi",
+    "image": "images/131.svg"
+  },
+  {
+    "id": 132,
+    "spanish": "Dojo",
+    "japanese": "doujou",
+    "image": "images/132.svg"
+  },
+  {
+    "id": 133,
+    "spanish": "Maestro",
+    "japanese": "sensei",
+    "image": "images/133.svg"
+  },
+  {
+    "id": 134,
+    "spanish": "Despacio",
+    "japanese": "yukkuri",
+    "image": "images/134.svg"
+  },
+  {
+    "id": 135,
+    "spanish": "Más fuerte",
+    "japanese": "motto tsuyoku",
+    "image": "images/135.svg"
+  },
+  {
+    "id": 136,
+    "spanish": "Buenos días",
+    "japanese": "ohayou gozaimasu",
+    "image": "images/136.svg"
+  },
+  {
+    "id": 137,
+    "spanish": "Hola / buenas tardes",
+    "japanese": "konnichiwa",
+    "image": "images/137.svg"
+  },
+  {
+    "id": 138,
+    "spanish": "Buenas noches",
+    "japanese": "konbanwa",
+    "image": "images/138.svg"
+  },
+  {
+    "id": 139,
+    "spanish": "Gracias",
+    "japanese": "arigatou gozaimasu",
+    "image": "images/139.svg"
+  },
+  {
+    "id": 140,
+    "spanish": "Muchas gracias",
+    "japanese": "doumo arigatou gozaimasu",
+    "image": "images/140.svg"
+  },
+  {
+    "id": 141,
+    "spanish": "Disculpa / perdón",
+    "japanese": "sumimasen",
+    "image": "images/141.svg"
+  },
+  {
+    "id": 142,
+    "spanish": "Lo siento",
+    "japanese": "gomennasai",
+    "image": "images/142.svg"
+  },
+  {
+    "id": 143,
+    "spanish": "Por favor",
+    "japanese": "onegaishimasu",
+    "image": "images/143.svg"
+  },
+  {
+    "id": 144,
+    "spanish": "Encantado",
+    "japanese": "hajimemashite",
+    "image": "images/144.svg"
+  },
+  {
+    "id": 145,
+    "spanish": "Mucho gusto",
+    "japanese": "yoroshiku onegaishimasu",
+    "image": "images/145.svg"
+  },
+  {
+    "id": 146,
+    "spanish": "Sí",
+    "japanese": "hai",
+    "image": "images/146.svg"
+  },
+  {
+    "id": 147,
+    "spanish": "No",
+    "japanese": "iie",
+    "image": "images/147.svg"
+  },
+  {
+    "id": 148,
+    "spanish": "Entendido",
+    "japanese": "wakarimashita",
+    "image": "images/148.svg"
+  },
+  {
+    "id": 149,
+    "spanish": "No entiendo",
+    "japanese": "wakarimasen",
+    "image": "images/149.svg"
+  },
+  {
+    "id": 150,
+    "spanish": "Espera un momento, por favor",
+    "japanese": "chotto matte kudasai",
+    "image": "images/150.svg"
+  },
+  {
+    "id": 151,
+    "spanish": "Otra vez, por favor",
+    "japanese": "mou ichido onegaishimasu",
+    "image": "images/151.svg"
+  },
+  {
+    "id": 152,
+    "spanish": "Más despacio, por favor",
+    "japanese": "motto yukkuri onegaishimasu",
+    "image": "images/152.svg"
+  },
+  {
+    "id": 153,
+    "spanish": "¿Qué significa?",
+    "japanese": "dou iu imi desu ka?",
+    "image": "images/153.svg"
+  },
+  {
+    "id": 154,
+    "spanish": "¿Cómo se dice en japonés?",
+    "japanese": "nihongo de nan to iimasu ka?",
+    "image": "images/154.svg"
+  },
+  {
+    "id": 155,
+    "spanish": "Está bien / no pasa nada",
+    "japanese": "daijoubu desu",
+    "image": "images/155.svg"
+  },
+  {
+    "id": 156,
+    "spanish": "¿Estás bien?",
+    "japanese": "daijoubu desu ka?",
+    "image": "images/156.svg"
+  },
+  {
+    "id": 157,
+    "spanish": "Qué bien",
+    "japanese": "ii desu ne",
+    "image": "images/157.svg"
+  },
+  {
+    "id": 158,
+    "spanish": "Qué rico",
+    "japanese": "oishii desu ne",
+    "image": "images/158.svg"
+  },
+  {
+    "id": 159,
+    "spanish": "Qué interesante",
+    "japanese": "omoshiroi desu ne",
+    "image": "images/159.svg"
+  },
+  {
+    "id": 160,
+    "spanish": "¿De verdad?",
+    "japanese": "hontou desu ka?",
+    "image": "images/160.svg"
+  },
+  {
+    "id": 161,
+    "spanish": "También hago karate",
+    "japanese": "karate mo shimasu",
+    "image": "images/161.svg"
+  },
+  {
+    "id": 162,
+    "spanish": "Pero está bien",
+    "japanese": "demo daijoubu desu",
+    "image": "images/162.svg"
+  },
+  {
+    "id": 163,
+    "spanish": "Porque estoy cansado",
+    "japanese": "tsukareteimasu kara",
+    "image": "images/163.svg"
+  },
+  {
+    "id": 164,
+    "spanish": "Por eso entreno",
+    "japanese": "dakara renshuu shimasu",
+    "image": "images/164.svg"
+  },
+  {
+    "id": 165,
+    "spanish": "Con un amigo",
+    "japanese": "tomodachi to",
+    "image": "images/165.svg"
+  },
+  {
+    "id": 166,
+    "spanish": "Hablo un poco de japonés",
+    "japanese": "nihongo o chotto hanashimasu",
+    "image": "images/166.svg"
+  },
+  {
+    "id": 167,
+    "spanish": "Como mucho",
+    "japanese": "takusan tabemasu",
+    "image": "images/167.svg"
+  },
+  {
+    "id": 168,
+    "spanish": "Muy interesante",
+    "japanese": "totemo omoshiroi desu",
+    "image": "images/168.svg"
+  },
+  {
+    "id": 169,
+    "spanish": "No mucho",
+    "japanese": "amari",
+    "image": "images/169.svg"
+  },
+  {
+    "id": 170,
+    "spanish": "Siempre entreno",
+    "japanese": "itsumo renshuu shimasu",
+    "image": "images/170.svg"
+  },
+  {
+    "id": 171,
+    "spanish": "Entreno a menudo",
+    "japanese": "yoku renshuu shimasu",
+    "image": "images/171.svg"
+  },
+  {
+    "id": 172,
+    "spanish": "A veces entreno",
+    "japanese": "tokidoki renshuu shimasu",
+    "image": "images/172.svg"
+  },
+  {
+    "id": 173,
+    "spanish": "Todavía estoy cansado",
+    "japanese": "mada tsukareteimasu",
+    "image": "images/173.svg"
+  },
+  {
+    "id": 174,
+    "spanish": "Ya estoy bien",
+    "japanese": "mou daijoubu desu",
+    "image": "images/174.svg"
+  },
+  {
+    "id": 175,
+    "spanish": "Quizá voy",
+    "japanese": "tabun ikimasu",
+    "image": "images/175.svg"
+  },
+  {
+    "id": 176,
+    "spanish": "Entrenamos juntos",
+    "japanese": "issho ni renshuu shimasu",
+    "image": "images/176.svg"
+  },
+  {
+    "id": 177,
+    "spanish": "Aquí",
+    "japanese": "koko",
+    "image": "images/177.svg"
+  },
+  {
+    "id": 178,
+    "spanish": "Ahí",
+    "japanese": "soko",
+    "image": "images/178.svg"
+  },
+  {
+    "id": 179,
+    "spanish": "Allí",
+    "japanese": "asoko",
+    "image": "images/179.svg"
+  },
+  {
+    "id": 180,
+    "spanish": "Ahora",
+    "japanese": "ima",
+    "image": "images/180.svg"
+  },
+  {
+    "id": 181,
+    "spanish": "¿Qué?",
+    "japanese": "nani?",
+    "image": "images/181.svg"
+  },
+  {
+    "id": 182,
+    "spanish": "¿Quién?",
+    "japanese": "dare?",
+    "image": "images/182.svg"
+  },
+  {
+    "id": 183,
+    "spanish": "¿Dónde?",
+    "japanese": "doko?",
+    "image": "images/183.svg"
+  },
+  {
+    "id": 184,
+    "spanish": "¿Cuándo?",
+    "japanese": "itsu?",
+    "image": "images/184.svg"
+  },
+  {
+    "id": 185,
+    "spanish": "¿Por qué?",
+    "japanese": "doushite?",
+    "image": "images/185.svg"
+  },
+  {
+    "id": 186,
+    "spanish": "¿Cómo?",
+    "japanese": "dou?",
+    "image": "images/186.svg"
+  },
+  {
+    "id": 187,
+    "spanish": "¿Cuál?",
+    "japanese": "dore?",
+    "image": "images/187.svg"
+  },
+  {
+    "id": 188,
+    "spanish": "¿Cuánto cuesta?",
+    "japanese": "ikura desu ka?",
+    "image": "images/188.svg"
+  },
+  {
+    "id": 189,
+    "spanish": "¿Qué es esto?",
+    "japanese": "kore wa nan desu ka?",
+    "image": "images/189.svg"
+  },
+  {
+    "id": 190,
+    "spanish": "¿Dónde está el baño?",
+    "japanese": "toire wa doko desu ka?",
+    "image": "images/190.svg"
+  },
+  {
+    "id": 191,
+    "spanish": "¿Dónde está el dojo?",
+    "japanese": "doujou wa doko desu ka?",
+    "image": "images/191.svg"
+  },
+  {
+    "id": 192,
+    "spanish": "¿Qué haces?",
+    "japanese": "nani o shimasu ka?",
+    "image": "images/192.svg"
+  },
+  {
+    "id": 193,
+    "spanish": "¿Adónde vas?",
+    "japanese": "doko ni ikimasu ka?",
+    "image": "images/193.svg"
+  },
+  {
+    "id": 194,
+    "spanish": "¿Qué quieres comer?",
+    "japanese": "nani o tabetai desu ka?",
+    "image": "images/194.svg"
+  },
+  {
+    "id": 195,
+    "spanish": "¿Qué quieres beber?",
+    "japanese": "nani o nomitai desu ka?",
+    "image": "images/195.svg"
+  },
+  {
+    "id": 196,
+    "spanish": "¿Te gusta?",
+    "japanese": "suki desu ka?",
+    "image": "images/196.svg"
+  },
+  {
+    "id": 197,
+    "spanish": "¿Te gusta el karate?",
+    "japanese": "karate ga suki desu ka?",
+    "image": "images/197.svg"
+  },
+  {
+    "id": 198,
+    "spanish": "¿Puedo hacerlo?",
+    "japanese": "yatte mo ii desu ka?",
+    "image": "images/198.svg"
+  },
+  {
+    "id": 199,
+    "spanish": "¿Puedo entrar?",
+    "japanese": "haitte mo ii desu ka?",
+    "image": "images/199.svg"
+  },
+  {
+    "id": 200,
+    "spanish": "¿Puedo usar esto?",
+    "japanese": "kore o tsukatte mo ii desu ka?",
+    "image": "images/200.svg"
+  }
+]

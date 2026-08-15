@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarjetas de Japonés</title>
+<style>
+  :root {
+    --bg: #f4f3ef;
+    --card-front-bg: #ffffff;
+    --card-back-bg: #2b2b2b;
+    --card-back-fg: #ffffff;
+    --accent: #c94f4f;
+    --text: #1f1f1f;
+    --muted: #6b6b6b;
+    --border: #e0ddd5;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  header {
+    padding: 24px 20px 16px;
+    text-align: center;
+  }
+
+  h1 {
+    margin: 0 0 16px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .mode-group {
+    display: inline-flex;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px;
+    gap: 2px;
+  }
+
+  .mode-group button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 1.15rem;
+    line-height: 1;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .mode-group button svg {
+    display: block;
+  }
+
+  .mode-group button.active {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .icon-btn {
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .icon-btn:hover {
+    background: #eeece5;
+  }
+
+  .icon-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  /* Grid view */
+
+  main.grid-view {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 20px 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 18px;
+  }
+
+  .card-slot {
+    perspective: 1200px;
+    aspect-ratio: 3 / 4;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(.4,.2,.2,1);
+  }
+
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border: 1px solid var(--border);
+  }
+
+  .face.front {
+    background: var(--card-front-bg);
+    color: var(--text);
+  }
+
+  .face.back {
+    background: var(--card-back-bg);
+    color: var(--card-back-fg);
+    transform: rotateY(180deg);
+  }
+
+  .face img {
+    max-width: 100%;
+    max-height: 45%;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  .face .text {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  /* Single (one-by-one) view */
+
+  main.single-view {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 10px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .single-stage {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    perspective: 1400px;
+    position: relative;
+    touch-action: pan-y;
+  }
+
+  .single-stage .card {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+
+  .single-stage .drag-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+
+  .single-stage .drag-wrapper .card {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  .single-stage .card.behind {
+    z-index: 1;
+    cursor: default;
+    pointer-events: none;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: top 0.3s ease, bottom 0.3s ease, left 0.3s ease, right 0.3s ease, opacity 0.3s ease;
+  }
+
+  .single-stage .drag-wrapper.dragging {
+    transition: none;
+  }
+
+  .single-stage .face .text {
+    font-size: 1.4rem;
+  }
+
+  .single-nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .nav-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease;
+  }
+
+  .nav-btn:hover {
+    background: #eeece5;
+  }
+
+  .single-hint {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    color: var(--muted);
+    padding: 60px 20px;
+    grid-column: 1 / -1;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.75rem;
+    padding: 0 20px 30px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="pageTitle">Tarjetas de Japonés</h1>
+  <div class="controls">
+    <div class="mode-group" id="langGroup">
+      <button data-lang="spanish" aria-label="Español" title="Español">🇪🇸</button>
+      <button data-lang="japanese" aria-label="Japonés" title="Japonés">🇯🇵</button>
+    </div>
+    <div class="mode-group" id="viewGroup">
+      <button data-view="grid" aria-label="Cuadrícula" title="Cuadrícula">
+        <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="currentColor"/></svg>
+      </button>
+      <button data-view="single" aria-label="Una a una" title="Una a una">
+        <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><rect x="7" y="2" width="10" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="5" width="10" height="14" rx="2" fill="currentColor"/></svg>
+      </button>
+    </div>
+    <button class="icon-btn" id="shuffleBtn">Barajar</button>
+  </div>
+</header>
+
+<main id="app">
+  <p class="empty-state">Cargando tarjetas…</p>
+</main>
+
+<footer id="footerHint">Haz clic en una tarjeta para ver la otra cara.</footer>
+
+<script>
+  const CARDS_URL = 'cards.json';
+  let cards = [];
+  let language = 'spanish';
+  let view = 'grid';
+  let currentIndex = 0;
+  let flipped = false;
+  let history = [];
+  let nextPeekIndex = 0;
+  let prevPeekIndex = 0;
+
+  const app = document.getElementById('app');
+  const pageTitle = document.getElementById('pageTitle');
+  const langGroup = document.getElementById('langGroup');
+  const viewGroup = document.getElementById('viewGroup');
+  const shuffleBtn = document.getElementById('shuffleBtn');
+  const footerHint = document.getElementById('footerHint');
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function otherLang(lang) {
+    return lang === 'spanish' ? 'japanese' : 'spanish';
+  }
+
+  function randomIndex() {
+    return Math.floor(Math.random() * cards.length);
+  }
+
+  function refreshPeeks() {
+    nextPeekIndex = randomIndex();
+    prevPeekIndex = history.length ? history[history.length - 1] : randomIndex();
+  }
+
+  function resetSingleDeck() {
+    currentIndex = randomIndex();
+    history = [];
+    flipped = false;
+    refreshPeeks();
+  }
+
+  function goNext() {
+    history.push(currentIndex);
+    currentIndex = nextPeekIndex;
+    flipped = false;
+    refreshPeeks();
+    render();
+  }
+
+  function goPrev() {
+    currentIndex = history.length ? history.pop() : prevPeekIndex;
+    flipped = false;
+    refreshPeeks();
+    render();
+  }
+
+  const STACK_PEEK = 20;
+  const STACK_INSET = 16;
+
+  function setBehindProgress(behindEl, progress) {
+    const bottom = -STACK_PEEK * (1 - progress);
+    const inset = STACK_INSET * (1 - progress);
+    behindEl.style.top = '0px';
+    behindEl.style.bottom = `${bottom}px`;
+    behindEl.style.left = `${inset}px`;
+    behindEl.style.right = `${inset}px`;
+    behindEl.style.opacity = 0.7 + 0.3 * progress;
+  }
+
+  function buildFace(side, lang, card) {
+    const face = document.createElement('div');
+    face.className = `face ${side}`;
+
+    if (card.image) {
+      const img = document.createElement('img');
+      img.src = card.image;
+      img.alt = '';
+      face.appendChild(img);
+    }
+
+    const text = document.createElement('div');
+    text.className = 'text';
+    text.textContent = card[lang];
+    face.appendChild(text);
+
+    return face;
+  }
+
+  function buildCardEl(card) {
+    const backLang = otherLang(language);
+    const cardEl = document.createElement('div');
+    cardEl.className = 'card';
+    cardEl.appendChild(buildFace('front', language, card));
+    cardEl.appendChild(buildFace('back', backLang, card));
+    return cardEl;
+  }
+
+  function render() {
+    app.innerHTML = '';
+
+    if (!cards.length) {
+      app.className = 'grid-view';
+      app.innerHTML = '<p class="empty-state">No hay tarjetas para mostrar.</p>';
+      return;
+    }
+
+    if (view === 'grid') {
+      renderGrid();
+    } else {
+      renderSingle();
+    }
+  }
+
+  function renderGrid() {
+    app.className = 'grid-view';
+    footerHint.style.display = '';
+    shuffleBtn.style.display = '';
+    footerHint.textContent = 'Haz clic en una tarjeta para ver la otra cara.';
+
+    cards.forEach(card => {
+      const slot = document.createElement('div');
+      slot.className = 'card-slot';
+
+      const cardEl = buildCardEl(card);
+      cardEl.addEventListener('click', () => {
+        cardEl.classList.toggle('flipped');
+      });
+
+      slot.appendChild(cardEl);
+      app.appendChild(slot);
+    });
+  }
+
+  function renderSingle() {
+    app.className = 'single-view';
+    footerHint.style.display = 'none';
+    shuffleBtn.style.display = 'none';
+
+    const stage = document.createElement('div');
+    stage.className = 'single-stage';
+
+    const behindEl = document.createElement('div');
+    behindEl.className = 'card behind';
+    behindEl.appendChild(buildFace('front', language, cards[nextPeekIndex]));
+    setBehindProgress(behindEl, 0);
+
+    const card = cards[currentIndex];
+    const cardEl = buildCardEl(card);
+    cardEl.classList.add('top');
+    if (flipped) cardEl.classList.add('flipped');
+
+    const dragWrapper = document.createElement('div');
+    dragWrapper.className = 'drag-wrapper';
+    dragWrapper.appendChild(cardEl);
+
+    stage.appendChild(behindEl);
+    stage.appendChild(dragWrapper);
+
+    const swipe = setupSwipe(stage, dragWrapper, cardEl, behindEl);
+
+    const nav = document.createElement('div');
+    nav.className = 'single-nav';
+
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'nav-btn';
+    prevBtn.textContent = '‹';
+    prevBtn.setAttribute('aria-label', 'Anterior');
+    prevBtn.addEventListener('click', swipe.triggerPrev);
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'nav-btn';
+    nextBtn.textContent = '›';
+    nextBtn.setAttribute('aria-label', 'Siguiente');
+    nextBtn.addEventListener('click', swipe.triggerNext);
+
+    nav.appendChild(prevBtn);
+    nav.appendChild(nextBtn);
+
+    app.appendChild(stage);
+    app.appendChild(nav);
+  }
+
+  function setupSwipe(stage, wrapperEl, cardEl, behindEl) {
+    let startX = 0, startY = 0, dx = 0;
+    let dragging = false;
+    let moved = false;
+    let isSwiping = false;
+    let behindIndex = nextPeekIndex;
+    const DRAG_THRESHOLD = 6;
+    const SWIPE_THRESHOLD = 70;
+
+    function opacityForDistance(distance) {
+      const fadeDistance = stage.offsetWidth * 0.9;
+      return Math.max(0, 1 - Math.abs(distance) / fadeDistance);
+    }
+
+    function updateBehind(distance) {
+      const desiredIndex = distance <= 0 ? nextPeekIndex : prevPeekIndex;
+      if (desiredIndex !== behindIndex) {
+        behindIndex = desiredIndex;
+        behindEl.innerHTML = '';
+        behindEl.appendChild(buildFace('front', language, cards[behindIndex]));
+      }
+      const progress = Math.min(1, Math.abs(distance) / (stage.offsetWidth * 0.5));
+      setBehindProgress(behindEl, progress);
+    }
+
+    stage.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      moved = false;
+      startX = e.clientX;
+      startY = e.clientY;
+      dx = 0;
+      wrapperEl.classList.add('dragging');
+      behindEl.style.transition = 'none';
+      stage.setPointerCapture(e.pointerId);
+    });
+
+    stage.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      if (Math.abs(dx) > DRAG_THRESHOLD || Math.abs(dy) > DRAG_THRESHOLD) moved = true;
+      if (Math.abs(dx) > Math.abs(dy)) {
+        wrapperEl.style.transform = `translateX(${dx}px) rotate(${dx / 20}deg)`;
+        wrapperEl.style.opacity = opacityForDistance(dx);
+        updateBehind(dx);
+      }
+    });
+
+    function flyOut(distance) {
+      if (isSwiping || dragging) return;
+      isSwiping = true;
+      const goingNext = distance <= 0; // negative -> next, positive -> previous
+      wrapperEl.classList.remove('dragging');
+      wrapperEl.style.transition = 'transform 0.25s ease, opacity 0.25s ease';
+      wrapperEl.style.transform = `translateX(${distance > 0 ? '120%' : '-120%'}) rotate(${distance / 20}deg)`;
+      wrapperEl.style.opacity = '0';
+      behindEl.style.transition = 'top 0.3s ease, bottom 0.3s ease, left 0.3s ease, right 0.3s ease, opacity 0.3s ease';
+      updateBehind(distance);
+      setBehindProgress(behindEl, 1);
+      setTimeout(() => (goingNext ? goNext() : goPrev()), 200);
+    }
+
+    function endDrag(e) {
+      if (!dragging) return;
+      dragging = false;
+      wrapperEl.classList.remove('dragging');
+      behindEl.style.transition = 'top 0.3s ease, bottom 0.3s ease, left 0.3s ease, right 0.3s ease, opacity 0.3s ease';
+
+      if (Math.abs(dx) > SWIPE_THRESHOLD) {
+        flyOut(dx);
+      } else if (moved) {
+        wrapperEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+        wrapperEl.style.transform = '';
+        wrapperEl.style.opacity = '1';
+        updateBehind(0);
+        setTimeout(() => { wrapperEl.style.transition = ''; }, 300);
+      } else {
+        flipped = !flipped;
+        cardEl.classList.toggle('flipped', flipped);
+        updateBehind(0);
+      }
+    }
+
+    stage.addEventListener('pointerup', endDrag);
+    stage.addEventListener('pointercancel', endDrag);
+
+    return {
+      triggerNext: () => flyOut(-160),
+      triggerPrev: () => flyOut(160),
+    };
+  }
+
+  function setLanguage(newLang) {
+    language = newLang;
+    [...langGroup.children].forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === newLang);
+    });
+    flipped = false;
+    render();
+  }
+
+  function setView(newView) {
+    view = newView;
+    [...viewGroup.children].forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.view === newView);
+    });
+    if (newView === 'single') resetSingleDeck();
+    render();
+  }
+
+  langGroup.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-lang]');
+    if (!btn) return;
+    setLanguage(btn.dataset.lang);
+  });
+
+  viewGroup.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-view]');
+    if (!btn) return;
+    setView(btn.dataset.view);
+  });
+
+  shuffleBtn.addEventListener('click', () => {
+    shuffle(cards);
+    resetSingleDeck();
+    render();
+  });
+
+  fetch(CARDS_URL)
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    })
+    .then(data => {
+      cards = data;
+      pageTitle.textContent = `${cards.length} tarjetas de japonés`;
+      resetSingleDeck();
+      setLanguage(language);
+      setView(view);
+    })
+    .catch(err => {
+      app.innerHTML = `<p class="empty-state">No se pudo cargar cards.json.<br>Sirve esta carpeta con un servidor local (por ejemplo: <code>python3 -m http.server</code>) y abre la app desde http://localhost.<br><br>Detalle: ${err.message}</p>`;
+    });
+</script>
+
+</body>
+</html>
