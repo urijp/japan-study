@@ -16,7 +16,10 @@
     --border: #e0ddd5;
   }
 
-  * { box-sizing: border-box; }
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
 
   body {
     margin: 0;
@@ -24,6 +27,17 @@
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
+  }
+
+  button:focus,
+  .card:focus,
+  .drag-wrapper:focus {
+    outline: none;
+  }
+
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 
   header {
