@@ -285,6 +285,24 @@
     background: #eeece5;
   }
 
+  .nav-btn.correct {
+    color: #16a34a;
+    border-color: #bfe6cc;
+  }
+
+  .nav-btn.correct:hover {
+    background: #eaf7ee;
+  }
+
+  .nav-btn.wrong {
+    color: #dc2626;
+    border-color: #f3c6c6;
+  }
+
+  .nav-btn.wrong:hover {
+    background: #fbebeb;
+  }
+
   .single-hint {
     text-align: center;
     color: var(--muted);
@@ -547,20 +565,22 @@
     const nav = document.createElement('div');
     nav.className = 'single-nav';
 
-    const prevBtn = document.createElement('button');
-    prevBtn.className = 'nav-btn';
-    prevBtn.textContent = '‹';
-    prevBtn.setAttribute('aria-label', 'Anterior');
-    prevBtn.addEventListener('click', swipe.triggerPrev);
+    const correctBtn = document.createElement('button');
+    correctBtn.className = 'nav-btn correct';
+    correctBtn.innerHTML = '<svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    correctBtn.setAttribute('aria-label', 'Lo sabía');
+    correctBtn.title = 'Lo sabía';
+    correctBtn.addEventListener('click', swipe.triggerCorrect);
 
-    const nextBtn = document.createElement('button');
-    nextBtn.className = 'nav-btn';
-    nextBtn.textContent = '›';
-    nextBtn.setAttribute('aria-label', 'Siguiente');
-    nextBtn.addEventListener('click', swipe.triggerNext);
+    const wrongBtn = document.createElement('button');
+    wrongBtn.className = 'nav-btn wrong';
+    wrongBtn.innerHTML = '<svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
+    wrongBtn.setAttribute('aria-label', 'No me acordé');
+    wrongBtn.title = 'No me acordé';
+    wrongBtn.addEventListener('click', swipe.triggerWrong);
 
-    nav.appendChild(prevBtn);
-    nav.appendChild(nextBtn);
+    nav.appendChild(correctBtn);
+    nav.appendChild(wrongBtn);
 
     app.appendChild(stage);
     app.appendChild(nav);
@@ -669,8 +689,8 @@
     stage.addEventListener('pointercancel', endDrag);
 
     return {
-      triggerNext: () => flyOut(-160, false),
-      triggerPrev: () => flyOut(160, false),
+      triggerCorrect: () => flyOut(-160, true),
+      triggerWrong: () => flyOut(160, true),
     };
   }
 
