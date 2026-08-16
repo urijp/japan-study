@@ -246,6 +246,15 @@
     transition: none;
   }
 
+  .swipe-tint {
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    pointer-events: none;
+    background: transparent;
+    z-index: 3;
+  }
+
   .single-stage .face .text {
     font-size: 1.4rem;
   }
@@ -326,6 +335,12 @@
 
 <script>
   const CARDS_URL = 'cards.json';
+  const WEIGHTS_KEY = 'japan-study-weights';
+  const MIN_WEIGHT = 0.2;
+  const MAX_WEIGHT = 3;
+  const CORRECT_FACTOR = 0.75;
+  const WRONG_FACTOR = 1.3;
+
   let cards = [];
   let language = 'spanish';
   let view = 'single';
@@ -334,6 +349,7 @@
   let history = [];
   let nextPeekIndex = 0;
   let prevPeekIndex = 0;
+  let weights = {};
 
   const app = document.getElementById('app');
   const pageTitle = document.getElementById('pageTitle');
@@ -354,8 +370,42 @@
     return lang === 'spanish' ? 'japanese' : 'spanish';
   }
 
+  function loadWeights() {
+    try {
+      const raw = localStorage.getItem(WEIGHTS_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function saveWeights() {
+    try {
+      localStorage.setItem(WEIGHTS_KEY, JSON.stringify(weights));
+    } catch (e) {
+      // ignore (private browsing / storage full)
+    }
+  }
+
+  function weightOf(card) {
+    return weights[card.id] || 1;
+  }
+
+  function recordAnswer(cardId, correct) {
+    const current = weights[cardId] || 1;
+    const factor = correct ? CORRECT_FACTOR : WRONG_FACTOR;
+    weights[cardId] = Math.min(MAX_WEIGHT, Math.max(MIN_WEIGHT, current * factor));
+    saveWeights();
+  }
+
   function randomIndex() {
-    return Math.floor(Math.random() * cards.length);
+    const total = cards.reduce((sum, c) => sum + weightOf(c), 0);
+    let r = Math.random() * total;
+    for (let i = 0; i < cards.length; i++) {
+      r -= weightOf(cards[i]);
+      if (r <= 0) return i;
+    }
+    return cards.length - 1;
   }
 
   function refreshPeeks() {
@@ -485,10 +535,14 @@
     dragWrapper.className = 'drag-wrapper';
     dragWrapper.appendChild(cardEl);
 
+    const tintEl = document.createElement('div');
+    tintEl.className = 'swipe-tint';
+    dragWrapper.appendChild(tintEl);
+
     stage.appendChild(behindEl);
     stage.appendChild(dragWrapper);
 
-    const swipe = setupSwipe(stage, dragWrapper, cardEl, behindEl);
+    const swipe = setupSwipe(stage, dragWrapper, cardEl, behindEl, tintEl);
 
     const nav = document.createElement('div');
     nav.className = 'single-nav';
@@ -512,7 +566,7 @@
     app.appendChild(nav);
   }
 
-  function setupSwipe(stage, wrapperEl, cardEl, behindEl) {
+  function setupSwipe(stage, wrapperEl, cardEl, behindEl, tintEl) {
     let startX = 0, startY = 0, dx = 0;
     let dragging = false;
     let moved = false;
@@ -520,10 +574,18 @@
     let behindIndex = nextPeekIndex;
     const DRAG_THRESHOLD = 6;
     const SWIPE_THRESHOLD = 70;
+    const TINT_MAX_ALPHA = 0.35;
 
     function opacityForDistance(distance) {
       const fadeDistance = stage.offsetWidth * 0.9;
       return Math.max(0, 1 - Math.abs(distance) / fadeDistance);
+    }
+
+    function tintForDistance(distance, maxAlpha) {
+      if (distance === 0) return 'transparent';
+      const range = stage.offsetWidth * 0.6;
+      const alpha = Math.min(maxAlpha, (Math.abs(distance) / range) * maxAlpha);
+      return distance < 0 ? `rgba(34,197,94,${alpha})` : `rgba(220,38,38,${alpha})`;
     }
 
     function updateBehind(distance) {
@@ -544,6 +606,7 @@
       startY = e.clientY;
       dx = 0;
       wrapperEl.classList.add('dragging');
+      tintEl.style.transition = 'none';
       behindEl.style.transition = 'none';
       stage.setPointerCapture(e.pointerId);
     });
@@ -556,18 +619,22 @@
       if (Math.abs(dx) > Math.abs(dy)) {
         wrapperEl.style.transform = `translateX(${dx}px) rotate(${dx / 20}deg)`;
         wrapperEl.style.opacity = opacityForDistance(dx);
+        tintEl.style.background = tintForDistance(dx, TINT_MAX_ALPHA);
         updateBehind(dx);
       }
     });
 
-    function flyOut(distance) {
+    function flyOut(distance, judge) {
       if (isSwiping || dragging) return;
       isSwiping = true;
-      const goingNext = distance <= 0; // negative -> next, positive -> previous
+      const goingNext = distance <= 0; // negative -> next/correct, positive -> previous/incorrect
+      if (judge) recordAnswer(cards[currentIndex].id, goingNext);
       wrapperEl.classList.remove('dragging');
       wrapperEl.style.transition = 'transform 0.25s ease, opacity 0.25s ease';
       wrapperEl.style.transform = `translateX(${distance > 0 ? '120%' : '-120%'}) rotate(${distance / 20}deg)`;
       wrapperEl.style.opacity = '0';
+      tintEl.style.transition = 'none';
+      tintEl.style.background = tintForDistance(distance, 0.5);
       behindEl.style.transition = 'top 0.3s ease, bottom 0.3s ease, left 0.3s ease, right 0.3s ease, opacity 0.3s ease';
       updateBehind(distance);
       setBehindProgress(behindEl, 1);
@@ -581,16 +648,19 @@
       behindEl.style.transition = 'top 0.3s ease, bottom 0.3s ease, left 0.3s ease, right 0.3s ease, opacity 0.3s ease';
 
       if (Math.abs(dx) > SWIPE_THRESHOLD) {
-        flyOut(dx);
+        flyOut(dx, true);
       } else if (moved) {
         wrapperEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
         wrapperEl.style.transform = '';
         wrapperEl.style.opacity = '1';
+        tintEl.style.transition = 'background 0.3s ease';
+        tintEl.style.background = 'transparent';
         updateBehind(0);
         setTimeout(() => { wrapperEl.style.transition = ''; }, 300);
       } else {
         flipped = !flipped;
         cardEl.classList.toggle('flipped', flipped);
+        tintEl.style.background = 'transparent';
         updateBehind(0);
       }
     }
@@ -599,8 +669,8 @@
     stage.addEventListener('pointercancel', endDrag);
 
     return {
-      triggerNext: () => flyOut(-160),
-      triggerPrev: () => flyOut(160),
+      triggerNext: () => flyOut(-160, false),
+      triggerPrev: () => flyOut(160, false),
     };
   }
 
@@ -647,6 +717,7 @@
     })
     .then(data => {
       cards = data;
+      weights = loadWeights();
       pageTitle.textContent = `${cards.length} tarjetas de japonés`;
       resetSingleDeck();
       setLanguage(language);
