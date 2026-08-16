@@ -353,7 +353,6 @@
 
 <script>
   const CARDS_URL = 'cards.json';
-  const WEIGHTS_KEY = 'japan-study-weights';
   const MIN_WEIGHT = 0.2;
   const MAX_WEIGHT = 3;
   const CORRECT_FACTOR = 0.75;
@@ -388,23 +387,6 @@
     return lang === 'spanish' ? 'japanese' : 'spanish';
   }
 
-  function loadWeights() {
-    try {
-      const raw = localStorage.getItem(WEIGHTS_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch (e) {
-      return {};
-    }
-  }
-
-  function saveWeights() {
-    try {
-      localStorage.setItem(WEIGHTS_KEY, JSON.stringify(weights));
-    } catch (e) {
-      // ignore (private browsing / storage full)
-    }
-  }
-
   function weightOf(card) {
     return weights[card.id] || 1;
   }
@@ -413,7 +395,6 @@
     const current = weights[cardId] || 1;
     const factor = correct ? CORRECT_FACTOR : WRONG_FACTOR;
     weights[cardId] = Math.min(MAX_WEIGHT, Math.max(MIN_WEIGHT, current * factor));
-    saveWeights();
   }
 
   function randomIndex() {
@@ -737,7 +718,8 @@
     })
     .then(data => {
       cards = data;
-      weights = loadWeights();
+      weights = {};
+      try { localStorage.removeItem('japan-study-weights'); } catch (e) { /* ignore */ }
       pageTitle.textContent = `${cards.length} tarjetas de japonés`;
       resetSingleDeck();
       setLanguage(language);
