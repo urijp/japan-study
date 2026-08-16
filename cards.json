@@ -1198,5 +1198,137 @@
     "spanish": "¿Puedo usar esto?",
     "japanese": "kore o tsukatte mo ii desu ka?",
     "image": "images/200.svg"
+  },
+  {
+    "id": 201,
+    "spanish": "Bolso",
+    "japanese": "kaban",
+    "image": "images/201.svg"
+  },
+  {
+    "id": 202,
+    "spanish": "Paraguas",
+    "japanese": "kasa",
+    "image": "images/202.svg"
+  },
+  {
+    "id": 203,
+    "spanish": "Aeropuerto",
+    "japanese": "kuukou",
+    "image": "images/203.svg"
+  },
+  {
+    "id": 204,
+    "spanish": "Esto",
+    "japanese": "kore",
+    "image": "images/204.svg"
+  },
+  {
+    "id": 205,
+    "spanish": "Eso",
+    "japanese": "sore",
+    "image": "images/205.svg"
+  },
+  {
+    "id": 206,
+    "spanish": "Metro",
+    "japanese": "chikatetsu",
+    "image": "images/206.svg"
+  },
+  {
+    "id": 207,
+    "spanish": "Zapatos",
+    "japanese": "kutsu",
+    "image": "images/207.svg"
+  },
+  {
+    "id": 208,
+    "spanish": "Gorro / sombrero",
+    "japanese": "boushi",
+    "image": "images/208.svg"
+  },
+  {
+    "id": 209,
+    "spanish": "Billete",
+    "japanese": "kippu",
+    "image": "images/209.svg"
+  },
+  {
+    "id": 210,
+    "spanish": "Universidad",
+    "japanese": "daigaku",
+    "image": "images/210.svg"
+  },
+  {
+    "id": 211,
+    "spanish": "Estudiante",
+    "japanese": "gakusei",
+    "image": "images/211.svg"
+  },
+  {
+    "id": 212,
+    "spanish": "Estados Unidos",
+    "japanese": "Amerika",
+    "image": "images/212.svg"
+  },
+  {
+    "id": 213,
+    "spanish": "Español / persona española",
+    "japanese": "Supeinjin",
+    "image": "images/213.svg"
+  },
+  {
+    "id": 214,
+    "spanish": "Abogado",
+    "japanese": "bengoshi",
+    "image": "images/214.svg"
+  },
+  {
+    "id": 215,
+    "spanish": "Médico",
+    "japanese": "isha",
+    "image": "images/215.svg"
+  },
+  {
+    "id": 216,
+    "spanish": "Guante",
+    "japanese": "tebukuro",
+    "image": "images/216.svg"
+  },
+  {
+    "id": 217,
+    "spanish": "Abrigo",
+    "japanese": "kooto",
+    "image": "images/217.svg"
+  },
+  {
+    "id": 218,
+    "spanish": "Blanco",
+    "japanese": "shiroi",
+    "image": "images/218.svg"
+  },
+  {
+    "id": 219,
+    "spanish": "Rojo",
+    "japanese": "akai",
+    "image": "images/219.svg"
+  },
+  {
+    "id": 220,
+    "spanish": "Negro",
+    "japanese": "kuroi",
+    "image": "images/220.svg"
+  },
+  {
+    "id": 221,
+    "spanish": "Pizza",
+    "japanese": "piza",
+    "image": "images/221.svg"
+  },
+  {
+    "id": 222,
+    "spanish": "Ensalada",
+    "japanese": "sarada",
+    "image": "images/222.svg"
   }
 ]
