@@ -1330,5 +1330,53 @@
     "spanish": "Ensalada",
     "japanese": "sarada",
     "image": "images/222.svg"
+  },
+  {
+    "id": 223,
+    "spanish": "Soy de Osaka",
+    "japanese": "Oosaka shusshin desu",
+    "image": "images/223.svg"
+  },
+  {
+    "id": 224,
+    "spanish": "Pueblo / localidad",
+    "japanese": "machi",
+    "image": "images/224.svg"
+  },
+  {
+    "id": 225,
+    "spanish": "Ciudad",
+    "japanese": "toshi",
+    "image": "images/225.svg"
+  },
+  {
+    "id": 226,
+    "spanish": "Animado / concurrido",
+    "japanese": "nigiyaka",
+    "image": "images/226.svg"
+  },
+  {
+    "id": 227,
+    "spanish": "¿Qué hora?",
+    "japanese": "nanji",
+    "image": "images/227.svg"
+  },
+  {
+    "id": 228,
+    "spanish": "Mapa",
+    "japanese": "chizu",
+    "image": "images/228.svg"
+  },
+  {
+    "id": 229,
+    "spanish": "¿Cómo te llamas?",
+    "japanese": "onamae wa? / onamae wa nan desu ka?",
+    "image": "images/229.svg"
+  },
+  {
+    "id": 230,
+    "spanish": "Vivo en un pueblo pequeño",
+    "japanese": "watashi wa chiisai machi ni sundeimasu",
+    "image": "images/230.svg"
   }
 ]
