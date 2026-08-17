@@ -356,16 +356,15 @@
   const MIN_WEIGHT = 0.2;
   const MAX_WEIGHT = 3;
   const CORRECT_FACTOR = 0.75;
-  const WRONG_FACTOR = 1.3;
+  const WRONG_FACTOR = 1.25;
 
   let cards = [];
   let language = 'spanish';
   let view = 'single';
   let currentIndex = 0;
   let flipped = false;
-  let history = [];
-  let nextPeekIndex = 0;
-  let prevPeekIndex = 0;
+  let correctPeekIndex = 0;
+  let wrongPeekIndex = 0;
   let weights = {};
 
   const app = document.getElementById('app');
@@ -408,27 +407,18 @@
   }
 
   function refreshPeeks() {
-    nextPeekIndex = randomIndex();
-    prevPeekIndex = history.length ? history[history.length - 1] : randomIndex();
+    correctPeekIndex = randomIndex();
+    wrongPeekIndex = randomIndex();
   }
 
   function resetSingleDeck() {
     currentIndex = randomIndex();
-    history = [];
     flipped = false;
     refreshPeeks();
   }
 
-  function goNext() {
-    history.push(currentIndex);
-    currentIndex = nextPeekIndex;
-    flipped = false;
-    refreshPeeks();
-    render();
-  }
-
-  function goPrev() {
-    currentIndex = history.length ? history.pop() : prevPeekIndex;
+  function advanceAfterJudgment(isCorrect) {
+    currentIndex = isCorrect ? correctPeekIndex : wrongPeekIndex;
     flipped = false;
     refreshPeeks();
     render();
@@ -522,7 +512,7 @@
 
     const behindEl = document.createElement('div');
     behindEl.className = 'card behind';
-    behindEl.appendChild(buildFace('front', language, cards[nextPeekIndex]));
+    behindEl.appendChild(buildFace('front', language, cards[correctPeekIndex]));
     setBehindProgress(behindEl, 0);
 
     const card = cards[currentIndex];
@@ -572,7 +562,7 @@
     let dragging = false;
     let moved = false;
     let isSwiping = false;
-    let behindIndex = nextPeekIndex;
+    let behindIndex = correctPeekIndex;
     const DRAG_THRESHOLD = 6;
     const SWIPE_THRESHOLD = 70;
     const TINT_MAX_ALPHA = 0.35;
@@ -590,7 +580,7 @@
     }
 
     function updateBehind(distance) {
-      const desiredIndex = distance <= 0 ? nextPeekIndex : prevPeekIndex;
+      const desiredIndex = distance <= 0 ? correctPeekIndex : wrongPeekIndex;
       if (desiredIndex !== behindIndex) {
         behindIndex = desiredIndex;
         behindEl.innerHTML = '';
@@ -625,11 +615,11 @@
       }
     });
 
-    function flyOut(distance, judge) {
+    function flyOut(distance) {
       if (isSwiping || dragging) return;
       isSwiping = true;
-      const goingNext = distance <= 0; // negative -> next/correct, positive -> previous/incorrect
-      if (judge) recordAnswer(cards[currentIndex].id, goingNext);
+      const isCorrect = distance <= 0; // negative -> swipe left = correct, positive -> swipe right = wrong
+      recordAnswer(cards[currentIndex].id, isCorrect);
       wrapperEl.classList.remove('dragging');
       wrapperEl.style.transition = 'transform 0.25s ease, opacity 0.25s ease';
       wrapperEl.style.transform = `translateX(${distance > 0 ? '120%' : '-120%'}) rotate(${distance / 20}deg)`;
@@ -639,7 +629,7 @@
       behindEl.style.transition = 'top 0.3s ease, bottom 0.3s ease, left 0.3s ease, right 0.3s ease, opacity 0.3s ease';
       updateBehind(distance);
       setBehindProgress(behindEl, 1);
-      setTimeout(() => (goingNext ? goNext() : goPrev()), 200);
+      setTimeout(() => advanceAfterJudgment(isCorrect), 200);
     }
 
     function endDrag(e) {
@@ -649,7 +639,7 @@
       behindEl.style.transition = 'top 0.3s ease, bottom 0.3s ease, left 0.3s ease, right 0.3s ease, opacity 0.3s ease';
 
       if (Math.abs(dx) > SWIPE_THRESHOLD) {
-        flyOut(dx, true);
+        flyOut(dx);
       } else if (moved) {
         wrapperEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
         wrapperEl.style.transform = '';
@@ -670,8 +660,8 @@
     stage.addEventListener('pointercancel', endDrag);
 
     return {
-      triggerCorrect: () => flyOut(-160, true),
-      triggerWrong: () => flyOut(160, true),
+      triggerCorrect: () => flyOut(-160),
+      triggerWrong: () => flyOut(160),
     };
   }
 
