@@ -1378,5 +1378,77 @@
     "spanish": "Vivo en un pueblo pequeño",
     "japanese": "watashi wa chiisai machi ni sundeimasu",
     "image": "images/230.svg"
+  },
+  {
+    "id": 231,
+    "spanish": "Televisión",
+    "japanese": "terebi",
+    "image": "images/231.svg"
+  },
+  {
+    "id": 232,
+    "spanish": "A menudo",
+    "japanese": "yoku",
+    "image": "images/232.svg"
+  },
+  {
+    "id": 233,
+    "spanish": "Libro",
+    "japanese": "hon",
+    "image": "images/233.svg"
+  },
+  {
+    "id": 234,
+    "spanish": "Leo un libro",
+    "japanese": "hon o yomimasu",
+    "image": "images/234.svg"
+  },
+  {
+    "id": 235,
+    "spanish": "Revista",
+    "japanese": "zasshi",
+    "image": "images/235.svg"
+  },
+  {
+    "id": 236,
+    "spanish": "Noticias",
+    "japanese": "nyuusu",
+    "image": "images/236.svg"
+  },
+  {
+    "id": 237,
+    "spanish": "A menudo escucho música",
+    "japanese": "yoku ongaku o kikimasu",
+    "image": "images/237.svg"
+  },
+  {
+    "id": 238,
+    "spanish": "A veces",
+    "japanese": "tokidoki",
+    "image": "images/238.svg"
+  },
+  {
+    "id": 239,
+    "spanish": "Béisbol",
+    "japanese": "yakyuu",
+    "image": "images/239.svg"
+  },
+  {
+    "id": 240,
+    "spanish": "¿Juegas al fútbol?",
+    "japanese": "sakkaa o shimasu ka?",
+    "image": "images/240.svg"
+  },
+  {
+    "id": 241,
+    "spanish": "Película",
+    "japanese": "eiga",
+    "image": "images/241.svg"
+  },
+  {
+    "id": 242,
+    "spanish": "Rock",
+    "japanese": "rokku",
+    "image": "images/242.svg"
   }
 ]
