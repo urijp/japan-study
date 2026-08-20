@@ -1450,5 +1450,71 @@
     "spanish": "Rock",
     "japanese": "rokku",
     "image": "images/242.svg"
+  },
+  {
+    "id": 243,
+    "spanish": "Buen trabajo / gracias por el esfuerzo",
+    "japanese": "otsukaresama deshita",
+    "image": "images/243.svg"
+  },
+  {
+    "id": 244,
+    "spanish": "Gracias por la comida (después de comer)",
+    "japanese": "gochisousama deshita",
+    "image": "images/244.svg"
+  },
+  {
+    "id": 245,
+    "spanish": "Antes de comer",
+    "japanese": "itadakimasu",
+    "image": "images/245.svg"
+  },
+  {
+    "id": 246,
+    "spanish": "Cuídate / ten cuidado",
+    "japanese": "ki o tsukete",
+    "image": "images/246.svg"
+  },
+  {
+    "id": 247,
+    "spanish": "Con permiso / disculpe (antes de entrar o interrumpir)",
+    "japanese": "shitsurei shimasu",
+    "image": "images/247.svg"
+  },
+  {
+    "id": 248,
+    "spanish": "Disculpe la molestia / con permiso (al terminar o marcharse)",
+    "japanese": "shitsurei shimashita",
+    "image": "images/248.svg"
+  },
+  {
+    "id": 249,
+    "spanish": "Bienvenido a casa",
+    "japanese": "okaerinasai",
+    "image": "images/249.svg"
+  },
+  {
+    "id": 250,
+    "spanish": "Ya he vuelto / estoy en casa",
+    "japanese": "tadaima",
+    "image": "images/250.svg"
+  },
+  {
+    "id": 251,
+    "spanish": "Me voy / hasta luego (al salir de casa)",
+    "japanese": "ittekimasu",
+    "image": "images/251.svg"
+  },
+  {
+    "id": 252,
+    "spanish": "Que te vaya bien (a quien sale)",
+    "japanese": "itterasshai",
+    "image": "images/252.svg"
+  },
+  {
+    "id": 253,
+    "spanish": "Hasta luego / nos vemos",
+    "japanese": "mata ne",
+    "image": "images/253.svg"
   }
 ]
