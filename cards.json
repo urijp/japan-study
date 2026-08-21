@@ -1516,5 +1516,65 @@
     "spanish": "Hasta luego / nos vemos",
     "japanese": "mata ne",
     "image": "images/253.svg"
+  },
+  {
+    "id": 254,
+    "spanish": "Todos los días",
+    "japanese": "mainichi",
+    "image": "images/254.svg"
+  },
+  {
+    "id": 255,
+    "spanish": "Cada mañana",
+    "japanese": "maiasa",
+    "image": "images/255.svg"
+  },
+  {
+    "id": 256,
+    "spanish": "Cada tarde",
+    "japanese": "maihiru",
+    "image": "images/256.svg"
+  },
+  {
+    "id": 257,
+    "spanish": "Cada noche",
+    "japanese": "maiban",
+    "image": "images/257.svg"
+  },
+  {
+    "id": 258,
+    "spanish": "Curry",
+    "japanese": "karee",
+    "image": "images/258.svg"
+  },
+  {
+    "id": 259,
+    "spanish": "Desayunar",
+    "japanese": "asagohan o tabemasu",
+    "image": "images/259.svg"
+  },
+  {
+    "id": 260,
+    "spanish": "Almorzar",
+    "japanese": "hirugohan o tabemasu",
+    "image": "images/260.svg"
+  },
+  {
+    "id": 261,
+    "spanish": "Cenar",
+    "japanese": "bangohan o tabemasu",
+    "image": "images/261.svg"
+  },
+  {
+    "id": 262,
+    "spanish": "Importante",
+    "japanese": "daiji",
+    "image": "images/262.svg"
+  },
+  {
+    "id": 263,
+    "spanish": "Zumo",
+    "japanese": "juusu",
+    "image": "images/263.svg"
   }
 ]
