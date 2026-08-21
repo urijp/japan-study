@@ -1576,5 +1576,59 @@
     "spanish": "Zumo",
     "japanese": "juusu",
     "image": "images/263.svg"
+  },
+  {
+    "id": 264,
+    "spanish": "Anteayer",
+    "japanese": "ototoi",
+    "image": "images/264.svg"
+  },
+  {
+    "id": 265,
+    "spanish": "Pasado mañana",
+    "japanese": "asatte",
+    "image": "images/265.svg"
+  },
+  {
+    "id": 266,
+    "spanish": "Mañana jugaré a tenis",
+    "japanese": "ashita tenisu o shimasu",
+    "image": "images/266.svg"
+  },
+  {
+    "id": 267,
+    "spanish": "Pasado mañana tendré una reunión",
+    "japanese": "asatte kaigi o shimasu",
+    "image": "images/267.svg"
+  },
+  {
+    "id": 268,
+    "spanish": "Ayer fui de fiesta",
+    "japanese": "kinou paatii o shimashita",
+    "image": "images/268.svg"
+  },
+  {
+    "id": 269,
+    "spanish": "Anteayer no hice jogging",
+    "japanese": "ototoi jogingu o shimasen deshita",
+    "image": "images/269.svg"
+  },
+  {
+    "id": 270,
+    "spanish": "Hacer compras",
+    "japanese": "kaimono o shimasu",
+    "image": "images/270.svg"
+  },
+  {
+    "id": 271,
+    "spanish": "Ayer vi una película con amigos en Times Square",
+    "japanese": "kinou Times Square de tomodachi to eiga o mimashita",
+    "image": "images/271.svg"
+  },
+  {
+    "id": 272,
+    "spanish": "Hoy voy a entrenar en el dojo con Júlia",
+    "japanese": "kyou doujou de Juria to renshuu o shimasu",
+    "image": "images/272.svg"
   }
 ]
