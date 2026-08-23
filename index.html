@@ -378,6 +378,22 @@
     gap: 12px;
   }
 
+  .sentence-answer {
+    display: none;
+    text-align: center;
+    color: var(--text);
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 10px 16px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .sentence-answer.visible {
+    display: block;
+  }
+
   @media (max-width: 420px) {
     main.sentence-view .card-slot { flex-basis: calc(50% - 6px); }
   }
@@ -798,6 +814,23 @@
 
         const cardsOut = sequence.filter(s => s.kind === 'card').map(s => ({ es: s.es, jp: s.jp }));
 
+        // Reveal-only sentence text: each card's jp plus its (hidden-until-now) particle,
+        // interleaved with the same glue the player sees, in display order. Built here so
+        // the particle-precedence logic (item > slot > verbArg > subjectParticle) has a
+        // single source of truth instead of being re-derived in the UI.
+        const sentenceTokens = [];
+        let pieceCursor = 0;
+        sequence.forEach(item => {
+          if (item.kind === 'card') {
+            const piece = pieces[pieceCursor++];
+            sentenceTokens.push(piece.jp);
+            if (piece.particle) sentenceTokens.push(piece.particle);
+          } else {
+            sentenceTokens.push(item.text);
+          }
+        });
+        const sentenceText = sentenceTokens.join(' ');
+
         return {
           templateName: tpl.name,
           sequence,
@@ -815,6 +848,7 @@
             subjectParticle: tpl.raw.subjectParticle || null,
             adjectiveRule: tpl.raw.adjectiveRule || null,
             displayOrder: tpl.displayOrder,
+            sentenceText,
             pieces
           }
         };
@@ -824,6 +858,7 @@
         const m = round.meta, pieces = m.pieces, cardsOut = round.cards;
         if (cardsOut.length !== pieces.length) return false;
         if (cardsOut.length < tpl.minCards || cardsOut.length > tpl.maxCards) return false;
+        if (typeof m.sentenceText !== 'string' || !m.sentenceText) return false;
         for (let i = 0; i < pieces.length; i++) {
           const p = pieces[i];
           if (typeof p.es !== 'string' || !p.es || typeof p.jp !== 'string' || !p.jp) return false;
@@ -1218,7 +1253,12 @@
     });
     actions.appendChild(newBtn);
 
+    let answerEl = null;
     if (hasRound) {
+      answerEl = document.createElement('p');
+      answerEl.className = 'sentence-answer';
+      answerEl.textContent = sentenceRound.meta.sentenceText;
+
       const revealBtn = document.createElement('button');
       revealBtn.className = 'icon-btn';
       revealBtn.textContent = 'Mostrar todo';
@@ -1226,12 +1266,14 @@
         const cardEls = [...app.querySelectorAll('.card')];
         const anyHidden = cardEls.some(el => !el.classList.contains('flipped'));
         cardEls.forEach(el => el.classList.toggle('flipped', anyHidden));
+        answerEl.classList.toggle('visible', anyHidden);
         revealBtn.textContent = anyHidden ? 'Ocultar todo' : 'Mostrar todo';
       });
       actions.appendChild(revealBtn);
     }
 
     app.appendChild(actions);
+    if (answerEl) app.appendChild(answerEl);
   }
 
   function setupSwipe(stage, wrapperEl, cardEl, behindEl, tintEl) {
