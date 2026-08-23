@@ -1183,9 +1183,11 @@
     location: 'dónde', place: 'lugar', destination: 'a dónde',
     companion: 'con quién', possessor: 'de quién', thing: 'cosa',
     noun: 'cosa', adjective: 'cómo', adverb: 'adverbio', state: 'estado',
-    question: 'pregunta', demonstrative: 'este/esto', activity: 'actividad',
+    question: 'pregunta', activity: 'actividad', pronoun: 'sujeto',
     sport: 'deporte', frequency: 'con qué frecuencia', connector: 'conector',
-    predicate: 'predicado', questionMarker: 'tipo de frase', copula: 'ser',
+    predicate: 'predicado', copula: 'verbo',
+    // demonstrative and questionMarker are always the exact same fixed word with no pool
+    // variety, so a caption could only repeat or mislabel it — omitted on purpose.
   };
 
   function toFlashcard(piece) {

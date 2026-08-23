@@ -2721,7 +2721,7 @@
       "name": "what-is-this",
       "slots": [
         {
-          "role": "demonstrative",
+          "role": "pronoun",
           "fixed": "kore"
         },
         {
@@ -2741,7 +2741,7 @@
         "topic": "wa"
       },
       "order": [
-        "demonstrative",
+        "pronoun",
         "topic",
         "question",
         "copula",
