@@ -410,12 +410,7 @@
     grid-column: 1 / -1;
   }
 
-  footer {
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.75rem;
-    padding: 0 20px 30px;
-  }
+
 </style>
 </head>
 <body>
@@ -446,8 +441,6 @@
   <p class="empty-state">Cargando tarjetas…</p>
 </main>
 
-<footer id="footerHint">Haz clic en una tarjeta para ver la otra cara.</footer>
-
 <script>
   const CARDS_URL = 'cards.json';
   const SENTENCE_URL = 'sentence-game.pretty.v4.json';
@@ -477,7 +470,6 @@
   const langGroup = document.getElementById('langGroup');
   const viewGroup = document.getElementById('viewGroup');
   const shuffleBtn = document.getElementById('shuffleBtn');
-  const footerHint = document.getElementById('footerHint');
 
   function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -1098,10 +1090,8 @@
 
   function renderGrid() {
     app.className = 'grid-view';
-    footerHint.style.display = '';
     shuffleBtn.style.display = '';
     langGroup.style.display = '';
-    footerHint.textContent = 'Haz clic en una tarjeta para ver la otra cara.';
 
     cards.forEach(card => {
       const slot = document.createElement('div');
@@ -1119,7 +1109,6 @@
 
   function renderSingle() {
     app.className = 'single-view';
-    footerHint.style.display = 'none';
     shuffleBtn.style.display = 'none';
     langGroup.style.display = '';
 
@@ -1190,8 +1179,6 @@
     app.className = 'sentence-view';
     langGroup.style.display = 'none';
     shuffleBtn.style.display = 'none';
-    footerHint.style.display = '';
-    footerHint.textContent = 'Di la frase en voz alta, luego toca cada tarjeta para comprobarla.';
 
     if (sentenceError) {
       app.innerHTML = `<p class="empty-state">No se pudo cargar ${SENTENCE_URL}.<br>Detalle: ${sentenceError}</p>`;
