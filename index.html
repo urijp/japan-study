@@ -309,6 +309,84 @@
     font-size: 0.8rem;
   }
 
+  /* Sentence game view */
+
+  main.sentence-view {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 10px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .sentence-row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  main.sentence-view .card-slot {
+    aspect-ratio: auto;
+    height: 96px;
+    perspective: 700px;
+    flex: 0 1 calc(33.333% - 8px);
+    min-width: 104px;
+    max-width: 190px;
+  }
+
+  .sentence-role {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    min-height: 1em;
+    margin-bottom: 4px;
+  }
+
+  main.sentence-view .face {
+    padding: 10px 8px;
+    border-radius: 12px;
+  }
+
+  main.sentence-view .face .text {
+    font-size: 1rem;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .sentence-glue {
+    align-self: center;
+    margin-top: 21px;
+    padding: 6px 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .sentence-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  @media (max-width: 420px) {
+    main.sentence-view .card-slot { flex-basis: calc(50% - 6px); }
+  }
+
+  @media (max-width: 360px) {
+    main.sentence-view .card-slot { height: 84px; }
+    main.sentence-view .face .text { font-size: 0.95rem; }
+  }
+
   .empty-state {
     text-align: center;
     color: var(--muted);
@@ -340,6 +418,9 @@
       <button data-view="grid" aria-label="Cuadrícula" title="Cuadrícula">
         <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="currentColor"/></svg>
       </button>
+      <button data-view="sentence" aria-label="Frases" title="Juego de frases">
+        <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M3 3.5h14a1 1 0 011 1v8a1 1 0 01-1 1H8.5L4.5 17.5V13.5H3a1 1 0 01-1-1v-8a1 1 0 011-1z" fill="currentColor"/></svg>
+      </button>
     </div>
     <button class="icon-btn" id="shuffleBtn">Barajar</button>
   </div>
@@ -353,10 +434,12 @@
 
 <script>
   const CARDS_URL = 'cards.json';
+  const SENTENCE_URL = 'sentence-game.pretty.v4.json';
   const MIN_WEIGHT = 0.2;
   const MAX_WEIGHT = 3;
   const CORRECT_FACTOR = 0.75;
   const WRONG_FACTOR = 1.25;
+  const VIEWS = ['single', 'grid', 'sentence'];
 
   let cards = [];
   let language = 'spanish';
@@ -366,6 +449,12 @@
   let correctPeekIndex = 0;
   let wrongPeekIndex = 0;
   let weights = {};
+
+  let sentenceData = null;
+  let sentenceEngine = null;
+  let sentenceRound = null;
+  let sentenceError = '';
+  let sentenceLoad = null;
 
   const app = document.getElementById('app');
   const pageTitle = document.getElementById('pageTitle');
@@ -385,6 +474,450 @@
   function otherLang(lang) {
     return lang === 'spanish' ? 'japanese' : 'spanish';
   }
+
+  // --- SENTENCE ENGINE START (pure; no DOM, no globals; reads only its `raw` argument) ---
+  const SentenceEngine = (function () {
+    const FORM_KEYS = ['nonpastAffirmative', 'pastAffirmative', 'nonpastNegative', 'pastNegative'];
+    const TARGET_DIST = [[1, 0.08], [2, 0.17], [3, 0.30], [4, 0.28], [5, 0.17]];
+    const SOFT_PREF_P = 0.7;
+    const MAX_ATTEMPTS = 25;
+    const ROLE_TO_ARG = { activity: 'object', sport: 'object', thing: 'object' };
+
+    function build(raw, opts) {
+      opts = opts || {};
+      const rng = opts.rng || Math.random;
+      const warnings = [];
+
+      // jp -> { item, category }
+      const byJp = {};
+      Object.keys(raw.vocab).forEach(cat => {
+        raw.vocab[cat].forEach(item => {
+          if (byJp[item.jp]) warnings.push(`dup jp "${item.jp}" in ${cat} and ${byJp[item.jp].category}`);
+          byJp[item.jp] = { item, category: cat };
+        });
+      });
+
+      const selectorCache = {};
+      function resolveSelector(sel) {
+        if (selectorCache[sel]) return selectorCache[sel];
+        const sep = sel.indexOf(':');
+        const cat = sep < 0 ? sel : sel.slice(0, sep);
+        const tag = sep < 0 ? null : sel.slice(sep + 1);
+        const src = raw.vocab[cat] || [];
+        const out = src
+          .filter(i => !tag || (i.tags || []).indexOf(tag) !== -1)
+          .map(i => ({ item: i, category: cat, selector: sel }));
+        if (!out.length) warnings.push(`selector "${sel}" resolves to 0 items`);
+        selectorCache[sel] = out;
+        return out;
+      }
+
+      const verbs = raw.verbs.map(v => ({
+        raw: v,
+        id: v.es,
+        argByRole: (v.args || []).reduce((m, a) => { m[a.role] = a; return m; }, {}),
+        forms: v.forms
+      }));
+
+      function argForSlotRole(verb, role) {
+        return verb.argByRole[role] || verb.argByRole[ROLE_TO_ARG[role]] || null;
+      }
+
+      function compileTemplate(t) {
+        const slotByRole = {};
+        t.slots.forEach(s => { slotByRole[s.role] = s; });
+
+        const verbSlot = t.slots.find(s => Array.isArray(s.from) && s.from[0] === 'verbs') || null;
+
+        const requiredArgs = verbSlot
+          ? [].concat(verbSlot.requiresArg || [], verbSlot.requiresArgs || [])
+          : [];
+
+        const verbDrivenSlots = t.slots
+          .filter(s => typeof s.from === 'string' && s.from.indexOf('verb.args.') === 0)
+          .map(s => ({ role: s.role, argRole: s.from.slice('verb.args.'.length) }));
+
+        let verbCandidates = [];
+        if (verbSlot) {
+          verbCandidates = verbs.filter(v => {
+            if (t.verbFilter && t.verbFilter.indexOf(v.id) === -1) return false;
+            if (t.verbFilterHas && !(t.verbFilterHas in v.raw)) return false;
+            if (!t.verbFilterArgsOptional) {
+              for (const r of requiredArgs) if (!v.argByRole[r]) return false;
+            }
+            for (const vd of verbDrivenSlots) {
+              const arg = v.argByRole[vd.argRole];
+              if (!arg) return false;
+              if (!arg.accepts.some(sel => resolveSelector(sel).length)) return false;
+            }
+            if (t.useForm && !(t.useForm in v.raw)) return false;
+            for (const k of FORM_KEYS) if (!v.forms[k]) return false;
+            return true;
+          });
+        }
+
+        const staticPools = {};
+        t.slots.forEach(s => {
+          if (s.fixed != null || typeof s.from === 'string' || s === verbSlot) return;
+          let pool = [];
+          s.from.forEach(sel => { pool = pool.concat(resolveSelector(sel)); });
+          if (s.allowed) {
+            const before = pool.length;
+            pool = pool.filter(c => s.allowed.indexOf(c.item.jp) !== -1);
+            if (!pool.length) warnings.push(`${t.name}.${s.role}: allowed[] matches nothing (was ${before})`);
+          }
+          staticPools[s.role] = pool;
+        });
+
+        const fixedCandidates = {};
+        t.slots.forEach(s => {
+          if (s.fixed == null) return;
+          const hit = byJp[s.fixed];
+          if (!hit) warnings.push(`${t.name}.${s.role}: fixed "${s.fixed}" not found in vocab`);
+          fixedCandidates[s.role] = hit
+            ? { item: hit.item, category: hit.category, selector: 'fixed' }
+            : { item: { es: s.fixed, jp: s.fixed }, category: null, selector: 'fixed' };
+        });
+
+        // `order` mixes slot-role tokens (-> cards) and literal-key tokens (-> visible glue).
+        const orderTokens = (t.order && t.order.length) ? t.order.slice() : t.slots.map(s => s.role);
+        const slotOrder = orderTokens.filter(tok => slotByRole[tok]);
+        if (slotOrder.length !== t.slots.length) {
+          warnings.push(`${t.name}: order/slots mismatch; falling back to declared slot order`);
+        }
+        const displayOrder = orderTokens.slice();
+        const resolutionSlotOrder = (slotOrder.length === t.slots.length) ? slotOrder : t.slots.map(s => s.role);
+
+        // Resolution order (NOT display order): verb first, then fixed/static, then verb-driven,
+        // then last any slot whose pool items carry `accepts` (adjective-shaped dependencies).
+        function tierOf(role) {
+          const s = slotByRole[role];
+          if (s === verbSlot) return 0;
+          if (s.fixed != null) return 1;
+          if (typeof s.from === 'string') return 2;
+          const pool = staticPools[role] || [];
+          return pool.some(c => Array.isArray(c.item.accepts)) ? 3 : 1;
+        }
+        const resolutionOrder = resolutionSlotOrder.slice().sort((a, b) => {
+          const diff = tierOf(a) - tierOf(b);
+          return diff !== 0 ? diff : resolutionSlotOrder.indexOf(a) - resolutionSlotOrder.indexOf(b);
+        });
+
+        const requiredRoles = t.slots.filter(s => !s.optional).map(s => s.role);
+        const optionalRoles = t.slots.filter(s => s.optional).map(s => s.role);
+
+        const disabled =
+          (!!verbSlot && !verbCandidates.length) ||
+          t.slots.some(s => s.fixed == null && s !== verbSlot && typeof s.from !== 'string' && !(staticPools[s.role] || []).length);
+        if (disabled) warnings.push(`${t.name}: DISABLED (unsatisfiable required slot)`);
+
+        return {
+          raw: t, name: t.name, slotByRole, verbSlot, verbCandidates, staticPools, fixedCandidates,
+          displayOrder, resolutionOrder, requiredRoles, optionalRoles,
+          minCards: requiredRoles.length, maxCards: t.slots.length, disabled
+        };
+      }
+
+      const templates = raw.templates.map(compileTemplate);
+      const disabledTemplates = templates.filter(t => t.disabled).map(t => t.name);
+
+      function headPieceFor(tpl, slot, resolved) {
+        const pool = tpl.staticPools[slot.role] || [];
+        const union = {};
+        pool.forEach(c => (c.item.accepts || []).forEach(a => { union[a] = true; }));
+        if (!Object.keys(union).length) return null;
+        const ord = tpl.displayOrder.filter(tok => tpl.slotByRole[tok]);
+        const at = ord.indexOf(slot.role);
+        for (const dir of [-1, 1]) {
+          for (let i = at + dir; i >= 0 && i < ord.length; i += dir) {
+            const p = resolved[ord[i]];
+            if (p && p.category && union[p.category]) return p;
+          }
+        }
+        return null;
+      }
+
+      function pickOne(pool) {
+        return pool.length ? pool[Math.floor(rng() * pool.length)] : null;
+      }
+
+      function selectCompatibleItem(tpl, slot, verb, resolved, usedJp) {
+        let pool;
+        if (slot.fixed != null) return tpl.fixedCandidates[slot.role];
+        if (typeof slot.from === 'string') {
+          const argRole = slot.from.slice('verb.args.'.length);
+          const arg = verb && verb.argByRole[argRole];
+          if (!arg) return null;
+          pool = [];
+          arg.accepts.forEach(sel => { pool = pool.concat(resolveSelector(sel)); });
+        } else {
+          pool = tpl.staticPools[slot.role] || [];
+        }
+
+        const head = headPieceFor(tpl, slot, resolved);
+        if (head) {
+          const filtered = pool.filter(c => !Array.isArray(c.item.accepts) || c.item.accepts.indexOf(head.category) !== -1);
+          if (filtered.length) pool = filtered;
+          else if (!slot.optional) return null;
+        }
+
+        const uniq = pool.filter(c => !usedJp[c.item.jp]);
+        if (uniq.length) pool = uniq;
+
+        if (rng() < SOFT_PREF_P) {
+          let preferred = pool;
+          if (slot.recommended) preferred = preferred.filter(c => slot.recommended.indexOf(c.item.jp) !== -1);
+          if (slot.recommendedTags) preferred = preferred.filter(c => (c.item.tags || []).some(g => slot.recommendedTags.indexOf(g) !== -1));
+          if (preferred.length) pool = preferred;
+        }
+
+        return pickOne(pool);
+      }
+
+      function makePiece(tpl, slot, cand, verb) {
+        let particle = null, particleSource = null;
+        if (cand.item.particle) { particle = cand.item.particle; particleSource = 'item'; }
+        else if (slot.particle) { particle = slot.particle; particleSource = 'slot'; }
+        else {
+          const arg = verb && argForSlotRole(verb, slot.role);
+          if (arg) { particle = arg.particle; particleSource = 'verbArg'; }
+          else if (tpl.raw.subjectParticle && slot.role === 'subject') { particle = tpl.raw.subjectParticle; particleSource = 'template'; }
+        }
+        return {
+          role: slot.role, es: cand.item.es, jp: cand.item.jp, category: cand.category,
+          particle, particleSource, isVerb: false, item: cand.item
+        };
+      }
+
+      function resolveVerbForm(tpl, verb, resolved) {
+        if (tpl.raw.useForm) {
+          const jp = verb.raw[tpl.raw.useForm];
+          return jp ? { formKey: tpl.raw.useForm, jp, tense: null, polarity: null } : null;
+        }
+        let refs = null;
+        const declared = tpl.raw.tenseFrom && resolved[tpl.raw.tenseFrom];
+        if (declared && Array.isArray(declared.item.timeRef)) refs = declared.item.timeRef.slice();
+        Object.keys(resolved).forEach(r => {
+          const tr = resolved[r].item && resolved[r].item.timeRef;
+          if (!Array.isArray(tr)) return;
+          refs = refs ? refs.filter(x => tr.indexOf(x) !== -1) : tr.slice();
+        });
+        if (!refs || !refs.length) refs = ['nonpast']; // rules.tense: default to nonpast
+        const tense = refs[Math.floor(rng() * refs.length)];
+        const polarity = 'affirmative'; // no template declares a polarity axis in current data
+        const formKey = tense + (polarity === 'affirmative' ? 'Affirmative' : 'Negative');
+        return verb.forms[formKey] ? { formKey, jp: verb.forms[formKey], tense, polarity } : null;
+      }
+
+      function fingerprint(tplName, pieces) {
+        return tplName + '|' + pieces.map(p => p.jp).join('|');
+      }
+
+      function sampleTarget() {
+        let r = rng();
+        for (const pair of TARGET_DIST) {
+          r -= pair[1];
+          if (r <= 0) return pair[0];
+        }
+        return 3;
+      }
+
+      function chooseSlotSet(tpl, target) {
+        const set = new Set(tpl.requiredRoles);
+        const want = Math.max(0, Math.min(target - tpl.minCards, tpl.optionalRoles.length));
+        const opts = tpl.optionalRoles.slice();
+        for (let i = opts.length - 1; i > 0; i--) {
+          const j = Math.floor(rng() * (i + 1));
+          const tmp = opts[i]; opts[i] = opts[j]; opts[j] = tmp;
+        }
+        opts.slice(0, want).forEach(r => set.add(r));
+        return set;
+      }
+
+      function selectTemplate(target, bannedName) {
+        let pool = templates.filter(t => !t.disabled && t.minCards <= target && target <= t.maxCards && t.name !== bannedName);
+        if (!pool.length) pool = templates.filter(t => !t.disabled && t.name !== bannedName);
+        if (!pool.length) pool = templates.filter(t => !t.disabled);
+        return pool.length ? pool[Math.floor(rng() * pool.length)] : null;
+      }
+
+      function resolveTemplate(tpl, target) {
+        const chosenRoles = chooseSlotSet(tpl, target);
+        const resolved = {};
+        const usedJp = {};
+        let verb = null, form = null;
+
+        for (const role of tpl.resolutionOrder) {
+          if (!chosenRoles.has(role)) continue;
+          const slot = tpl.slotByRole[role];
+
+          if (slot === tpl.verbSlot) {
+            verb = pickOne(tpl.verbCandidates);
+            if (!verb) return null;
+            continue;
+          }
+
+          const cand = selectCompatibleItem(tpl, slot, verb, resolved, usedJp);
+          if (!cand) {
+            if (slot.optional) continue;
+            return null;
+          }
+          resolved[role] = makePiece(tpl, slot, cand, verb);
+          usedJp[cand.item.jp] = true;
+        }
+
+        if (verb) {
+          form = resolveVerbForm(tpl, verb, resolved);
+          if (!form || !form.jp) return null;
+          resolved[tpl.verbSlot.role] = {
+            role: tpl.verbSlot.role, es: verb.raw.es, jp: form.jp, category: null,
+            particle: null, particleSource: null, isVerb: true, item: verb.raw
+          };
+        }
+
+        // Walk `order`: a slot-role token becomes a card, a literal-key token becomes visible glue.
+        const sequence = [];
+        const pieces = [];
+        tpl.displayOrder.forEach(tok => {
+          if (resolved[tok]) {
+            sequence.push({ kind: 'card', es: resolved[tok].es, jp: resolved[tok].jp });
+            pieces.push(resolved[tok]);
+          } else if (tpl.raw.literals && tok in tpl.raw.literals) {
+            sequence.push({ kind: 'glue', text: tpl.raw.literals[tok] });
+          }
+        });
+
+        // Derived glue: a na-adjective needs a visible "na" before the noun it modifies.
+        if (tpl.name === 'adjective-before-noun') {
+          const adjPiece = resolved.adjective;
+          if (adjPiece && adjPiece.item && adjPiece.item.adjClass === 'na') {
+            const idx = sequence.findIndex(s => s.kind === 'card' && s.jp === adjPiece.jp);
+            if (idx !== -1) sequence.splice(idx + 1, 0, { kind: 'glue', text: 'na' });
+          }
+        }
+
+        const cardsOut = sequence.filter(s => s.kind === 'card').map(s => ({ es: s.es, jp: s.jp }));
+
+        return {
+          templateName: tpl.name,
+          sequence,
+          cards: cardsOut,
+          meta: {
+            fingerprint: fingerprint(tpl.name, pieces),
+            cardCount: cardsOut.length,
+            targetCards: target,
+            tense: form ? form.tense : null,
+            polarity: form ? form.polarity : null,
+            formKey: form ? form.formKey : null,
+            verb: verb ? { id: verb.id, es: verb.raw.es, jp: form.jp } : null,
+            example: tpl.raw.example,
+            literals: tpl.raw.literals || null,
+            subjectParticle: tpl.raw.subjectParticle || null,
+            adjectiveRule: tpl.raw.adjectiveRule || null,
+            displayOrder: tpl.displayOrder,
+            pieces
+          }
+        };
+      }
+
+      function validateRound(round, tpl) {
+        const m = round.meta, pieces = m.pieces, cardsOut = round.cards;
+        if (cardsOut.length !== pieces.length) return false;
+        if (cardsOut.length < tpl.minCards || cardsOut.length > tpl.maxCards) return false;
+        for (let i = 0; i < pieces.length; i++) {
+          const p = pieces[i];
+          if (typeof p.es !== 'string' || !p.es || typeof p.jp !== 'string' || !p.jp) return false;
+          if (cardsOut[i].jp !== p.jp || cardsOut[i].es !== p.es) return false;
+        }
+        for (const r of tpl.requiredRoles) if (!pieces.some(p => p.role === r)) return false;
+        if (m.verb) {
+          const verbEntry = verbs.find(v => v.id === m.verb.id);
+          if (!verbEntry) return false;
+          if (m.formKey === 'want') {
+            if (m.verb.jp !== verbEntry.raw.want || m.tense !== null) return false;
+          } else if (verbEntry.forms[m.formKey] !== m.verb.jp) return false;
+        }
+        for (const p of pieces) {
+          const tr = p.item && p.item.timeRef;
+          if (Array.isArray(tr) && m.tense && tr.indexOf(m.tense) === -1) return false;
+        }
+        return true;
+      }
+
+      let lastFingerprint = null;
+      let lastTemplateName = null;
+
+      function generateRound() {
+        let lastGood = null, lastGoodName = null;
+        for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+          const target = sampleTarget();
+          const banned = attempt >= 2 ? lastTemplateName : null;
+          const tpl = selectTemplate(target, banned);
+          if (!tpl) continue;
+          const round = resolveTemplate(tpl, target);
+          if (!round) continue;
+          if (!validateRound(round, tpl)) { warnings.push(`generated invalid round for ${tpl.name}`); continue; }
+          lastGood = round; lastGoodName = tpl.name;
+          if (round.meta.fingerprint !== lastFingerprint) {
+            lastFingerprint = round.meta.fingerprint;
+            lastTemplateName = tpl.name;
+            return round;
+          }
+        }
+        if (lastGood) {
+          lastFingerprint = lastGood.meta.fingerprint;
+          lastTemplateName = lastGoodName;
+          return lastGood;
+        }
+        return null;
+      }
+
+      function selfTest(n) {
+        n = n || 2000;
+        const failures = [];
+        const cardCountHist = {};
+        const templateHits = {};
+        templates.forEach(t => { templateHits[t.name] = 0; });
+        const particleValues = Object.keys(raw.particles || {}).map(k => raw.particles[k]);
+        let prevFp = null, repeatCollisions = 0;
+
+        for (let i = 0; i < n; i++) {
+          const round = generateRound();
+          if (!round) { failures.push(`round ${i}: null`); continue; }
+          templateHits[round.templateName] = (templateHits[round.templateName] || 0) + 1;
+          cardCountHist[round.meta.cardCount] = (cardCountHist[round.meta.cardCount] || 0) + 1;
+          if (round.meta.fingerprint === prevFp) repeatCollisions++;
+          prevFp = round.meta.fingerprint;
+
+          const literalVals = round.meta.literals ? Object.keys(round.meta.literals).map(k => round.meta.literals[k]) : [];
+          round.cards.forEach(c => {
+            if (particleValues.indexOf(c.jp) !== -1) failures.push(`round ${i}: card jp "${c.jp}" is a particle`);
+            if (literalVals.indexOf(c.jp) !== -1) failures.push(`round ${i}: card jp "${c.jp}" is glue text`);
+          });
+        }
+
+        const neverHit = templates.filter(t => !t.disabled && templateHits[t.name] === 0).map(t => t.name);
+        return {
+          summary: `${n - failures.length}/${n} rounds ok, ${repeatCollisions} immediate repeats, ${neverHit.length} templates never hit, ${disabledTemplates.length} disabled`,
+          perTemplate: templateHits,
+          cardCountHist,
+          neverHit,
+          disabledTemplates,
+          warnings,
+          failures
+        };
+      }
+
+      return {
+        generateRound,
+        selfTest,
+        integrity: { ok: !disabledTemplates.length, warnings, disabledTemplates }
+      };
+    }
+
+    return { build };
+  })();
+  // --- SENTENCE ENGINE END ---
 
   function weightOf(card) {
     return weights[card.id] || 1;
@@ -424,6 +957,40 @@
     render();
   }
 
+  function ensureSentenceData() {
+    if (!sentenceLoad) {
+      sentenceLoad = fetch(SENTENCE_URL)
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          return res.json();
+        })
+        .then(data => {
+          sentenceData = data;
+          sentenceEngine = SentenceEngine.build(data);
+        })
+        .catch(err => {
+          sentenceError = err.message;
+        });
+    }
+    return sentenceLoad;
+  }
+
+  function newSentenceRound() {
+    sentenceRound = sentenceEngine ? sentenceEngine.generateRound() : null;
+  }
+
+  function enterSentenceMode() {
+    if (sentenceEngine) {
+      newSentenceRound();
+      return;
+    }
+    ensureSentenceData().then(() => {
+      if (view !== 'sentence') return; // user switched away while the fetch was in flight
+      newSentenceRound();
+      render();
+    });
+  }
+
   const STACK_PEEK = 20;
   const STACK_INSET = 16;
 
@@ -457,17 +1024,29 @@
     return face;
   }
 
-  function buildCardEl(card) {
-    const backLang = otherLang(language);
+  function buildCardEl(card, frontLang = language) {
+    const backLang = otherLang(frontLang);
     const cardEl = document.createElement('div');
     cardEl.className = 'card';
-    cardEl.appendChild(buildFace('front', language, card));
+    cardEl.appendChild(buildFace('front', frontLang, card));
     cardEl.appendChild(buildFace('back', backLang, card));
     return cardEl;
   }
 
+  function updateTitle() {
+    pageTitle.textContent = view === 'sentence'
+      ? 'Juego de frases'
+      : `${cards.length} tarjetas de japonés`;
+  }
+
   function render() {
     app.innerHTML = '';
+    updateTitle();
+
+    if (view === 'sentence') {
+      renderSentence();
+      return;
+    }
 
     if (!cards.length) {
       app.className = 'grid-view';
@@ -486,6 +1065,7 @@
     app.className = 'grid-view';
     footerHint.style.display = '';
     shuffleBtn.style.display = '';
+    langGroup.style.display = '';
     footerHint.textContent = 'Haz clic en una tarjeta para ver la otra cara.';
 
     cards.forEach(card => {
@@ -506,6 +1086,7 @@
     app.className = 'single-view';
     footerHint.style.display = 'none';
     shuffleBtn.style.display = 'none';
+    langGroup.style.display = '';
 
     const stage = document.createElement('div');
     stage.className = 'single-stage';
@@ -555,6 +1136,102 @@
 
     app.appendChild(stage);
     app.appendChild(nav);
+  }
+
+  const ROLE_LABELS = {
+    time: 'cuándo', subject: 'quién', object: 'qué', verb: 'acción',
+    location: 'dónde', place: 'lugar', destination: 'a dónde',
+    companion: 'con quién', possessor: 'de quién', thing: 'cosa',
+    noun: 'cosa', adjective: 'cómo', adverb: 'cuánto', state: 'estado',
+    question: 'pregunta', demonstrative: 'este/esto', activity: 'actividad',
+    sport: 'deporte', frequency: 'con qué frecuencia', connector: 'conector',
+  };
+
+  function toFlashcard(piece) {
+    return { spanish: piece.es, japanese: piece.jp };
+  }
+
+  function renderSentence() {
+    app.className = 'sentence-view';
+    langGroup.style.display = 'none';
+    shuffleBtn.style.display = 'none';
+    footerHint.style.display = '';
+    footerHint.textContent = 'Di la frase en voz alta, luego toca cada tarjeta para comprobarla.';
+
+    if (sentenceError) {
+      app.innerHTML = `<p class="empty-state">No se pudo cargar ${SENTENCE_URL}.<br>Detalle: ${sentenceError}</p>`;
+      return;
+    }
+
+    if (!sentenceEngine) {
+      app.innerHTML = '<p class="empty-state">Cargando frases…</p>';
+      return;
+    }
+
+    const hasRound = sentenceRound && sentenceRound.cards && sentenceRound.cards.length;
+
+    if (hasRound) {
+      const row = document.createElement('div');
+      row.className = 'sentence-row';
+      let pieceIndex = 0;
+
+      sentenceRound.sequence.forEach(item => {
+        if (item.kind === 'glue') {
+          const glue = document.createElement('div');
+          glue.className = 'sentence-glue';
+          glue.textContent = item.text;
+          row.appendChild(glue);
+          return;
+        }
+
+        const piece = sentenceRound.meta.pieces[pieceIndex++];
+
+        const slot = document.createElement('div');
+        slot.className = 'card-slot';
+
+        const caption = document.createElement('div');
+        caption.className = 'sentence-role';
+        caption.textContent = (piece && ROLE_LABELS[piece.role]) || '';
+        slot.appendChild(caption);
+
+        const cardEl = buildCardEl(toFlashcard(item), 'spanish');
+        cardEl.addEventListener('click', () => cardEl.classList.toggle('flipped'));
+        slot.appendChild(cardEl);
+
+        row.appendChild(slot);
+      });
+
+      app.appendChild(row);
+    } else {
+      app.innerHTML = '<p class="empty-state">No se pudo generar una frase. Prueba de nuevo.</p>';
+    }
+
+    const actions = document.createElement('div');
+    actions.className = 'sentence-actions';
+
+    const newBtn = document.createElement('button');
+    newBtn.className = 'icon-btn';
+    newBtn.textContent = 'Nueva frase';
+    newBtn.addEventListener('click', () => {
+      newSentenceRound();
+      render();
+    });
+    actions.appendChild(newBtn);
+
+    if (hasRound) {
+      const revealBtn = document.createElement('button');
+      revealBtn.className = 'icon-btn';
+      revealBtn.textContent = 'Mostrar todo';
+      revealBtn.addEventListener('click', () => {
+        const cardEls = [...app.querySelectorAll('.card')];
+        const anyHidden = cardEls.some(el => !el.classList.contains('flipped'));
+        cardEls.forEach(el => el.classList.toggle('flipped', anyHidden));
+        revealBtn.textContent = anyHidden ? 'Ocultar todo' : 'Mostrar todo';
+      });
+      actions.appendChild(revealBtn);
+    }
+
+    app.appendChild(actions);
   }
 
   function setupSwipe(stage, wrapperEl, cardEl, behindEl, tintEl) {
@@ -675,11 +1352,12 @@
   }
 
   function setView(newView) {
-    view = newView;
+    view = VIEWS.includes(newView) ? newView : 'single';
     [...viewGroup.children].forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.view === newView);
+      btn.classList.toggle('active', btn.dataset.view === view);
     });
-    if (newView === 'single') resetSingleDeck();
+    if (view === 'single') resetSingleDeck();
+    else if (view === 'sentence') enterSentenceMode();
     render();
   }
 
@@ -710,7 +1388,6 @@
       cards = data;
       weights = {};
       try { localStorage.removeItem('japan-study-weights'); } catch (e) { /* ignore */ }
-      pageTitle.textContent = `${cards.length} tarjetas de japonés`;
       resetSingleDeck();
       setLanguage(language);
       setView(view);
@@ -718,6 +1395,37 @@
     .catch(err => {
       app.innerHTML = `<p class="empty-state">No se pudo cargar cards.json.<br>Sirve esta carpeta con un servidor local (por ejemplo: <code>python3 -m http.server</code>) y abre la app desde http://localhost.<br><br>Detalle: ${err.message}</p>`;
     });
+
+  // Dev-only sentence-generator self-check: open with ?selftest=1 (optionally &seed=N).
+  if (new URLSearchParams(location.search).get('selftest') === '1') {
+    const seedParam = new URLSearchParams(location.search).get('seed');
+    let rng = Math.random;
+    if (seedParam) {
+      let s = parseInt(seedParam, 10) || 1;
+      rng = function () { // mulberry32
+        s |= 0; s = (s + 0x6D2B79F5) | 0;
+        let t = Math.imul(s ^ (s >>> 15), 1 | s);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+    ensureSentenceData().then(() => {
+      if (!sentenceData) { console.error('selftest: sentence data failed to load:', sentenceError); return; }
+      const testEngine = SentenceEngine.build(sentenceData, { rng });
+      const report = testEngine.selfTest(5000);
+      console.log('%c[selftest] ' + report.summary, 'font-weight:bold');
+      console.table(report.perTemplate);
+      console.log('card count histogram:', report.cardCountHist);
+      if (report.neverHit.length) console.warn('never hit:', report.neverHit);
+      if (report.disabledTemplates.length) console.warn('disabled templates:', report.disabledTemplates);
+      if (report.warnings.length) console.warn('compile warnings:', report.warnings);
+      report.failures.slice(0, 20).forEach(f => console.error(f));
+      const banner = document.createElement('p');
+      banner.className = 'empty-state';
+      banner.textContent = '[selftest] ' + report.summary + ' — see console for details';
+      app.prepend(banner);
+    });
+  }
 </script>
 
 </body>

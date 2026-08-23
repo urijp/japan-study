@@ -1,0 +1,3114 @@
+{
+  "version": 2,
+  "meta": {
+    "sourceCards": 286,
+    "purpose": "Reusable pieces and templates for a Japanese sentence-building game.",
+    "romanization": "Keeps the same romaji style as cards.json (kyou, doujou, renshuu, etc.).",
+    "notes": [
+      "Vocabulary is grouped by category to avoid repeating type on every entry.",
+      "Verb forms are polite forms because the learner prioritizes -masu/-desu speech.",
+      "Japanese verb tense is modeled as nonpast/past. Future time words use nonpast forms.",
+      "Fixed expressions that are not useful for recombination are listed under excluded."
+    ]
+  },
+  "particles": {
+    "topic": "wa",
+    "subject": "ga",
+    "object": "o",
+    "destination": "ni",
+    "timeAt": "ni",
+    "actionLocation": "de",
+    "companion": "to",
+    "possession": "no",
+    "also": "mo"
+  },
+  "vocab": {
+    "time": [
+      {
+        "es": "anteayer",
+        "jp": "ototoi",
+        "timeRef": [
+          "past"
+        ]
+      },
+      {
+        "es": "ayer",
+        "jp": "kinou",
+        "timeRef": [
+          "past"
+        ]
+      },
+      {
+        "es": "hoy",
+        "jp": "kyou",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "mañana",
+        "jp": "ashita",
+        "timeRef": [
+          "nonpast"
+        ]
+      },
+      {
+        "es": "pasado mañana",
+        "jp": "asatte",
+        "timeRef": [
+          "nonpast"
+        ]
+      },
+      {
+        "es": "ahora",
+        "jp": "ima",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "esta semana",
+        "jp": "konshuu",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "fin de semana",
+        "jp": "shuumatsu",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "todos los días",
+        "jp": "mainichi",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "cada mañana",
+        "jp": "maiasa",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "cada tarde",
+        "jp": "maihiru",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "cada noche",
+        "jp": "maiban",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "mañana (parte del día)",
+        "jp": "asa",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "mediodía",
+        "jp": "hiru",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "tarde",
+        "jp": "gogo",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "atardecer / vespre",
+        "jp": "yuugata",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "noche",
+        "jp": "yoru",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "a las siete",
+        "jp": "shichi-ji",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ],
+        "particle": "ni"
+      }
+    ],
+    "place": [
+      {
+        "es": "casa",
+        "jp": "ie",
+        "tags": [
+          "destination",
+          "actionLocation",
+          "origin"
+        ]
+      },
+      {
+        "es": "habitación",
+        "jp": "heya",
+        "tags": [
+          "destination",
+          "actionLocation"
+        ]
+      },
+      {
+        "es": "lavabo / WC",
+        "jp": "toire",
+        "tags": [
+          "destination",
+          "actionLocation"
+        ]
+      },
+      {
+        "es": "estación",
+        "jp": "eki",
+        "tags": [
+          "destination",
+          "actionLocation"
+        ]
+      },
+      {
+        "es": "tienda",
+        "jp": "mise",
+        "tags": [
+          "destination",
+          "actionLocation"
+        ]
+      },
+      {
+        "es": "restaurante",
+        "jp": "resutoran",
+        "tags": [
+          "destination",
+          "actionLocation"
+        ]
+      },
+      {
+        "es": "hotel",
+        "jp": "hoteru",
+        "tags": [
+          "destination",
+          "actionLocation"
+        ]
+      },
+      {
+        "es": "camino / calle",
+        "jp": "michi",
+        "tags": [
+          "destination",
+          "actionLocation"
+        ]
+      },
+      {
+        "es": "lugar",
+        "jp": "basho",
+        "tags": [
+          "destination",
+          "actionLocation"
+        ]
+      },
+      {
+        "es": "Japón",
+        "jp": "Nihon",
+        "tags": [
+          "destination",
+          "location",
+          "country"
+        ]
+      },
+      {
+        "es": "España",
+        "jp": "Supein",
+        "tags": [
+          "destination",
+          "location",
+          "country"
+        ]
+      },
+      {
+        "es": "dojo",
+        "jp": "doujou",
+        "tags": [
+          "destination",
+          "actionLocation"
+        ]
+      },
+      {
+        "es": "aeropuerto",
+        "jp": "kuukou",
+        "tags": [
+          "destination",
+          "actionLocation"
+        ]
+      },
+      {
+        "es": "universidad",
+        "jp": "daigaku",
+        "tags": [
+          "destination",
+          "actionLocation"
+        ]
+      },
+      {
+        "es": "pueblo / localidad",
+        "jp": "machi",
+        "tags": [
+          "destination",
+          "location"
+        ]
+      },
+      {
+        "es": "ciudad",
+        "jp": "toshi",
+        "tags": [
+          "destination",
+          "location"
+        ]
+      },
+      {
+        "es": "Osaka",
+        "jp": "Oosaka",
+        "tags": [
+          "destination",
+          "location",
+          "city"
+        ]
+      },
+      {
+        "es": "Times Square",
+        "jp": "Times Square",
+        "tags": [
+          "destination",
+          "actionLocation"
+        ]
+      },
+      {
+        "es": "Estados Unidos",
+        "jp": "Amerika",
+        "tags": [
+          "destination",
+          "location",
+          "country"
+        ]
+      }
+    ],
+    "person": [
+      {
+        "es": "yo",
+        "jp": "watashi"
+      },
+      {
+        "es": "mi padre",
+        "jp": "chichi"
+      },
+      {
+        "es": "mi madre",
+        "jp": "haha"
+      },
+      {
+        "es": "padre / papá",
+        "jp": "otousan"
+      },
+      {
+        "es": "madre / mamá",
+        "jp": "okaasan"
+      },
+      {
+        "es": "amigo",
+        "jp": "tomodachi"
+      },
+      {
+        "es": "persona",
+        "jp": "hito"
+      },
+      {
+        "es": "maestro",
+        "jp": "sensei"
+      },
+      {
+        "es": "estudiante",
+        "jp": "gakusei"
+      },
+      {
+        "es": "español / persona española",
+        "jp": "Supeinjin"
+      },
+      {
+        "es": "abogado",
+        "jp": "bengoshi"
+      },
+      {
+        "es": "médico",
+        "jp": "isha"
+      },
+      {
+        "es": "Júlia",
+        "jp": "Juria"
+      }
+    ],
+    "food": [
+      {
+        "es": "sushi",
+        "jp": "sushi"
+      },
+      {
+        "es": "ramen",
+        "jp": "ramen"
+      },
+      {
+        "es": "arroz / comida",
+        "jp": "gohan"
+      },
+      {
+        "es": "carne",
+        "jp": "niku"
+      },
+      {
+        "es": "pescado",
+        "jp": "sakana"
+      },
+      {
+        "es": "verduras",
+        "jp": "yasai"
+      },
+      {
+        "es": "fruta",
+        "jp": "kudamono"
+      },
+      {
+        "es": "pizza",
+        "jp": "piza"
+      },
+      {
+        "es": "ensalada",
+        "jp": "sarada"
+      },
+      {
+        "es": "curry",
+        "jp": "karee"
+      },
+      {
+        "es": "desayuno",
+        "jp": "asagohan"
+      },
+      {
+        "es": "almuerzo",
+        "jp": "hirugohan"
+      },
+      {
+        "es": "cena",
+        "jp": "bangohan"
+      },
+      {
+        "es": "comida",
+        "jp": "tabemono"
+      }
+    ],
+    "drink": [
+      {
+        "es": "agua",
+        "jp": "mizu"
+      },
+      {
+        "es": "té",
+        "jp": "ocha"
+      },
+      {
+        "es": "café",
+        "jp": "koohii"
+      },
+      {
+        "es": "cerveza",
+        "jp": "biiru"
+      },
+      {
+        "es": "zumo",
+        "jp": "juusu"
+      },
+      {
+        "es": "bebida",
+        "jp": "nomimono"
+      }
+    ],
+    "transport": [
+      {
+        "es": "coche",
+        "jp": "kuruma"
+      },
+      {
+        "es": "tren",
+        "jp": "densha"
+      },
+      {
+        "es": "metro",
+        "jp": "chikatetsu"
+      }
+    ],
+    "clothing": [
+      {
+        "es": "ropa",
+        "jp": "fuku"
+      },
+      {
+        "es": "zapatos",
+        "jp": "kutsu"
+      },
+      {
+        "es": "gorro / sombrero",
+        "jp": "boushi"
+      },
+      {
+        "es": "guante",
+        "jp": "tebukuro"
+      },
+      {
+        "es": "abrigo",
+        "jp": "kooto"
+      },
+      {
+        "es": "camiseta",
+        "jp": "tiishatsu"
+      },
+      {
+        "es": "falda",
+        "jp": "sukaato"
+      },
+      {
+        "es": "corbata",
+        "jp": "nekutai"
+      },
+      {
+        "es": "chaqueta",
+        "jp": "jaketto"
+      }
+    ],
+    "body": [
+      {
+        "es": "mano",
+        "jp": "te"
+      },
+      {
+        "es": "brazo",
+        "jp": "ude"
+      },
+      {
+        "es": "pierna / pie",
+        "jp": "ashi"
+      },
+      {
+        "es": "cabeza",
+        "jp": "atama"
+      },
+      {
+        "es": "cara",
+        "jp": "kao"
+      },
+      {
+        "es": "ojo",
+        "jp": "me"
+      },
+      {
+        "es": "espalda",
+        "jp": "senaka"
+      },
+      {
+        "es": "cuerpo",
+        "jp": "karada"
+      },
+      {
+        "es": "puño",
+        "jp": "kobushi"
+      },
+      {
+        "es": "rodilla",
+        "jp": "hiza"
+      },
+      {
+        "es": "cadera",
+        "jp": "koshi"
+      },
+      {
+        "es": "hombro",
+        "jp": "kata"
+      },
+      {
+        "es": "cuello",
+        "jp": "kubi"
+      }
+    ],
+    "object": [
+      {
+        "es": "bolso",
+        "jp": "kaban",
+        "tags": [
+          "possessable",
+          "buyable"
+        ]
+      },
+      {
+        "es": "paraguas",
+        "jp": "kasa",
+        "tags": [
+          "possessable",
+          "buyable"
+        ]
+      },
+      {
+        "es": "billete",
+        "jp": "kippu",
+        "tags": [
+          "possessable",
+          "buyable"
+        ]
+      },
+      {
+        "es": "dinero",
+        "jp": "okane",
+        "tags": [
+          "possessable"
+        ]
+      },
+      {
+        "es": "mapa",
+        "jp": "chizu",
+        "tags": [
+          "possessable",
+          "readable",
+          "buyable"
+        ]
+      },
+      {
+        "es": "cartera",
+        "jp": "saifu",
+        "tags": [
+          "possessable",
+          "buyable"
+        ]
+      }
+    ],
+    "media": [
+      {
+        "es": "televisión",
+        "jp": "terebi",
+        "tags": [
+          "watchable"
+        ]
+      },
+      {
+        "es": "libro",
+        "jp": "hon",
+        "tags": [
+          "readable"
+        ]
+      },
+      {
+        "es": "revista",
+        "jp": "zasshi",
+        "tags": [
+          "readable"
+        ]
+      },
+      {
+        "es": "noticias",
+        "jp": "nyuusu",
+        "tags": [
+          "readable",
+          "watchable",
+          "listenable"
+        ]
+      },
+      {
+        "es": "película / cine",
+        "jp": "eiga",
+        "tags": [
+          "watchable"
+        ]
+      },
+      {
+        "es": "música",
+        "jp": "ongaku",
+        "tags": [
+          "listenable"
+        ]
+      },
+      {
+        "es": "rock",
+        "jp": "rokku",
+        "tags": [
+          "listenable",
+          "musicGenre"
+        ]
+      }
+    ],
+    "sport": [
+      {
+        "es": "karate",
+        "jp": "karate"
+      },
+      {
+        "es": "béisbol",
+        "jp": "yakyuu"
+      },
+      {
+        "es": "fútbol",
+        "jp": "sakkaa"
+      },
+      {
+        "es": "tenis",
+        "jp": "tenisu"
+      }
+    ],
+    "activity": [
+      {
+        "es": "entrenamiento / práctica",
+        "jp": "renshuu"
+      },
+      {
+        "es": "estudio",
+        "jp": "benkyou"
+      },
+      {
+        "es": "reunión",
+        "jp": "kaigi"
+      },
+      {
+        "es": "fiesta",
+        "jp": "paatii"
+      },
+      {
+        "es": "jogging",
+        "jp": "jogingu"
+      },
+      {
+        "es": "compras",
+        "jp": "kaimono"
+      },
+      {
+        "es": "trabajo",
+        "jp": "shigoto"
+      }
+    ],
+    "language": [
+      {
+        "es": "japonés (idioma)",
+        "jp": "nihongo"
+      }
+    ],
+    "direction": [
+      {
+        "es": "derecha",
+        "jp": "migi"
+      },
+      {
+        "es": "izquierda",
+        "jp": "hidari"
+      },
+      {
+        "es": "delante",
+        "jp": "mae"
+      },
+      {
+        "es": "detrás",
+        "jp": "ushiro"
+      },
+      {
+        "es": "arriba",
+        "jp": "ue"
+      },
+      {
+        "es": "abajo",
+        "jp": "shita"
+      },
+      {
+        "es": "dentro",
+        "jp": "naka"
+      },
+      {
+        "es": "fuera",
+        "jp": "soto"
+      }
+    ],
+    "demonstrative": [
+      {
+        "es": "esto",
+        "jp": "kore",
+        "usage": "stands alone"
+      },
+      {
+        "es": "eso",
+        "jp": "sore",
+        "usage": "stands alone"
+      },
+      {
+        "es": "este / esta",
+        "jp": "kono",
+        "usage": "before a noun"
+      },
+      {
+        "es": "ese / esa",
+        "jp": "sono",
+        "usage": "before a noun"
+      }
+    ],
+    "adjective": [
+      {
+        "es": "bueno / está bien",
+        "jp": "ii",
+        "adjClass": "i",
+        "irregular": true,
+        "accepts": [
+          "object",
+          "place",
+          "food",
+          "drink",
+          "activity",
+          "media",
+          "clothing",
+          "transport",
+          "person"
+        ]
+      },
+      {
+        "es": "malo",
+        "jp": "warui",
+        "adjClass": "i",
+        "accepts": [
+          "object",
+          "place",
+          "food",
+          "drink",
+          "activity",
+          "media",
+          "clothing",
+          "transport",
+          "person"
+        ]
+      },
+      {
+        "es": "grande",
+        "jp": "ookii",
+        "adjClass": "i",
+        "accepts": [
+          "object",
+          "place",
+          "body",
+          "transport",
+          "clothing"
+        ]
+      },
+      {
+        "es": "pequeño",
+        "jp": "chiisai",
+        "adjClass": "i",
+        "accepts": [
+          "object",
+          "place",
+          "body",
+          "transport",
+          "clothing"
+        ]
+      },
+      {
+        "es": "nuevo",
+        "jp": "atarashii",
+        "adjClass": "i",
+        "accepts": [
+          "object",
+          "place",
+          "clothing",
+          "transport",
+          "media"
+        ]
+      },
+      {
+        "es": "viejo / antiguo",
+        "jp": "furui",
+        "adjClass": "i",
+        "accepts": [
+          "object",
+          "place",
+          "clothing",
+          "transport",
+          "media"
+        ]
+      },
+      {
+        "es": "caliente / hace calor",
+        "jp": "atsui",
+        "adjClass": "i",
+        "accepts": [
+          "food",
+          "drink"
+        ]
+      },
+      {
+        "es": "frío (clima)",
+        "jp": "samui",
+        "adjClass": "i",
+        "accepts": [
+          "place"
+        ]
+      },
+      {
+        "es": "frío (objeto/comida)",
+        "jp": "tsumetai",
+        "adjClass": "i",
+        "accepts": [
+          "food",
+          "drink",
+          "object"
+        ]
+      },
+      {
+        "es": "rápido",
+        "jp": "hayai",
+        "adjClass": "i",
+        "accepts": [
+          "transport",
+          "activity"
+        ]
+      },
+      {
+        "es": "lento",
+        "jp": "osoi",
+        "adjClass": "i",
+        "accepts": [
+          "transport",
+          "activity"
+        ]
+      },
+      {
+        "es": "difícil",
+        "jp": "muzukashii",
+        "adjClass": "i",
+        "accepts": [
+          "activity",
+          "media",
+          "language"
+        ]
+      },
+      {
+        "es": "fácil / sencillo",
+        "jp": "kantan",
+        "adjClass": "na",
+        "accepts": [
+          "activity",
+          "language"
+        ]
+      },
+      {
+        "es": "interesante",
+        "jp": "omoshiroi",
+        "adjClass": "i",
+        "accepts": [
+          "media",
+          "activity",
+          "place"
+        ]
+      },
+      {
+        "es": "divertido",
+        "jp": "tanoshii",
+        "adjClass": "i",
+        "accepts": [
+          "activity",
+          "media",
+          "place"
+        ]
+      },
+      {
+        "es": "delicioso",
+        "jp": "oishii",
+        "adjClass": "i",
+        "accepts": [
+          "food",
+          "drink"
+        ]
+      },
+      {
+        "es": "bonito / limpio",
+        "jp": "kirei",
+        "adjClass": "na",
+        "accepts": [
+          "object",
+          "place",
+          "person",
+          "clothing"
+        ]
+      },
+      {
+        "es": "tranquilo",
+        "jp": "shizuka",
+        "adjClass": "na",
+        "accepts": [
+          "place"
+        ]
+      },
+      {
+        "es": "ruidoso",
+        "jp": "urusai",
+        "adjClass": "i",
+        "accepts": [
+          "place",
+          "person"
+        ]
+      },
+      {
+        "es": "fuerte",
+        "jp": "tsuyoi",
+        "adjClass": "i",
+        "accepts": [
+          "person",
+          "body"
+        ]
+      },
+      {
+        "es": "débil",
+        "jp": "yowai",
+        "adjClass": "i",
+        "accepts": [
+          "person",
+          "body"
+        ]
+      },
+      {
+        "es": "con sueño",
+        "jp": "nemui",
+        "adjClass": "i",
+        "accepts": [
+          "person"
+        ]
+      },
+      {
+        "es": "bien / con energía",
+        "jp": "genki",
+        "adjClass": "na",
+        "accepts": [
+          "person"
+        ]
+      },
+      {
+        "es": "ocupado",
+        "jp": "isogashii",
+        "adjClass": "i",
+        "accepts": [
+          "person"
+        ]
+      },
+      {
+        "es": "libre",
+        "jp": "hima",
+        "adjClass": "na",
+        "accepts": [
+          "person"
+        ]
+      },
+      {
+        "es": "contento",
+        "jp": "ureshii",
+        "adjClass": "i",
+        "accepts": [
+          "person"
+        ]
+      },
+      {
+        "es": "animado / concurrido",
+        "jp": "nigiyaka",
+        "adjClass": "na",
+        "accepts": [
+          "place"
+        ]
+      },
+      {
+        "es": "importante",
+        "jp": "daiji",
+        "adjClass": "na",
+        "accepts": [
+          "object",
+          "activity",
+          "person"
+        ]
+      },
+      {
+        "es": "blanco",
+        "jp": "shiroi",
+        "adjClass": "i",
+        "accepts": [
+          "object",
+          "clothing",
+          "transport"
+        ]
+      },
+      {
+        "es": "rojo",
+        "jp": "akai",
+        "adjClass": "i",
+        "accepts": [
+          "object",
+          "clothing",
+          "transport"
+        ]
+      },
+      {
+        "es": "negro",
+        "jp": "kuroi",
+        "adjClass": "i",
+        "accepts": [
+          "object",
+          "clothing",
+          "transport"
+        ]
+      },
+      {
+        "es": "azul",
+        "jp": "aoi",
+        "adjClass": "i",
+        "accepts": [
+          "object",
+          "clothing",
+          "transport"
+        ]
+      },
+      {
+        "es": "lindo / mono",
+        "jp": "kawaii",
+        "adjClass": "i",
+        "accepts": [
+          "object",
+          "person",
+          "clothing"
+        ]
+      },
+      {
+        "es": "barato",
+        "jp": "yasui",
+        "adjClass": "i",
+        "accepts": [
+          "object",
+          "food",
+          "drink",
+          "clothing",
+          "transport"
+        ]
+      },
+      {
+        "es": "caro / alto",
+        "jp": "takai",
+        "adjClass": "i",
+        "accepts": [
+          "object",
+          "food",
+          "drink",
+          "clothing",
+          "transport"
+        ]
+      }
+    ],
+    "state": [
+      {
+        "es": "estar cansado",
+        "jp": "tsukareteimasu",
+        "predicate": true
+      },
+      {
+        "es": "tener hambre",
+        "jp": "onaka ga sukimashita",
+        "predicate": true,
+        "timeForm": "past-shaped-current-state"
+      },
+      {
+        "es": "tener sed",
+        "jp": "nodo ga kawakimashita",
+        "predicate": true,
+        "timeForm": "past-shaped-current-state"
+      },
+      {
+        "es": "estar bien / no pasa nada",
+        "jp": "daijoubu desu",
+        "predicate": true
+      },
+      {
+        "es": "recordarlo / tenerlo recordado",
+        "jp": "oboeteimasu",
+        "predicate": true
+      }
+    ],
+    "adverb": [
+      {
+        "es": "despacio",
+        "jp": "yukkuri"
+      },
+      {
+        "es": "más",
+        "jp": "motto"
+      },
+      {
+        "es": "un poco",
+        "jp": "chotto"
+      },
+      {
+        "es": "mucho",
+        "jp": "takusan"
+      },
+      {
+        "es": "muy",
+        "jp": "totemo"
+      },
+      {
+        "es": "no mucho",
+        "jp": "amari"
+      },
+      {
+        "es": "siempre",
+        "jp": "itsumo"
+      },
+      {
+        "es": "a menudo",
+        "jp": "yoku"
+      },
+      {
+        "es": "a veces",
+        "jp": "tokidoki"
+      },
+      {
+        "es": "todavía",
+        "jp": "mada"
+      },
+      {
+        "es": "ya",
+        "jp": "mou"
+      },
+      {
+        "es": "quizá",
+        "jp": "tabun"
+      },
+      {
+        "es": "juntos",
+        "jp": "issho ni"
+      },
+      {
+        "es": "pronto / temprano",
+        "jp": "hayaku"
+      },
+      {
+        "es": "fuertemente",
+        "jp": "tsuyoku",
+        "derivedFrom": "tsuyoi"
+      }
+    ],
+    "connector": [
+      {
+        "es": "pero",
+        "jp": "demo"
+      },
+      {
+        "es": "porque",
+        "jp": "kara",
+        "position": "after cause"
+      },
+      {
+        "es": "por eso",
+        "jp": "dakara",
+        "position": "before consequence"
+      }
+    ],
+    "locationWord": [
+      {
+        "es": "aquí",
+        "jp": "koko"
+      },
+      {
+        "es": "ahí",
+        "jp": "soko"
+      },
+      {
+        "es": "allí",
+        "jp": "asoko"
+      }
+    ],
+    "question": [
+      {
+        "es": "qué",
+        "jp": "nani"
+      },
+      {
+        "es": "quién",
+        "jp": "dare"
+      },
+      {
+        "es": "dónde",
+        "jp": "doko"
+      },
+      {
+        "es": "cuándo",
+        "jp": "itsu"
+      },
+      {
+        "es": "por qué",
+        "jp": "doushite"
+      },
+      {
+        "es": "cómo",
+        "jp": "dou"
+      },
+      {
+        "es": "cuál",
+        "jp": "dore"
+      },
+      {
+        "es": "cuánto cuesta",
+        "jp": "ikura"
+      },
+      {
+        "es": "qué hora",
+        "jp": "nanji"
+      }
+    ],
+    "number": [
+      {
+        "es": "cuatrocientos",
+        "jp": "yonhyaku"
+      },
+      {
+        "es": "cuatro mil",
+        "jp": "yonsen"
+      }
+    ],
+    "social": [
+      {
+        "es": "familia",
+        "jp": "kazoku",
+        "tags": [
+          "possessable",
+          "group"
+        ]
+      }
+    ],
+    "concept": [
+      {
+        "es": "tiempo / hora",
+        "jp": "jikan"
+      }
+    ]
+  },
+  "verbs": [
+    {
+      "es": "comer",
+      "forms": {
+        "nonpastAffirmative": "tabemasu",
+        "pastAffirmative": "tabemashita",
+        "nonpastNegative": "tabemasen",
+        "pastNegative": "tabemasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "food"
+          ]
+        },
+        {
+          "role": "location",
+          "particle": "de",
+          "accepts": [
+            "place"
+          ]
+        }
+      ],
+      "want": "tabetai desu"
+    },
+    {
+      "es": "beber",
+      "forms": {
+        "nonpastAffirmative": "nomimasu",
+        "pastAffirmative": "nomimashita",
+        "nonpastNegative": "nomimasen",
+        "pastNegative": "nomimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "drink"
+          ]
+        },
+        {
+          "role": "location",
+          "particle": "de",
+          "accepts": [
+            "place"
+          ]
+        }
+      ],
+      "want": "nomitai desu"
+    },
+    {
+      "es": "ir",
+      "forms": {
+        "nonpastAffirmative": "ikimasu",
+        "pastAffirmative": "ikimashita",
+        "nonpastNegative": "ikimasen",
+        "pastNegative": "ikimasen deshita"
+      },
+      "args": [
+        {
+          "role": "destination",
+          "particle": "ni",
+          "accepts": [
+            "place"
+          ]
+        },
+        {
+          "role": "companion",
+          "particle": "to",
+          "accepts": [
+            "person"
+          ]
+        }
+      ],
+      "want": "ikitai desu"
+    },
+    {
+      "es": "venir",
+      "forms": {
+        "nonpastAffirmative": "kimasu",
+        "pastAffirmative": "kimashita",
+        "nonpastNegative": "kimasen",
+        "pastNegative": "kimasen deshita"
+      },
+      "args": [
+        {
+          "role": "destination",
+          "particle": "ni",
+          "accepts": [
+            "place"
+          ]
+        },
+        {
+          "role": "companion",
+          "particle": "to",
+          "accepts": [
+            "person"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "volver",
+      "forms": {
+        "nonpastAffirmative": "kaerimasu",
+        "pastAffirmative": "kaerimashita",
+        "nonpastNegative": "kaerimasen",
+        "pastNegative": "kaerimasen deshita"
+      },
+      "args": [
+        {
+          "role": "destination",
+          "particle": "ni",
+          "accepts": [
+            "place"
+          ]
+        },
+        {
+          "role": "companion",
+          "particle": "to",
+          "accepts": [
+            "person"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "ver / mirar",
+      "forms": {
+        "nonpastAffirmative": "mimasu",
+        "pastAffirmative": "mimashita",
+        "nonpastNegative": "mimasen",
+        "pastNegative": "mimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "media:watchable",
+            "object"
+          ]
+        },
+        {
+          "role": "location",
+          "particle": "de",
+          "accepts": [
+            "place"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "escuchar",
+      "forms": {
+        "nonpastAffirmative": "kikimasu",
+        "pastAffirmative": "kikimashita",
+        "nonpastNegative": "kikimasen",
+        "pastNegative": "kikimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "media:listenable"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "hablar",
+      "forms": {
+        "nonpastAffirmative": "hanashimasu",
+        "pastAffirmative": "hanashimashita",
+        "nonpastNegative": "hanashimasen",
+        "pastNegative": "hanashimasen deshita"
+      },
+      "args": [
+        {
+          "role": "language",
+          "particle": "o",
+          "accepts": [
+            "language"
+          ]
+        },
+        {
+          "role": "companion",
+          "particle": "to",
+          "accepts": [
+            "person"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "decir",
+      "forms": {
+        "nonpastAffirmative": "iimasu",
+        "pastAffirmative": "iimashita",
+        "nonpastNegative": "iimasen",
+        "pastNegative": "iimasen deshita"
+      },
+      "notes": "Kept available, but generic generation is limited because quoted/content clauses are not modeled yet."
+    },
+    {
+      "es": "hacer",
+      "forms": {
+        "nonpastAffirmative": "shimasu",
+        "pastAffirmative": "shimashita",
+        "nonpastNegative": "shimasen",
+        "pastNegative": "shimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "sport",
+            "activity"
+          ]
+        }
+      ],
+      "want": "shitai desu"
+    },
+    {
+      "es": "entrenar / practicar",
+      "forms": {
+        "nonpastAffirmative": "renshuu shimasu",
+        "pastAffirmative": "renshuu shimashita",
+        "nonpastNegative": "renshuu shimasen",
+        "pastNegative": "renshuu shimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "sport"
+          ]
+        },
+        {
+          "role": "location",
+          "particle": "de",
+          "accepts": [
+            "place"
+          ]
+        },
+        {
+          "role": "companion",
+          "particle": "to",
+          "accepts": [
+            "person"
+          ]
+        }
+      ],
+      "want": "renshuu shitai desu"
+    },
+    {
+      "es": "trabajar",
+      "forms": {
+        "nonpastAffirmative": "hatarakimasu",
+        "pastAffirmative": "hatarakimashita",
+        "nonpastNegative": "hatarakimasen",
+        "pastNegative": "hatarakimasen deshita"
+      },
+      "args": [
+        {
+          "role": "location",
+          "particle": "de",
+          "accepts": [
+            "place"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "dormir",
+      "forms": {
+        "nonpastAffirmative": "nemasu",
+        "pastAffirmative": "nemashita",
+        "nonpastNegative": "nemasen",
+        "pastNegative": "nemasen deshita"
+      }
+    },
+    {
+      "es": "levantarse",
+      "forms": {
+        "nonpastAffirmative": "okimasu",
+        "pastAffirmative": "okimashita",
+        "nonpastNegative": "okimasen",
+        "pastNegative": "okimasen deshita"
+      },
+      "args": [
+        {
+          "role": "timeAt",
+          "particle": "ni",
+          "accepts": [
+            "time"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "comprar",
+      "forms": {
+        "nonpastAffirmative": "kaimasu",
+        "pastAffirmative": "kaimashita",
+        "nonpastNegative": "kaimasen",
+        "pastNegative": "kaimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "object:buyable",
+            "clothing",
+            "food",
+            "drink"
+          ]
+        },
+        {
+          "role": "location",
+          "particle": "de",
+          "accepts": [
+            "place"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "esperar",
+      "forms": {
+        "nonpastAffirmative": "machimasu",
+        "pastAffirmative": "machimashita",
+        "nonpastNegative": "machimasen",
+        "pastNegative": "machimasen deshita"
+      },
+      "args": [
+        {
+          "role": "location",
+          "particle": "de",
+          "accepts": [
+            "place"
+          ]
+        },
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "person"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "entender",
+      "forms": {
+        "nonpastAffirmative": "wakarimasu",
+        "pastAffirmative": "wakarimashita",
+        "nonpastNegative": "wakarimasen",
+        "pastNegative": "wakarimasen deshita"
+      },
+      "args": [
+        {
+          "role": "subject",
+          "particle": "ga",
+          "accepts": [
+            "language",
+            "object",
+            "media"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "saber / conocer",
+      "forms": {
+        "nonpastAffirmative": "shirimasu",
+        "pastAffirmative": "shirimashita",
+        "nonpastNegative": "shirimasen",
+        "pastNegative": "shirimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "place",
+            "person",
+            "object"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "olvidar",
+      "forms": {
+        "nonpastAffirmative": "wasuremasu",
+        "pastAffirmative": "wasuremashita",
+        "nonpastNegative": "wasuremasen",
+        "pastNegative": "wasuremasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "object",
+            "media",
+            "place",
+            "time"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "entrar",
+      "forms": {
+        "nonpastAffirmative": "hairimasu",
+        "pastAffirmative": "hairimashita",
+        "nonpastNegative": "hairimasen",
+        "pastNegative": "hairimasen deshita"
+      },
+      "args": [
+        {
+          "role": "destination",
+          "particle": "ni",
+          "accepts": [
+            "place"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "salir",
+      "forms": {
+        "nonpastAffirmative": "demasu",
+        "pastAffirmative": "demashita",
+        "nonpastNegative": "demasen",
+        "pastNegative": "demasen deshita"
+      },
+      "args": [
+        {
+          "role": "origin",
+          "particle": "o",
+          "accepts": [
+            "place"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "sentarse",
+      "forms": {
+        "nonpastAffirmative": "suwarimasu",
+        "pastAffirmative": "suwarimashita",
+        "nonpastNegative": "suwarimasen",
+        "pastNegative": "suwarimasen deshita"
+      },
+      "args": [
+        {
+          "role": "location",
+          "particle": "ni",
+          "accepts": [
+            "place",
+            "locationWord"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "ponerse de pie",
+      "forms": {
+        "nonpastAffirmative": "tachimasu",
+        "pastAffirmative": "tachimashita",
+        "nonpastNegative": "tachimasen",
+        "pastNegative": "tachimasen deshita"
+      }
+    },
+    {
+      "es": "usar",
+      "forms": {
+        "nonpastAffirmative": "tsukaimasu",
+        "pastAffirmative": "tsukaimashita",
+        "nonpastNegative": "tsukaimasen",
+        "pastNegative": "tsukaimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "object",
+            "transport",
+            "clothing"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "ayudar",
+      "forms": {
+        "nonpastAffirmative": "tetsudaimasu",
+        "pastAffirmative": "tetsudaimashita",
+        "nonpastNegative": "tetsudaimasen",
+        "pastNegative": "tetsudaimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "person"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "estudiar",
+      "forms": {
+        "nonpastAffirmative": "benkyou shimasu",
+        "pastAffirmative": "benkyou shimashita",
+        "nonpastNegative": "benkyou shimasen",
+        "pastNegative": "benkyou shimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "language"
+          ]
+        },
+        {
+          "role": "location",
+          "particle": "de",
+          "accepts": [
+            "place"
+          ]
+        }
+      ],
+      "want": "benkyou shitai desu"
+    },
+    {
+      "es": "leer",
+      "forms": {
+        "nonpastAffirmative": "yomimasu",
+        "pastAffirmative": "yomimashita",
+        "nonpastNegative": "yomimasen",
+        "pastNegative": "yomimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "media:readable",
+            "object:readable"
+          ]
+        }
+      ]
+    },
+    {
+      "es": "vivir",
+      "forms": {
+        "nonpastAffirmative": "sundeimasu",
+        "pastAffirmative": "sundeimashita",
+        "nonpastNegative": "sundeimasen",
+        "pastNegative": "sundeimasen deshita"
+      },
+      "args": [
+        {
+          "role": "location",
+          "particle": "ni",
+          "accepts": [
+            "place"
+          ]
+        }
+      ]
+    }
+  ],
+  "templates": [
+    {
+      "name": "subject-object-verb",
+      "slots": [
+        {
+          "role": "subject",
+          "from": [
+            "person"
+          ],
+          "optional": true
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "object"
+        }
+      ],
+      "order": [
+        "subject",
+        "object",
+        "verb"
+      ],
+      "example": "Juria + karee + tabemasu",
+      "subjectParticle": "wa"
+    },
+    {
+      "name": "time-object-verb",
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ]
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "object"
+        }
+      ],
+      "order": [
+        "time",
+        "object",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "ashita + sushi + tabemasu"
+    },
+    {
+      "name": "time-subject-object-verb",
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ]
+        },
+        {
+          "role": "subject",
+          "from": [
+            "person"
+          ]
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "object"
+        }
+      ],
+      "order": [
+        "time",
+        "subject",
+        "object",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "subjectParticle": "wa",
+      "example": "ashita + Hana + karee + tabemasu"
+    },
+    {
+      "name": "time-place-object-verb",
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ]
+        },
+        {
+          "role": "location",
+          "from": [
+            "place"
+          ],
+          "particle": "de"
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArgs": [
+            "object",
+            "location"
+          ]
+        }
+      ],
+      "order": [
+        "time",
+        "location",
+        "object",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "kinou + resutoran + karee + tabemashita"
+    },
+    {
+      "name": "time-place-companion-object-verb",
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ]
+        },
+        {
+          "role": "location",
+          "from": [
+            "place"
+          ],
+          "particle": "de"
+        },
+        {
+          "role": "companion",
+          "from": [
+            "person"
+          ],
+          "particle": "to"
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArgs": [
+            "object",
+            "location"
+          ]
+        }
+      ],
+      "order": [
+        "time",
+        "location",
+        "companion",
+        "object",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "kinou + Times Square + tomodachi + eiga + mimashita"
+    },
+    {
+      "name": "movement",
+      "verbFilter": [
+        "ir",
+        "venir",
+        "volver"
+      ],
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ],
+          "optional": true
+        },
+        {
+          "role": "subject",
+          "from": [
+            "person"
+          ],
+          "optional": true
+        },
+        {
+          "role": "destination",
+          "from": [
+            "place"
+          ],
+          "particle": "ni"
+        },
+        {
+          "role": "companion",
+          "from": [
+            "person"
+          ],
+          "particle": "to",
+          "optional": true
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "order": [
+        "time",
+        "subject",
+        "companion",
+        "destination",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "ashita + Juria + doujou + ikimasu",
+      "subjectParticle": "wa"
+    },
+    {
+      "name": "activity-with-shimasu",
+      "verbFilter": [
+        "hacer"
+      ],
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ],
+          "optional": true
+        },
+        {
+          "role": "subject",
+          "from": [
+            "person"
+          ],
+          "optional": true
+        },
+        {
+          "role": "activity",
+          "from": [
+            "sport",
+            "activity"
+          ],
+          "particle": "o"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "order": [
+        "time",
+        "subject",
+        "activity",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "ashita + tenisu + shimasu",
+      "subjectParticle": "wa"
+    },
+    {
+      "name": "training",
+      "verbFilter": [
+        "entrenar / practicar"
+      ],
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ],
+          "optional": true
+        },
+        {
+          "role": "location",
+          "from": [
+            "place"
+          ],
+          "particle": "de",
+          "optional": true
+        },
+        {
+          "role": "companion",
+          "from": [
+            "person"
+          ],
+          "particle": "to",
+          "optional": true
+        },
+        {
+          "role": "sport",
+          "from": [
+            "sport"
+          ],
+          "particle": "o",
+          "optional": true
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "order": [
+        "time",
+        "location",
+        "companion",
+        "sport",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "kyou + doujou + Juria + karate + renshuu shimasu"
+    },
+    {
+      "name": "study-language",
+      "verbFilter": [
+        "estudiar"
+      ],
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ],
+          "optional": true
+        },
+        {
+          "role": "location",
+          "from": [
+            "place"
+          ],
+          "particle": "de",
+          "optional": true
+        },
+        {
+          "role": "object",
+          "from": [
+            "language"
+          ],
+          "particle": "o"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "order": [
+        "time",
+        "location",
+        "object",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "kinou + daigaku + nihongo + benkyou shimashita"
+    },
+    {
+      "name": "live-in-place",
+      "verbFilter": [
+        "vivir"
+      ],
+      "slots": [
+        {
+          "role": "subject",
+          "from": [
+            "person"
+          ],
+          "optional": true
+        },
+        {
+          "role": "location",
+          "from": [
+            "place"
+          ],
+          "particle": "ni"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "order": [
+        "subject",
+        "location",
+        "verb"
+      ],
+      "example": "watashi + machi + sundeimasu",
+      "subjectParticle": "wa"
+    },
+    {
+      "name": "possessive-adjective",
+      "slots": [
+        {
+          "role": "possessor",
+          "from": [
+            "person"
+          ],
+          "particle": "no"
+        },
+        {
+          "role": "thing",
+          "from": [
+            "object:possessable",
+            "clothing"
+          ]
+        },
+        {
+          "role": "adverb",
+          "from": [
+            "adverb"
+          ],
+          "optional": true,
+          "recommended": [
+            "totemo"
+          ]
+        },
+        {
+          "role": "adjective",
+          "from": [
+            "adjective"
+          ]
+        }
+      ],
+      "literals": {
+        "topic": "wa",
+        "copula": "desu"
+      },
+      "order": [
+        "possessor",
+        "thing",
+        "topic",
+        "adverb",
+        "adjective",
+        "copula"
+      ],
+      "example": "Juria + boushi + totemo + kawaii"
+    },
+    {
+      "name": "noun-adjective",
+      "slots": [
+        {
+          "role": "thing",
+          "from": [
+            "object",
+            "clothing",
+            "food",
+            "drink",
+            "place",
+            "transport",
+            "media"
+          ]
+        },
+        {
+          "role": "adverb",
+          "from": [
+            "adverb"
+          ],
+          "optional": true,
+          "recommended": [
+            "totemo"
+          ]
+        },
+        {
+          "role": "adjective",
+          "from": [
+            "adjective"
+          ]
+        }
+      ],
+      "literals": {
+        "topic": "wa",
+        "copula": "desu"
+      },
+      "order": [
+        "thing",
+        "topic",
+        "adverb",
+        "adjective",
+        "copula"
+      ],
+      "example": "saifu + totemo + takai"
+    },
+    {
+      "name": "adjective-before-noun",
+      "slots": [
+        {
+          "role": "adjective",
+          "from": [
+            "adjective"
+          ]
+        },
+        {
+          "role": "noun",
+          "from": [
+            "object",
+            "clothing",
+            "food",
+            "drink",
+            "place",
+            "transport",
+            "media"
+          ]
+        }
+      ],
+      "adjectiveRule": "i attaches directly; na requires 'na'",
+      "order": [
+        "adjective",
+        "noun"
+      ],
+      "example": "kawaii + boushi"
+    },
+    {
+      "name": "demonstrative-price-question",
+      "slots": [
+        {
+          "role": "demonstrative",
+          "fixed": "kono"
+        },
+        {
+          "role": "thing",
+          "from": [
+            "object:buyable",
+            "clothing"
+          ]
+        }
+      ],
+      "literals": {
+        "topic": "wa",
+        "question": "ikura desu ka?"
+      },
+      "order": [
+        "demonstrative",
+        "thing",
+        "topic",
+        "question"
+      ],
+      "example": "kono + saifu"
+    },
+    {
+      "name": "where-is",
+      "slots": [
+        {
+          "role": "thing",
+          "from": [
+            "place",
+            "object",
+            "transport"
+          ]
+        }
+      ],
+      "literals": {
+        "topic": "wa",
+        "question": "doko desu ka?"
+      },
+      "order": [
+        "thing",
+        "topic",
+        "question"
+      ],
+      "example": "doujou"
+    },
+    {
+      "name": "like",
+      "slots": [
+        {
+          "role": "thing",
+          "from": [
+            "sport",
+            "food",
+            "drink",
+            "media",
+            "activity",
+            "clothing"
+          ]
+        }
+      ],
+      "literals": {
+        "subject": "ga",
+        "predicate": "suki desu",
+        "questionSuffix": "ka?"
+      },
+      "order": [
+        "thing",
+        "subject",
+        "predicate",
+        "questionSuffix"
+      ],
+      "example": "karate"
+    },
+    {
+      "name": "origin",
+      "slots": [
+        {
+          "role": "place",
+          "from": [
+            "place"
+          ],
+          "recommendedTags": [
+            "city",
+            "country"
+          ]
+        }
+      ],
+      "literals": {
+        "predicate": "shusshin desu"
+      },
+      "order": [
+        "place",
+        "predicate"
+      ],
+      "example": "Oosaka"
+    },
+    {
+      "name": "want-object",
+      "verbFilterHas": "want",
+      "slots": [
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "useForm": "want",
+      "order": [
+        "object",
+        "verb"
+      ],
+      "example": "ramen + tabetai desu"
+    },
+    {
+      "name": "want-go",
+      "verbFilter": [
+        "ir"
+      ],
+      "slots": [
+        {
+          "role": "destination",
+          "from": [
+            "place"
+          ],
+          "particle": "ni"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "useForm": "want",
+      "order": [
+        "destination",
+        "verb"
+      ],
+      "example": "Nihon + ikitai desu"
+    },
+    {
+      "name": "frequency-action",
+      "slots": [
+        {
+          "role": "frequency",
+          "from": [
+            "adverb"
+          ],
+          "allowed": [
+            "itsumo",
+            "yoku",
+            "tokidoki"
+          ]
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "verbFilterArgsOptional": true,
+      "order": [
+        "frequency",
+        "verb"
+      ],
+      "example": "yoku + renshuu shimasu"
+    },
+    {
+      "name": "because-state",
+      "slots": [
+        {
+          "role": "state",
+          "from": [
+            "state",
+            "adjective"
+          ]
+        },
+        {
+          "role": "connector",
+          "fixed": "kara"
+        }
+      ],
+      "order": [
+        "state",
+        "connector"
+      ],
+      "example": "tsukareteimasu + kara"
+    },
+    {
+      "name": "what-is-this",
+      "slots": [
+        {
+          "role": "demonstrative",
+          "fixed": "kore"
+        }
+      ],
+      "literals": {
+        "topic": "wa",
+        "question": "nan desu ka?"
+      },
+      "order": [
+        "demonstrative",
+        "topic",
+        "question"
+      ],
+      "example": "kore"
+    },
+    {
+      "name": "what-do",
+      "verbFilter": [
+        "hacer"
+      ],
+      "slots": [
+        {
+          "role": "question",
+          "fixed": "nani"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "literals": {
+        "object": "o",
+        "questionSuffix": "ka?"
+      },
+      "order": [
+        "question",
+        "object",
+        "verb",
+        "questionSuffix"
+      ],
+      "example": "nani + shimasu"
+    },
+    {
+      "name": "where-go",
+      "verbFilter": [
+        "ir"
+      ],
+      "slots": [
+        {
+          "role": "question",
+          "fixed": "doko"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "literals": {
+        "destination": "ni",
+        "questionSuffix": "ka?"
+      },
+      "order": [
+        "question",
+        "destination",
+        "verb",
+        "questionSuffix"
+      ],
+      "example": "doko + ikimasu"
+    },
+    {
+      "name": "what-want-to-eat-or-drink",
+      "verbFilter": [
+        "comer",
+        "beber"
+      ],
+      "slots": [
+        {
+          "role": "question",
+          "fixed": "nani"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "literals": {
+        "object": "o",
+        "questionSuffix": "ka?"
+      },
+      "useForm": "want",
+      "order": [
+        "question",
+        "object",
+        "verb",
+        "questionSuffix"
+      ],
+      "example": "nani + tabetai desu"
+    },
+    {
+      "name": "do-you-do-sport",
+      "verbFilter": [
+        "hacer"
+      ],
+      "slots": [
+        {
+          "role": "sport",
+          "from": [
+            "sport"
+          ],
+          "particle": "o"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "literals": {
+        "questionSuffix": "ka?"
+      },
+      "order": [
+        "sport",
+        "verb",
+        "questionSuffix"
+      ],
+      "example": "sakkaa + shimasu"
+    },
+    {
+      "name": "state-with-adverb",
+      "slots": [
+        {
+          "role": "adverb",
+          "from": [
+            "adverb"
+          ],
+          "allowed": [
+            "mada",
+            "mou",
+            "totemo"
+          ],
+          "optional": true
+        },
+        {
+          "role": "state",
+          "from": [
+            "state",
+            "adjective"
+          ]
+        }
+      ],
+      "order": [
+        "adverb",
+        "state"
+      ],
+      "example": "mada + tsukareteimasu"
+    }
+  ],
+  "excluded": [
+    {
+      "es": "Buenos días",
+      "jp": "ohayou gozaimasu",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Hola / buenas tardes",
+      "jp": "konnichiwa",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Buenas noches",
+      "jp": "konbanwa",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Gracias",
+      "jp": "arigatou gozaimasu",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Muchas gracias",
+      "jp": "doumo arigatou gozaimasu",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Disculpa / perdón",
+      "jp": "sumimasen",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Lo siento",
+      "jp": "gomennasai",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Por favor",
+      "jp": "onegaishimasu",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Encantado",
+      "jp": "hajimemashite",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Mucho gusto",
+      "jp": "yoroshiku onegaishimasu",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Sí",
+      "jp": "hai",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "No",
+      "jp": "iie",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Espera un momento, por favor",
+      "jp": "chotto matte kudasai",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Otra vez, por favor",
+      "jp": "mou ichido onegaishimasu",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Más despacio, por favor",
+      "jp": "motto yukkuri onegaishimasu",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "¿Qué significa?",
+      "jp": "dou iu imi desu ka?",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "¿Cómo se dice en japonés?",
+      "jp": "nihongo de nan to iimasu ka?",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "¿De verdad?",
+      "jp": "hontou desu ka?",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "¿Cómo te llamas?",
+      "jp": "onamae wa? / onamae wa nan desu ka?",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Buen trabajo / gracias por el esfuerzo",
+      "jp": "otsukaresama deshita",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Gracias por la comida (después de comer)",
+      "jp": "gochisousama deshita",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Antes de comer",
+      "jp": "itadakimasu",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Cuídate / ten cuidado",
+      "jp": "ki o tsukete",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Con permiso / disculpe (antes de entrar o interrumpir)",
+      "jp": "shitsurei shimasu",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Disculpe la molestia / con permiso (al terminar o marcharse)",
+      "jp": "shitsurei shimashita",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Bienvenido a casa",
+      "jp": "okaerinasai",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Ya he vuelto / estoy en casa",
+      "jp": "tadaima",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Me voy / hasta luego (al salir de casa)",
+      "jp": "ittekimasu",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Que te vaya bien (a quien sale)",
+      "jp": "itterasshai",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Hasta luego / nos vemos",
+      "jp": "mata ne",
+      "reason": "fixed expression; useful as a flashcard but not decomposed for sentence generation"
+    },
+    {
+      "es": "Lo intento",
+      "jp": "yatte mimasu",
+      "reason": "grammar construction (-te mimasu); kept out until generic te-form generation is modeled"
+    },
+    {
+      "es": "¿Puedo hacerlo?",
+      "jp": "yatte mo ii desu ka?",
+      "reason": "permission construction (-te mo ii desu ka); keep fixed until te-form generation is modeled"
+    },
+    {
+      "es": "¿Puedo entrar?",
+      "jp": "haitte mo ii desu ka?",
+      "reason": "permission construction (-te mo ii desu ka); keep fixed until te-form generation is modeled"
+    },
+    {
+      "es": "¿Puedo usar esto?",
+      "jp": "kore o tsukatte mo ii desu ka?",
+      "reason": "permission construction (-te mo ii desu ka); keep fixed until te-form generation is modeled"
+    }
+  ],
+  "rules": {
+    "tense": [
+      "Each time item exposes allowed timeRef values.",
+      "kinou and ototoi allow only past; ashita and asatte allow only nonpast.",
+      "kyou, recurring expressions and neutral periods may allow both past and nonpast when context permits.",
+      "Japanese future uses the nonpast form: ashita + ikimasu, not a separate future conjugation.",
+      "If no time is selected, default to nonpast unless the round explicitly chooses past."
+    ],
+    "polarity": [
+      "Choose affirmative or negative independently of tense only when the template allows it.",
+      "The selected verb form must match both tense and polarity."
+    ],
+    "particles": [
+      "Use each verb argument's particle; do not guess particles from category alone.",
+      "Action location normally uses de; destination uses ni; companion uses to; direct object uses o.",
+      "Possession uses no; topic constructions use wa; suki and wakarimasu commonly use ga."
+    ],
+    "adjectives": [
+      "Predicative polite form: noun wa adjective desu for both i- and na-adjectives.",
+      "Before a noun: i-adjectives attach directly; na-adjectives require na.",
+      "When a template combines a noun/category with an adjective, only use adjectives whose accepts list contains that noun category.",
+      "Category constraints should prevent clearly nonsensical combinations such as oishii + jacket or shizuka + curry."
+    ],
+    "generation": [
+      "A template chooses a compatible verb first, then fills only slots accepted by that verb.",
+      "Optional slots may be omitted; never fill every slot just because it exists.",
+      "Prefer 3-5 visible cards per round.",
+      "The game may create semantically odd but grammatically valid sentences; category constraints should prevent obviously invalid pairings such as eating a jacket."
+    ],
+    "subjects": [
+      "When a person slot is the grammatical subject of a verbal sentence, use wa by default.",
+      "Example: Hana + sushi + tabemasu -> Hana wa sushi o tabemasu.",
+      "Do not add wa when the person is used as a companion (to) or possessor (no)."
+    ]
+  },
+  "audit": {
+    "sourceCards": 286,
+    "reusableVocabPieces": 206,
+    "normalizedVerbs": 28,
+    "templates": 27,
+    "fixedExpressionsExcluded": 30,
+    "important": "Counts are not expected to equal sourceCards: one source sentence can yield several reusable pieces, while duplicate/contextual cards collapse into one piece.",
+    "examplesOfDecomposition": [
+      {
+        "source": "sushi o tabemasu",
+        "pieces": [
+          "sushi",
+          "tabemasu"
+        ]
+      },
+      {
+        "source": "nihongo o benkyou shimasu",
+        "pieces": [
+          "nihongo",
+          "benkyou shimasu"
+        ]
+      },
+      {
+        "source": "kinou Times Square de tomodachi to eiga o mimashita",
+        "pieces": [
+          "kinou",
+          "Times Square",
+          "tomodachi",
+          "eiga",
+          "mimasu"
+        ]
+      },
+      {
+        "source": "kyou doujou de Juria to renshuu o shimasu",
+        "pieces": [
+          "kyou",
+          "doujou",
+          "Juria",
+          "renshuu shimasu"
+        ]
+      }
+    ],
+    "fixedOrDeferredExpressions": 34,
+    "v3": {
+      "timeRulesUpdated": true,
+      "adjectiveCompatibilityAdded": true,
+      "structuralIssues": []
+    },
+    "v4": {
+      "subjectParticleRuleAdded": true,
+      "verbalTemplatesUpdated": 5
+    }
+  },
+  "categorySchema": {
+    "time": "time expressions; timeRef controls verb tense when possible",
+    "place": "locations/destinations; tags distinguish actionLocation, origin, country, city",
+    "person": "people/roles that can be subjects, companions or possessors",
+    "food": "edible direct objects for tabemasu",
+    "drink": "drinkable direct objects for nomimasu",
+    "transport": "vehicles/public transport",
+    "clothing": "wearable/possessable/buyable nouns",
+    "body": "body-part nouns",
+    "object": "general physical nouns; optional tags refine compatibility",
+    "media": "content nouns; tags readable/watchable/listenable",
+    "sport": "sports accepted by shimasu and often renshuu shimasu",
+    "activity": "activities/events accepted by shimasu",
+    "language": "language nouns",
+    "direction": "spatial/directional words",
+    "demonstrative": "kore/sore/kono/sono with usage metadata",
+    "adjective": "descriptive predicates; adjClass supports noun modification",
+    "state": "ready-made state predicates not treated as simple adjectives",
+    "adverb": "frequency/degree/manner words",
+    "connector": "demo/kara/dakara",
+    "locationWord": "koko/soko/asoko",
+    "question": "interrogatives",
+    "number": "number expressions",
+    "social": "family/group nouns",
+    "concept": "abstract/general nouns"
+  },
+  "resolver": {
+    "category": "food -> all entries in vocab.food",
+    "categoryTag": "media:readable -> entries in vocab.media whose tags include readable",
+    "verbArg": "verb.args.object -> categories/tags accepted by the selected verb's object argument"
+  },
+  "patterns": {
+    "subjectTopicParticle": "wa"
+  }
+}
