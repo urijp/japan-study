@@ -332,11 +332,14 @@
 
   main.sentence-view .card-slot {
     aspect-ratio: auto;
-    height: 96px;
     perspective: 700px;
     flex: 0 1 calc(33.333% - 8px);
     min-width: 104px;
     max-width: 190px;
+  }
+
+  main.sentence-view .card-slot .card {
+    height: 96px;
   }
 
   .sentence-role {
@@ -389,7 +392,7 @@
   }
 
   @media (max-width: 360px) {
-    main.sentence-view .card-slot { height: 84px; }
+    main.sentence-view .card-slot .card { height: 84px; }
     main.sentence-view .face .text { font-size: 0.95rem; }
   }
 
