@@ -1339,6 +1339,11 @@
         "es": "ser originario de",
         "jp": "shusshin desu",
         "predicate": true
+      },
+      {
+        "es": "ser",
+        "jp": "desu",
+        "predicate": true
       }
     ],
     "marker": [
@@ -2384,11 +2389,14 @@
           "from": [
             "adjective"
           ]
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
         }
       ],
       "literals": {
-        "topic": "wa",
-        "copula": "desu"
+        "topic": "wa"
       },
       "order": [
         "possessor",
@@ -2430,11 +2438,14 @@
           "from": [
             "adjective"
           ]
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
         }
       ],
       "literals": {
-        "topic": "wa",
-        "copula": "desu"
+        "topic": "wa"
       },
       "order": [
         "thing",
@@ -2495,11 +2506,14 @@
         {
           "role": "questionMarker",
           "fixed": "ka?"
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
         }
       ],
       "literals": {
-        "topic": "wa",
-        "copula": "desu"
+        "topic": "wa"
       },
       "order": [
         "demonstrative",
@@ -2529,11 +2543,14 @@
         {
           "role": "questionMarker",
           "fixed": "ka?"
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
         }
       ],
       "literals": {
-        "topic": "wa",
-        "copula": "desu"
+        "topic": "wa"
       },
       "order": [
         "thing",
@@ -2714,11 +2731,14 @@
         {
           "role": "questionMarker",
           "fixed": "ka?"
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
         }
       ],
       "literals": {
-        "topic": "wa",
-        "copula": "desu"
+        "topic": "wa"
       },
       "order": [
         "demonstrative",
