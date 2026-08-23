@@ -1630,5 +1630,89 @@
     "spanish": "Hoy voy a entrenar en el dojo con Júlia",
     "japanese": "kyou doujou de Juria to renshuu o shimasu",
     "image": "images/272.svg"
+  },
+  {
+    "id": 273,
+    "spanish": "Ropa",
+    "japanese": "fuku",
+    "image": "images/273.svg"
+  },
+  {
+    "id": 274,
+    "spanish": "Cartera",
+    "japanese": "saifu",
+    "image": "images/274.svg"
+  },
+  {
+    "id": 275,
+    "spanish": "Este / esta (antes de un sustantivo)",
+    "japanese": "kono",
+    "image": "images/275.svg"
+  },
+  {
+    "id": 276,
+    "spanish": "Camiseta",
+    "japanese": "tiishatsu",
+    "image": "images/276.svg"
+  },
+  {
+    "id": 277,
+    "spanish": "Falda",
+    "japanese": "sukaato",
+    "image": "images/277.svg"
+  },
+  {
+    "id": 278,
+    "spanish": "Azul",
+    "japanese": "aoi",
+    "image": "images/278.svg"
+  },
+  {
+    "id": 279,
+    "spanish": "Lindo / mono",
+    "japanese": "kawaii",
+    "image": "images/279.svg"
+  },
+  {
+    "id": 280,
+    "spanish": "Corbata",
+    "japanese": "nekutai",
+    "image": "images/280.svg"
+  },
+  {
+    "id": 281,
+    "spanish": "Barato",
+    "japanese": "yasui",
+    "image": "images/281.svg"
+  },
+  {
+    "id": 282,
+    "spanish": "Caro / alto",
+    "japanese": "takai",
+    "image": "images/282.svg"
+  },
+  {
+    "id": 283,
+    "spanish": "¿Cuánto cuesta esta cartera?",
+    "japanese": "kono saifu wa ikura desu ka?",
+    "image": "images/283.svg"
+  },
+  {
+    "id": 284,
+    "spanish": "Cuatrocientos",
+    "japanese": "yonhyaku",
+    "image": "images/284.svg"
+  },
+  {
+    "id": 285,
+    "spanish": "Chaqueta",
+    "japanese": "jaketto",
+    "image": "images/285.svg"
+  },
+  {
+    "id": 286,
+    "spanish": "Cuatro mil",
+    "japanese": "yonsen",
+    "image": "images/286.svg"
   }
 ]
