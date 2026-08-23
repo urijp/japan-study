@@ -27,6 +27,8 @@
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     -webkit-user-select: none;
     user-select: none;
   }
@@ -313,11 +315,14 @@
 
   main.sentence-view {
     max-width: 640px;
+    width: 100%;
     margin: 0 auto;
-    padding: 10px 20px 60px;
+    padding: 20px;
     display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 20px;
   }
 
