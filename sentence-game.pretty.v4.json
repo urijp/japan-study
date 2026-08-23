@@ -1291,7 +1291,7 @@
       },
       {
         "es": "cuánto cuesta",
-        "jp": "ikura"
+        "jp": "ikura desu"
       },
       {
         "es": "qué hora",
@@ -2501,15 +2501,11 @@
         },
         {
           "role": "question",
-          "fixed": "ikura"
+          "fixed": "ikura desu"
         },
         {
           "role": "questionMarker",
           "fixed": "ka?"
-        },
-        {
-          "role": "copula",
-          "fixed": "desu"
         }
       ],
       "literals": {
@@ -2520,10 +2516,9 @@
         "thing",
         "topic",
         "question",
-        "copula",
         "questionMarker"
       ],
-      "example": "kono + saifu + ikura + ka?"
+      "example": "kono + saifu + ikura desu + ka?"
     },
     {
       "name": "where-is",
