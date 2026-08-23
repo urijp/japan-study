@@ -1322,6 +1322,24 @@
         "es": "tiempo / hora",
         "jp": "jikan"
       }
+    ],
+    "predicate": [
+      {
+        "es": "gustar",
+        "jp": "suki desu",
+        "predicate": true
+      },
+      {
+        "es": "ser originario de",
+        "jp": "shusshin desu",
+        "predicate": true
+      }
+    ],
+    "marker": [
+      {
+        "es": "pregunta",
+        "jp": "ka?"
+      }
     ]
   },
   "verbs": [
@@ -2463,17 +2481,27 @@
             "object:buyable",
             "clothing"
           ]
+        },
+        {
+          "role": "question",
+          "fixed": "ikura"
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
         }
       ],
       "literals": {
         "topic": "wa",
-        "question": "ikura desu ka?"
+        "copula": "desu"
       },
       "order": [
         "demonstrative",
         "thing",
         "topic",
-        "question"
+        "question",
+        "copula",
+        "questionMarker"
       ],
       "example": "kono + saifu"
     },
@@ -2487,16 +2515,26 @@
             "object",
             "transport"
           ]
+        },
+        {
+          "role": "question",
+          "fixed": "doko"
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
         }
       ],
       "literals": {
         "topic": "wa",
-        "question": "doko desu ka?"
+        "copula": "desu"
       },
       "order": [
         "thing",
         "topic",
-        "question"
+        "question",
+        "copula",
+        "questionMarker"
       ],
       "example": "doujou"
     },
@@ -2513,18 +2551,24 @@
             "activity",
             "clothing"
           ]
+        },
+        {
+          "role": "predicate",
+          "fixed": "suki desu"
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
         }
       ],
       "literals": {
-        "subject": "ga",
-        "predicate": "suki desu",
-        "questionSuffix": "ka?"
+        "subject": "ga"
       },
       "order": [
         "thing",
         "subject",
         "predicate",
-        "questionSuffix"
+        "questionMarker"
       ],
       "example": "karate"
     },
@@ -2540,11 +2584,12 @@
             "city",
             "country"
           ]
+        },
+        {
+          "role": "predicate",
+          "fixed": "shusshin desu"
         }
       ],
-      "literals": {
-        "predicate": "shusshin desu"
-      },
       "order": [
         "place",
         "predicate"
@@ -2655,16 +2700,26 @@
         {
           "role": "demonstrative",
           "fixed": "kore"
+        },
+        {
+          "role": "question",
+          "fixed": "nani"
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
         }
       ],
       "literals": {
         "topic": "wa",
-        "question": "nan desu ka?"
+        "copula": "desu"
       },
       "order": [
         "demonstrative",
         "topic",
-        "question"
+        "question",
+        "copula",
+        "questionMarker"
       ],
       "example": "kore"
     },
@@ -2683,17 +2738,20 @@
           "from": [
             "verbs"
           ]
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
         }
       ],
       "literals": {
-        "object": "o",
-        "questionSuffix": "ka?"
+        "object": "o"
       },
       "order": [
         "question",
         "object",
         "verb",
-        "questionSuffix"
+        "questionMarker"
       ],
       "example": "nani + shimasu"
     },
@@ -2712,17 +2770,20 @@
           "from": [
             "verbs"
           ]
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
         }
       ],
       "literals": {
-        "destination": "ni",
-        "questionSuffix": "ka?"
+        "destination": "ni"
       },
       "order": [
         "question",
         "destination",
         "verb",
-        "questionSuffix"
+        "questionMarker"
       ],
       "example": "doko + ikimasu"
     },
@@ -2742,18 +2803,21 @@
           "from": [
             "verbs"
           ]
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
         }
       ],
       "literals": {
-        "object": "o",
-        "questionSuffix": "ka?"
+        "object": "o"
       },
       "useForm": "want",
       "order": [
         "question",
         "object",
         "verb",
-        "questionSuffix"
+        "questionMarker"
       ],
       "example": "nani + tabetai desu"
     },
@@ -2775,15 +2839,16 @@
           "from": [
             "verbs"
           ]
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
         }
       ],
-      "literals": {
-        "questionSuffix": "ka?"
-      },
       "order": [
         "sport",
         "verb",
-        "questionSuffix"
+        "questionMarker"
       ],
       "example": "sakkaa + shimasu"
     },
@@ -3101,7 +3166,9 @@
     "question": "interrogatives",
     "number": "number expressions",
     "social": "family/group nouns",
-    "concept": "abstract/general nouns"
+    "concept": "abstract/general nouns",
+    "predicate": "relational predicates (e.g. gustar, ser originario de) referenced only via fixed template slots",
+    "marker": "sentence-type markers (e.g. question) shown as their own card, not text glue"
   },
   "resolver": {
     "category": "food -> all entries in vocab.food",
