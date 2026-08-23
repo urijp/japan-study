@@ -770,8 +770,13 @@
         if (verb) {
           form = resolveVerbForm(tpl, verb, resolved);
           if (!form || !form.jp) return null;
+          // The card's Spanish label must reflect the mood actually shown in Japanese:
+          // useForm:"want" reveals the desiderative ("-tai desu") form, not the plain verb.
+          const verbEs = (tpl.raw.useForm && form.formKey === tpl.raw.useForm)
+            ? `querer ${verb.raw.es}`
+            : verb.raw.es;
           resolved[tpl.verbSlot.role] = {
-            role: tpl.verbSlot.role, es: verb.raw.es, jp: form.jp, category: null,
+            role: tpl.verbSlot.role, es: verbEs, jp: form.jp, category: null,
             particle: null, particleSource: null, isVerb: true, item: verb.raw
           };
         }
