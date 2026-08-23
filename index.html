@@ -361,16 +361,6 @@
     overflow-wrap: anywhere;
   }
 
-  .sentence-glue {
-    align-self: center;
-    margin-top: 21px;
-    padding: 6px 4px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-
   .sentence-actions {
     display: flex;
     flex-wrap: wrap;
@@ -1198,13 +1188,7 @@
       let pieceIndex = 0;
 
       sentenceRound.sequence.forEach(item => {
-        if (item.kind === 'glue') {
-          const glue = document.createElement('div');
-          glue.className = 'sentence-glue';
-          glue.textContent = item.text;
-          row.appendChild(glue);
-          return;
-        }
+        if (item.kind === 'glue') return; // connectors only appear in the revealed sentence, not between cards
 
         const piece = sentenceRound.meta.pieces[pieceIndex++];
 
