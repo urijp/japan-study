@@ -8,7 +8,8 @@
       "Vocabulary is grouped by category to avoid repeating type on every entry.",
       "Verb forms are polite forms because the learner prioritizes -masu/-desu speech.",
       "Japanese verb tense is modeled as nonpast/past. Future time words use nonpast forms.",
-      "Fixed expressions that are not useful for recombination are listed under excluded."
+      "Fixed expressions that are not useful for recombination are listed under excluded.",
+      "Templates reference reusable vocab items (including via fixed slots) and keep only grammatical glue in literals; meaningful words are always shown as cards."
     ]
   },
   "particles": {
@@ -1295,6 +1296,11 @@
       {
         "es": "qué hora",
         "jp": "nanji"
+      },
+      {
+        "es": "qué",
+        "jp": "nan",
+        "usage": "before desu"
       }
     ],
     "number": [
@@ -2503,7 +2509,7 @@
         "copula",
         "questionMarker"
       ],
-      "example": "kono + saifu"
+      "example": "kono + saifu + ikura + ka?"
     },
     {
       "name": "where-is",
@@ -2536,7 +2542,7 @@
         "copula",
         "questionMarker"
       ],
-      "example": "doujou"
+      "example": "doujou + doko + ka?"
     },
     {
       "name": "like",
@@ -2570,7 +2576,7 @@
         "predicate",
         "questionMarker"
       ],
-      "example": "karate"
+      "example": "karate + suki desu + ka?"
     },
     {
       "name": "origin",
@@ -2594,7 +2600,7 @@
         "place",
         "predicate"
       ],
-      "example": "Oosaka"
+      "example": "Oosaka + shusshin desu"
     },
     {
       "name": "want-object",
@@ -2703,7 +2709,7 @@
         },
         {
           "role": "question",
-          "fixed": "nani"
+          "fixed": "nan"
         },
         {
           "role": "questionMarker",
@@ -2721,7 +2727,7 @@
         "copula",
         "questionMarker"
       ],
-      "example": "kore"
+      "example": "kore + nan + ka?"
     },
     {
       "name": "what-do",
@@ -2753,7 +2759,7 @@
         "verb",
         "questionMarker"
       ],
-      "example": "nani + shimasu"
+      "example": "nani + shimasu + ka?"
     },
     {
       "name": "where-go",
@@ -2785,7 +2791,7 @@
         "verb",
         "questionMarker"
       ],
-      "example": "doko + ikimasu"
+      "example": "doko + ikimasu + ka?"
     },
     {
       "name": "what-want-to-eat-or-drink",
@@ -2819,7 +2825,7 @@
         "verb",
         "questionMarker"
       ],
-      "example": "nani + tabetai desu"
+      "example": "nani + tabetai desu + ka?"
     },
     {
       "name": "do-you-do-sport",
@@ -2850,7 +2856,7 @@
         "verb",
         "questionMarker"
       ],
-      "example": "sakkaa + shimasu"
+      "example": "sakkaa + shimasu + ka?"
     },
     {
       "name": "state-with-adverb",
@@ -3091,7 +3097,7 @@
   },
   "audit": {
     "sourceCards": 286,
-    "reusableVocabPieces": 206,
+    "reusableVocabPieces": 210,
     "normalizedVerbs": 28,
     "templates": 27,
     "fixedExpressionsExcluded": 30,
