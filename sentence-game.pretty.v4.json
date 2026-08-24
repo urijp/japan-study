@@ -1385,6 +1385,12 @@
         "es": "?",
         "jp": "ka?"
       }
+    ],
+    "unit": [
+      {
+        "es": "yenes",
+        "jp": "en"
+      }
     ]
   },
   "verbs": [
@@ -3241,6 +3247,56 @@
         "copula"
       ],
       "example": "kaban + migi + desu"
+    },
+    {
+      "name": "price-statement",
+      "slots": [
+        {
+          "role": "demonstrative",
+          "from": [
+            "demonstrative"
+          ],
+          "allowed": [
+            "kono",
+            "sono",
+            "ano"
+          ],
+          "optional": true
+        },
+        {
+          "role": "thing",
+          "from": [
+            "clothing",
+            "object:possessable"
+          ]
+        },
+        {
+          "role": "number",
+          "from": [
+            "number"
+          ]
+        },
+        {
+          "role": "unit",
+          "fixed": "en"
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        }
+      ],
+      "literals": {
+        "topic": "wa"
+      },
+      "order": [
+        "demonstrative",
+        "thing",
+        "topic",
+        "number",
+        "unit",
+        "copula"
+      ],
+      "example": "kono + saifu + yonhyaku + en"
     }
   ],
   "excluded": [
@@ -3529,7 +3585,8 @@
     "social": "family/group nouns",
     "concept": "abstract/general nouns",
     "predicate": "relational predicates (e.g. gustar, ser originario de) referenced only via fixed template slots",
-    "marker": "sentence-type markers (e.g. question) shown as their own card, not text glue"
+    "marker": "sentence-type markers (e.g. question) shown as their own card, not text glue",
+    "unit": "currency/measure counters referenced only via fixed template slots"
   },
   "resolver": {
     "category": "food -> all entries in vocab.food",
