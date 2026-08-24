@@ -360,7 +360,7 @@
     margin-bottom: 4px;
   }
 
-  .tense-badge {
+  .verb-badge {
     position: absolute;
     bottom: 6px;
     right: 8px;
@@ -370,11 +370,11 @@
     pointer-events: none;
   }
 
-  .face.front .tense-badge {
+  .face.front .verb-badge {
     color: var(--muted);
   }
 
-  .face.back .tense-badge {
+  .face.back .verb-badge {
     color: rgba(255, 255, 255, 0.55);
   }
 
@@ -1242,13 +1242,18 @@
         const cardEl = buildCardEl(toFlashcard(item), 'spanish');
         cardEl.addEventListener('click', () => cardEl.classList.toggle('flipped'));
 
-        if (piece && piece.isVerb && sentenceRound.meta.tense === 'past') {
-          cardEl.querySelectorAll('.face').forEach(face => {
-            const badge = document.createElement('span');
-            badge.className = 'tense-badge';
-            badge.textContent = 'pasado';
-            face.appendChild(badge);
-          });
+        if (piece && piece.isVerb) {
+          const badgeLabels = [];
+          if (sentenceRound.meta.tense === 'past') badgeLabels.push('pasado');
+          if (sentenceRound.meta.polarity === 'negative') badgeLabels.push('negativo');
+          if (badgeLabels.length) {
+            cardEl.querySelectorAll('.face').forEach(face => {
+              const badge = document.createElement('span');
+              badge.className = 'verb-badge';
+              badge.textContent = badgeLabels.join(' · ');
+              face.appendChild(badge);
+            });
+          }
         }
 
         slot.appendChild(cardEl);
