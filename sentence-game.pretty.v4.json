@@ -2082,7 +2082,11 @@
       ],
       "tenseFrom": "time",
       "subjectParticle": "wa",
-      "example": "ashita + Hana + karee + tabemasu"
+      "example": "ashita + Hana + karee + tabemasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "time-place-object-verb",
@@ -2122,7 +2126,11 @@
         "verb"
       ],
       "tenseFrom": "time",
-      "example": "kinou + resutoran + karee + tabemashita"
+      "example": "kinou + resutoran + karee + tabemashita",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "time-place-companion-object-verb",
@@ -2170,7 +2178,11 @@
         "verb"
       ],
       "tenseFrom": "time",
-      "example": "kinou + Times Square + tomodachi + eiga + mimashita"
+      "example": "kinou + Times Square + tomodachi + eiga + mimashita",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "movement",
@@ -2274,7 +2286,11 @@
       ],
       "tenseFrom": "time",
       "example": "ashita + tenisu + shimasu",
-      "subjectParticle": "wa"
+      "subjectParticle": "wa",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "training",
@@ -2328,7 +2344,11 @@
         "verb"
       ],
       "tenseFrom": "time",
-      "example": "kyou + doujou + Juria + karate + renshuu shimasu"
+      "example": "kyou + doujou + Juria + karate + renshuu shimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "study-language",
@@ -2372,7 +2392,11 @@
         "verb"
       ],
       "tenseFrom": "time",
-      "example": "kinou + daigaku + nihongo + benkyou shimashita"
+      "example": "kinou + daigaku + nihongo + benkyou shimashita",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "live-in-place",
@@ -2407,7 +2431,11 @@
         "verb"
       ],
       "example": "watashi + machi + sundeimasu",
-      "subjectParticle": "wa"
+      "subjectParticle": "wa",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "possessive-adjective",
@@ -2769,7 +2797,11 @@
         "frequency",
         "verb"
       ],
-      "example": "yoku + renshuu shimasu"
+      "example": "yoku + renshuu shimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "because-state",
@@ -2866,7 +2898,11 @@
         "verb",
         "questionMarker"
       ],
-      "example": "nani + shimasu + ka?"
+      "example": "nani + shimasu + ka?",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "where-go",
@@ -2898,7 +2934,11 @@
         "verb",
         "questionMarker"
       ],
-      "example": "doko + ikimasu + ka?"
+      "example": "doko + ikimasu + ka?",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "what-want-to-eat-or-drink",
@@ -2963,7 +3003,11 @@
         "verb",
         "questionMarker"
       ],
-      "example": "sakkaa + shimasu + ka?"
+      "example": "sakkaa + shimasu + ka?",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "state-with-adverb",
@@ -3309,6 +3353,153 @@
         "copula"
       ],
       "example": "kono + saifu + yonhyaku + en"
+    },
+    {
+      "name": "adverbial-question",
+      "slots": [
+        {
+          "role": "question",
+          "from": [
+            "question"
+          ],
+          "allowed": [
+            "itsu",
+            "doushite"
+          ]
+        },
+        {
+          "role": "subject",
+          "from": [
+            "person"
+          ],
+          "optional": true
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
+        }
+      ],
+      "order": [
+        "question",
+        "subject",
+        "verb",
+        "questionMarker"
+      ],
+      "subjectParticle": "wa",
+      "example": "itsu + Juria + shimasu + ka?",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "how-is-it",
+      "slots": [
+        {
+          "role": "thing",
+          "from": [
+            "object",
+            "clothing",
+            "food",
+            "drink",
+            "place",
+            "transport",
+            "media"
+          ]
+        },
+        {
+          "role": "question",
+          "fixed": "dou"
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
+        }
+      ],
+      "literals": {
+        "topic": "wa"
+      },
+      "order": [
+        "thing",
+        "topic",
+        "question",
+        "copula",
+        "questionMarker"
+      ],
+      "example": "piza + dou + desu"
+    },
+    {
+      "name": "which-one",
+      "slots": [
+        {
+          "role": "question",
+          "fixed": "dore"
+        },
+        {
+          "role": "adjective",
+          "from": [
+            "adjective"
+          ]
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
+        }
+      ],
+      "literals": {
+        "subject": "ga"
+      },
+      "order": [
+        "question",
+        "subject",
+        "adjective",
+        "copula",
+        "questionMarker"
+      ],
+      "example": "dore + oishii + desu"
+    },
+    {
+      "name": "what-time",
+      "slots": [
+        {
+          "role": "time",
+          "fixed": "ima",
+          "optional": true
+        },
+        {
+          "role": "question",
+          "fixed": "nanji"
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
+        }
+      ],
+      "order": [
+        "time",
+        "question",
+        "copula",
+        "questionMarker"
+      ],
+      "example": "ima + nanji + desu"
     }
   ],
   "excluded": [
