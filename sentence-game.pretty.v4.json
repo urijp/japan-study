@@ -2405,7 +2405,10 @@
           "role": "thing",
           "from": [
             "object:possessable",
-            "clothing"
+            "clothing",
+            "social:possessable",
+            "concept",
+            "body"
           ]
         },
         {
@@ -2466,7 +2469,10 @@
             "drink",
             "place",
             "transport",
-            "media"
+            "media",
+            "social",
+            "concept",
+            "body"
           ]
         },
         {
@@ -2521,7 +2527,10 @@
             "drink",
             "place",
             "transport",
-            "media"
+            "media",
+            "social",
+            "concept",
+            "body"
           ]
         }
       ],
@@ -2770,11 +2779,23 @@
       "slots": [
         {
           "role": "pronoun",
-          "fixed": "kore"
+          "from": [
+            "demonstrative"
+          ],
+          "allowed": [
+            "kore",
+            "sore"
+          ]
         },
         {
           "role": "question",
-          "fixed": "nan"
+          "from": [
+            "question"
+          ],
+          "allowed": [
+            "nan",
+            "dare"
+          ]
         },
         {
           "role": "questionMarker",
@@ -3019,7 +3040,10 @@
           "role": "thing",
           "from": [
             "object:possessable",
-            "clothing"
+            "clothing",
+            "social:possessable",
+            "concept",
+            "body"
           ]
         },
         {
@@ -3079,7 +3103,10 @@
           "role": "thing",
           "from": [
             "clothing",
-            "object:possessable"
+            "object:possessable",
+            "social:possessable",
+            "concept",
+            "body"
           ]
         },
         {
@@ -3140,7 +3167,10 @@
           "role": "thing",
           "from": [
             "clothing",
-            "object:possessable"
+            "object:possessable",
+            "social:possessable",
+            "concept",
+            "body"
           ]
         },
         {
@@ -3177,6 +3207,40 @@
         "copula"
       ],
       "example": "ano + mise + fuku + totemo + kakkoii"
+    },
+    {
+      "name": "thing-direction",
+      "slots": [
+        {
+          "role": "thing",
+          "from": [
+            "object",
+            "place",
+            "clothing",
+            "transport"
+          ]
+        },
+        {
+          "role": "direction",
+          "from": [
+            "direction"
+          ]
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        }
+      ],
+      "literals": {
+        "topic": "wa"
+      },
+      "order": [
+        "thing",
+        "topic",
+        "direction",
+        "copula"
+      ],
+      "example": "kaban + migi + desu"
     }
   ],
   "excluded": [
