@@ -930,7 +930,9 @@
         const cardCountHist = {};
         const templateHits = {};
         templates.forEach(t => { templateHits[t.name] = 0; });
-        const particleValues = Object.keys(raw.particles || {}).map(k => raw.particles[k]);
+        // Grammar knowledge, not vocabulary: the fixed set of Japanese particles this
+        // dataset ever attaches to a piece (see makePiece) - a card must never equal one.
+        const particleValues = ['wa', 'ga', 'o', 'ni', 'de', 'to', 'no', 'mo'];
         let prevFp = null, repeatCollisions = 0;
 
         for (let i = 0; i < n; i++) {

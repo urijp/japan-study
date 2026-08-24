@@ -12,17 +12,6 @@
       "Templates reference reusable vocab items (including via fixed slots) and keep only grammatical glue in literals; meaningful words are always shown as cards."
     ]
   },
-  "particles": {
-    "topic": "wa",
-    "subject": "ga",
-    "object": "o",
-    "destination": "ni",
-    "timeAt": "ni",
-    "actionLocation": "de",
-    "companion": "to",
-    "possession": "no",
-    "also": "mo"
-  },
   "vocab": {
     "time": [
       {
