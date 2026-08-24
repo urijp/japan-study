@@ -1391,6 +1391,148 @@
         "es": "yenes",
         "jp": "en"
       }
+    ],
+    "idiom": [
+      {
+        "es": "Buenos días",
+        "jp": "ohayou gozaimasu"
+      },
+      {
+        "es": "Hola / buenas tardes",
+        "jp": "konnichiwa"
+      },
+      {
+        "es": "Buenas noches",
+        "jp": "konbanwa"
+      },
+      {
+        "es": "Gracias",
+        "jp": "arigatou gozaimasu"
+      },
+      {
+        "es": "Muchas gracias",
+        "jp": "doumo arigatou gozaimasu"
+      },
+      {
+        "es": "Disculpa / perdón",
+        "jp": "sumimasen"
+      },
+      {
+        "es": "Lo siento",
+        "jp": "gomennasai"
+      },
+      {
+        "es": "Por favor",
+        "jp": "onegaishimasu"
+      },
+      {
+        "es": "Encantado",
+        "jp": "hajimemashite"
+      },
+      {
+        "es": "Mucho gusto",
+        "jp": "yoroshiku onegaishimasu"
+      },
+      {
+        "es": "Sí",
+        "jp": "hai"
+      },
+      {
+        "es": "No",
+        "jp": "iie"
+      },
+      {
+        "es": "Espera un momento, por favor",
+        "jp": "chotto matte kudasai"
+      },
+      {
+        "es": "Otra vez, por favor",
+        "jp": "mou ichido onegaishimasu"
+      },
+      {
+        "es": "Más despacio, por favor",
+        "jp": "motto yukkuri onegaishimasu"
+      },
+      {
+        "es": "¿Qué significa?",
+        "jp": "dou iu imi desu ka?"
+      },
+      {
+        "es": "¿Cómo se dice en japonés?",
+        "jp": "nihongo de nan to iimasu ka?"
+      },
+      {
+        "es": "¿De verdad?",
+        "jp": "hontou desu ka?"
+      },
+      {
+        "es": "¿Cómo te llamas?",
+        "jp": "onamae wa?"
+      },
+      {
+        "es": "¿Cómo te llamas?",
+        "jp": "onamae wa nan desu ka?"
+      },
+      {
+        "es": "Buen trabajo / gracias por el esfuerzo",
+        "jp": "otsukaresama deshita"
+      },
+      {
+        "es": "Gracias por la comida (después de comer)",
+        "jp": "gochisousama deshita"
+      },
+      {
+        "es": "Antes de comer",
+        "jp": "itadakimasu"
+      },
+      {
+        "es": "Cuídate / ten cuidado",
+        "jp": "ki o tsukete"
+      },
+      {
+        "es": "Con permiso / disculpe (antes de entrar o interrumpir)",
+        "jp": "shitsurei shimasu"
+      },
+      {
+        "es": "Disculpe la molestia / con permiso (al terminar o marcharse)",
+        "jp": "shitsurei shimashita"
+      },
+      {
+        "es": "Bienvenido a casa",
+        "jp": "okaerinasai"
+      },
+      {
+        "es": "Ya he vuelto / estoy en casa",
+        "jp": "tadaima"
+      },
+      {
+        "es": "Me voy / hasta luego (al salir de casa)",
+        "jp": "ittekimasu"
+      },
+      {
+        "es": "Que te vaya bien (a quien sale)",
+        "jp": "itterasshai"
+      },
+      {
+        "es": "Hasta luego / nos vemos",
+        "jp": "mata ne"
+      },
+      {
+        "es": "Lo intento",
+        "jp": "yatte mimasu"
+      },
+      {
+        "es": "¿Puedo hacerlo?",
+        "jp": "yatte mo ii desu ka?"
+      },
+      {
+        "es": "¿Puedo entrar?",
+        "jp": "haitte mo ii desu ka?"
+      },
+      {
+        "es": "¿Puedo usar esto?",
+        "jp": "kore o tsukatte mo ii desu ka?"
+      }
     ]
   },
   "verbs": [
@@ -3500,6 +3642,21 @@
         "questionMarker"
       ],
       "example": "ima + nanji + desu"
+    },
+    {
+      "name": "idiomatic-expression",
+      "slots": [
+        {
+          "role": "phrase",
+          "from": [
+            "idiom"
+          ]
+        }
+      ],
+      "order": [
+        "phrase"
+      ],
+      "example": "otsukaresama deshita"
     }
   ],
   "excluded": [
@@ -3789,7 +3946,8 @@
     "concept": "abstract/general nouns",
     "predicate": "relational predicates (e.g. gustar, ser originario de) referenced only via fixed template slots",
     "marker": "sentence-type markers (e.g. question) shown as their own card, not text glue",
-    "unit": "currency/measure counters referenced only via fixed template slots"
+    "unit": "currency/measure counters referenced only via fixed template slots",
+    "idiom": "fixed idiomatic expressions (greetings, set phrases) shown whole, never decomposed - mirrors the 'excluded' list's documented reasoning"
   },
   "resolver": {
     "category": "food -> all entries in vocab.food",
