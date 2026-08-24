@@ -2008,7 +2008,11 @@
         "verb"
       ],
       "example": "Juria + karee + tabemasu",
-      "subjectParticle": "wa"
+      "subjectParticle": "wa",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "time-object-verb",
@@ -2037,7 +2041,11 @@
         "verb"
       ],
       "tenseFrom": "time",
-      "example": "ashita + sushi + tabemasu"
+      "example": "ashita + sushi + tabemasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "time-subject-object-verb",
@@ -2217,7 +2225,11 @@
       ],
       "tenseFrom": "time",
       "example": "ashita + Juria + doujou + ikimasu",
-      "subjectParticle": "wa"
+      "subjectParticle": "wa",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     },
     {
       "name": "activity-with-shimasu",

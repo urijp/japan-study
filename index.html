@@ -730,7 +730,9 @@
         });
         if (!refs || !refs.length) refs = ['nonpast']; // rules.tense: default to nonpast
         const tense = refs[Math.floor(rng() * refs.length)];
-        const polarity = 'affirmative'; // no template declares a polarity axis in current data
+        // rules.polarity: "choose affirmative or negative ... only when the template allows it."
+        const polarityOptions = (Array.isArray(tpl.raw.polarity) && tpl.raw.polarity.length) ? tpl.raw.polarity : ['affirmative'];
+        const polarity = polarityOptions[Math.floor(rng() * polarityOptions.length)];
         const formKey = tense + (polarity === 'affirmative' ? 'Affirmative' : 'Negative');
         return verb.forms[formKey] ? { formKey, jp: verb.forms[formKey], tense, polarity } : null;
       }
