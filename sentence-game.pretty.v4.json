@@ -794,6 +794,11 @@
         "es": "ese / esa",
         "jp": "sono",
         "usage": "before a noun"
+      },
+      {
+        "es": "aquel / aquella",
+        "jp": "ano",
+        "usage": "before a noun"
       }
     ],
     "adjective": [
@@ -1148,6 +1153,18 @@
           "clothing",
           "transport"
         ]
+      },
+      {
+        "es": "genial",
+        "jp": "kakkoii",
+        "adjClass": "i",
+        "accepts": [
+          "clothing",
+          "object",
+          "transport",
+          "person",
+          "place"
+        ]
       }
     ],
     "state": [
@@ -1355,6 +1372,11 @@
       {
         "es": "ser",
         "jp": "desu",
+        "predicate": true
+      },
+      {
+        "es": "desear",
+        "jp": "hoshii desu",
         "predicate": true
       }
     ],
@@ -2424,6 +2446,18 @@
       "name": "noun-adjective",
       "slots": [
         {
+          "role": "demonstrative",
+          "from": [
+            "demonstrative"
+          ],
+          "allowed": [
+            "kono",
+            "sono",
+            "ano"
+          ],
+          "optional": true
+        },
+        {
           "role": "thing",
           "from": [
             "object",
@@ -2460,6 +2494,7 @@
         "topic": "wa"
       },
       "order": [
+        "demonstrative",
         "thing",
         "topic",
         "adverb",
@@ -2584,7 +2619,13 @@
         },
         {
           "role": "predicate",
-          "fixed": "suki desu"
+          "from": [
+            "predicate"
+          ],
+          "allowed": [
+            "suki desu",
+            "hoshii desu"
+          ]
         },
         {
           "role": "questionMarker",
@@ -2913,6 +2954,229 @@
         "state"
       ],
       "example": "mada + tsukareteimasu"
+    },
+    {
+      "name": "want-noun",
+      "slots": [
+        {
+          "role": "adjective",
+          "from": [
+            "adjective"
+          ],
+          "optional": true
+        },
+        {
+          "role": "thing",
+          "from": [
+            "clothing",
+            "object:possessable",
+            "food",
+            "drink",
+            "media",
+            "sport",
+            "activity"
+          ]
+        },
+        {
+          "role": "predicate",
+          "from": [
+            "predicate"
+          ],
+          "allowed": [
+            "suki desu",
+            "hoshii desu"
+          ]
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?",
+          "optional": true
+        }
+      ],
+      "literals": {
+        "subject": "ga"
+      },
+      "order": [
+        "adjective",
+        "thing",
+        "subject",
+        "predicate",
+        "questionMarker"
+      ],
+      "example": "kakkoii + tiishatsu + hoshii desu"
+    },
+    {
+      "name": "possessive-like",
+      "slots": [
+        {
+          "role": "possessor",
+          "from": [
+            "person"
+          ],
+          "particle": "no"
+        },
+        {
+          "role": "thing",
+          "from": [
+            "object:possessable",
+            "clothing"
+          ]
+        },
+        {
+          "role": "predicate",
+          "from": [
+            "predicate"
+          ],
+          "allowed": [
+            "suki desu",
+            "hoshii desu"
+          ]
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?",
+          "optional": true
+        }
+      ],
+      "literals": {
+        "subject": "ga"
+      },
+      "order": [
+        "possessor",
+        "thing",
+        "subject",
+        "predicate",
+        "questionMarker"
+      ],
+      "example": "Juria + jaketto + suki desu"
+    },
+    {
+      "name": "place-possessive-like",
+      "slots": [
+        {
+          "role": "demonstrative",
+          "from": [
+            "demonstrative"
+          ],
+          "allowed": [
+            "kono",
+            "sono",
+            "ano"
+          ],
+          "optional": true
+        },
+        {
+          "role": "place",
+          "from": [
+            "place"
+          ],
+          "particle": "no",
+          "recommendedTags": [
+            "actionLocation"
+          ]
+        },
+        {
+          "role": "thing",
+          "from": [
+            "clothing",
+            "object:possessable"
+          ]
+        },
+        {
+          "role": "predicate",
+          "from": [
+            "predicate"
+          ],
+          "allowed": [
+            "suki desu",
+            "hoshii desu"
+          ]
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?",
+          "optional": true
+        }
+      ],
+      "literals": {
+        "subject": "ga"
+      },
+      "order": [
+        "demonstrative",
+        "place",
+        "thing",
+        "subject",
+        "predicate",
+        "questionMarker"
+      ],
+      "example": "ano + mise + fuku + hoshii desu"
+    },
+    {
+      "name": "place-possessive-adjective",
+      "slots": [
+        {
+          "role": "demonstrative",
+          "from": [
+            "demonstrative"
+          ],
+          "allowed": [
+            "kono",
+            "sono",
+            "ano"
+          ],
+          "optional": true
+        },
+        {
+          "role": "place",
+          "from": [
+            "place"
+          ],
+          "particle": "no",
+          "recommendedTags": [
+            "actionLocation"
+          ]
+        },
+        {
+          "role": "thing",
+          "from": [
+            "clothing",
+            "object:possessable"
+          ]
+        },
+        {
+          "role": "adverb",
+          "from": [
+            "adverb"
+          ],
+          "optional": true,
+          "recommended": [
+            "totemo"
+          ]
+        },
+        {
+          "role": "adjective",
+          "from": [
+            "adjective"
+          ]
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        }
+      ],
+      "literals": {
+        "topic": "wa"
+      },
+      "order": [
+        "demonstrative",
+        "place",
+        "thing",
+        "topic",
+        "adverb",
+        "adjective",
+        "copula"
+      ],
+      "example": "ano + mise + fuku + totemo + kakkoii"
     }
   ],
   "excluded": [
