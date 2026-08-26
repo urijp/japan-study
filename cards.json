@@ -1714,5 +1714,101 @@
     "spanish": "Cuatro mil",
     "japanese": "yonsen",
     "image": "images/286.svg"
+  },
+  {
+    "id": 287,
+    "spanish": "Me llamo Ken",
+    "japanese": "Ken to iimasu",
+    "image": "images/287.svg"
+  },
+  {
+    "id": 288,
+    "spanish": "Novio",
+    "japanese": "kareshi",
+    "image": "images/288.svg"
+  },
+  {
+    "id": 289,
+    "spanish": "Novia",
+    "japanese": "kanojo",
+    "image": "images/289.svg"
+  },
+  {
+    "id": 290,
+    "spanish": "Esta persona / por aquí",
+    "japanese": "kochira",
+    "image": "images/290.svg"
+  },
+  {
+    "id": 291,
+    "spanish": "Reino Unido / Gran Bretaña",
+    "japanese": "igirisu",
+    "image": "images/291.svg"
+  },
+  {
+    "id": 292,
+    "spanish": "Corea",
+    "japanese": "kankoku",
+    "image": "images/292.svg"
+  },
+  {
+    "id": 293,
+    "spanish": "China",
+    "japanese": "chuugoku",
+    "image": "images/293.svg"
+  },
+  {
+    "id": 294,
+    "spanish": "Horror / terror",
+    "japanese": "horaa",
+    "image": "images/294.svg"
+  },
+  {
+    "id": 295,
+    "spanish": "Drama / serie de televisión",
+    "japanese": "dorama",
+    "image": "images/295.svg"
+  },
+  {
+    "id": 296,
+    "spanish": "¿Y Erika? / ¿Y tú, Erika?",
+    "japanese": "Erika-san wa?",
+    "image": "images/296.svg"
+  },
+  {
+    "id": 297,
+    "spanish": "Qué tipo de / qué clase de",
+    "japanese": "donna",
+    "image": "images/297.svg"
+  },
+  {
+    "id": 298,
+    "spanish": "Juego",
+    "japanese": "geemu",
+    "image": "images/298.svg"
+  },
+  {
+    "id": 299,
+    "spanish": "Acción",
+    "japanese": "akushon",
+    "image": "images/299.svg"
+  },
+  {
+    "id": 300,
+    "spanish": "Comedia",
+    "japanese": "komedi",
+    "image": "images/300.svg"
+  },
+  {
+    "id": 301,
+    "spanish": "De / posesión o relación entre sustantivos",
+    "japanese": "no",
+    "image": "images/301.svg"
+  },
+  {
+    "id": 302,
+    "spanish": "Leer",
+    "japanese": "yomimasu",
+    "image": "images/302.svg"
   }
 ]
