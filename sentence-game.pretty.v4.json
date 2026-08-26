@@ -313,6 +313,33 @@
           "location",
           "country"
         ]
+      },
+      {
+        "es": "Reino Unido / Gran Bretaña",
+        "jp": "igirisu",
+        "tags": [
+          "destination",
+          "location",
+          "country"
+        ]
+      },
+      {
+        "es": "Corea",
+        "jp": "kankoku",
+        "tags": [
+          "destination",
+          "location",
+          "country"
+        ]
+      },
+      {
+        "es": "China",
+        "jp": "chuugoku",
+        "tags": [
+          "destination",
+          "location",
+          "country"
+        ]
       }
     ],
     "person": [
@@ -366,19 +393,46 @@
       },
       {
         "es": "Júlia",
-        "jp": "Juria"
+        "jp": "Juria",
+        "tags": [
+          "properName"
+        ]
       },
       {
         "es": "Yamaguchi",
-        "jp": "Yamaguchi"
+        "jp": "Yamaguchi",
+        "tags": [
+          "properName"
+        ]
       },
       {
         "es": "Hana",
-        "jp": "Hana"
+        "jp": "Hana",
+        "tags": [
+          "properName"
+        ]
       },
       {
         "es": "Ken",
-        "jp": "Ken"
+        "jp": "Ken",
+        "tags": [
+          "properName"
+        ]
+      },
+      {
+        "es": "novio",
+        "jp": "kareshi"
+      },
+      {
+        "es": "novia",
+        "jp": "kanojo"
+      },
+      {
+        "es": "Erika",
+        "jp": "Erika",
+        "tags": [
+          "properName"
+        ]
       }
     ],
     "food": [
@@ -673,6 +727,45 @@
           "listenable",
           "musicGenre"
         ]
+      },
+      {
+        "es": "terror / horror",
+        "jp": "horaa",
+        "tags": [
+          "genre",
+          "watchable"
+        ]
+      },
+      {
+        "es": "drama / serie de televisión",
+        "jp": "dorama",
+        "tags": [
+          "genre",
+          "watchable"
+        ]
+      },
+      {
+        "es": "juego",
+        "jp": "geemu",
+        "tags": [
+          "genre"
+        ]
+      },
+      {
+        "es": "acción",
+        "jp": "akushon",
+        "tags": [
+          "genre",
+          "watchable"
+        ]
+      },
+      {
+        "es": "comedia",
+        "jp": "komedi",
+        "tags": [
+          "genre",
+          "watchable"
+        ]
       }
     ],
     "sport": [
@@ -788,6 +881,11 @@
         "es": "aquel / aquella",
         "jp": "ano",
         "usage": "before a noun"
+      },
+      {
+        "es": "esta persona / por aquí",
+        "jp": "kochira",
+        "usage": "polite: introduces a person or indicates direction"
       }
     ],
     "adjective": [
@@ -1319,6 +1417,11 @@
         "es": "qué",
         "jp": "nan",
         "usage": "before desu"
+      },
+      {
+        "es": "qué tipo de",
+        "jp": "donna",
+        "usage": "before a noun"
       }
     ],
     "number": [
@@ -1521,6 +1624,12 @@
       {
         "es": "¿Puedo usar esto?",
         "jp": "kore o tsukatte mo ii desu ka?"
+      }
+    ],
+    "title": [
+      {
+        "es": "señor/señora (honorífico)",
+        "jp": "san"
       }
     ]
   },
@@ -2649,7 +2758,8 @@
             "media",
             "social",
             "concept",
-            "body"
+            "body",
+            "person"
           ]
         },
         {
@@ -2707,7 +2817,8 @@
             "media",
             "social",
             "concept",
-            "body"
+            "body",
+            "person"
           ]
         }
       ],
@@ -3646,6 +3757,125 @@
         "phrase"
       ],
       "example": "otsukaresama deshita"
+    },
+    {
+      "name": "name-introduction",
+      "verbFilter": [
+        "decir"
+      ],
+      "slots": [
+        {
+          "role": "name",
+          "from": [
+            "person:properName"
+          ],
+          "particle": "to"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "order": [
+        "name",
+        "verb"
+      ],
+      "example": "Ken + iimasu"
+    },
+    {
+      "name": "introduce-person",
+      "slots": [
+        {
+          "role": "pronoun",
+          "fixed": "kochira"
+        },
+        {
+          "role": "person",
+          "from": [
+            "person"
+          ]
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        }
+      ],
+      "literals": {
+        "topic": "wa"
+      },
+      "order": [
+        "pronoun",
+        "topic",
+        "person",
+        "copula"
+      ],
+      "example": "kochira + Ken + desu"
+    },
+    {
+      "name": "what-about-you",
+      "slots": [
+        {
+          "role": "person",
+          "from": [
+            "person:properName"
+          ]
+        },
+        {
+          "role": "title",
+          "fixed": "san"
+        }
+      ],
+      "literals": {
+        "topic": "wa"
+      },
+      "order": [
+        "person",
+        "title",
+        "topic"
+      ],
+      "example": "Erika + san + wa"
+    },
+    {
+      "name": "what-kind-question",
+      "slots": [
+        {
+          "role": "question",
+          "fixed": "donna"
+        },
+        {
+          "role": "thing",
+          "from": [
+            "media"
+          ]
+        },
+        {
+          "role": "predicate",
+          "from": [
+            "predicate"
+          ],
+          "allowed": [
+            "suki desu",
+            "hoshii desu"
+          ]
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
+        }
+      ],
+      "literals": {
+        "subject": "ga"
+      },
+      "order": [
+        "question",
+        "thing",
+        "subject",
+        "predicate",
+        "questionMarker"
+      ],
+      "example": "donna + dorama + suki desu"
     }
   ],
   "excluded": [
@@ -3936,7 +4166,8 @@
     "predicate": "relational predicates (e.g. gustar, ser originario de) referenced only via fixed template slots",
     "marker": "sentence-type markers (e.g. question) shown as their own card, not text glue",
     "unit": "currency/measure counters referenced only via fixed template slots",
-    "idiom": "fixed idiomatic expressions (greetings, set phrases) shown whole, never decomposed - mirrors the 'excluded' list's documented reasoning"
+    "idiom": "fixed idiomatic expressions (greetings, set phrases) shown whole, never decomposed - mirrors the 'excluded' list's documented reasoning",
+    "title": "honorific suffixes attached after a name, referenced only via fixed template slots"
   },
   "resolver": {
     "category": "food -> all entries in vocab.food",
