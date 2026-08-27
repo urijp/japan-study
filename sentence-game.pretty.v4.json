@@ -2252,7 +2252,8 @@
       "polarity": [
         "affirmative",
         "negative"
-      ]
+      ],
+      "weight": 3
     },
     {
       "name": "time-object-verb",
@@ -2285,7 +2286,8 @@
       "polarity": [
         "affirmative",
         "negative"
-      ]
+      ],
+      "weight": 3
     },
     {
       "name": "time-subject-object-verb",
@@ -2481,7 +2483,8 @@
       "polarity": [
         "affirmative",
         "negative"
-      ]
+      ],
+      "weight": 3
     },
     {
       "name": "activity-with-shimasu",
@@ -2729,7 +2732,8 @@
         "adjective",
         "copula"
       ],
-      "example": "Juria + boushi + totemo + kawaii"
+      "example": "Juria + boushi + totemo + kawaii",
+      "weight": 3
     },
     {
       "name": "noun-adjective",
@@ -2794,7 +2798,8 @@
         "adjective",
         "copula"
       ],
-      "example": "saifu + totemo + takai"
+      "example": "saifu + totemo + takai",
+      "weight": 3
     },
     {
       "name": "adjective-before-noun",
@@ -2827,7 +2832,8 @@
         "adjective",
         "noun"
       ],
-      "example": "kawaii + boushi"
+      "example": "kawaii + boushi",
+      "weight": 3
     },
     {
       "name": "demonstrative-price-question",
@@ -2938,7 +2944,8 @@
         "predicate",
         "questionMarker"
       ],
-      "example": "karate + suki desu + ka?"
+      "example": "karate + suki desu + ka?",
+      "weight": 3
     },
     {
       "name": "origin",
@@ -2962,7 +2969,8 @@
         "place",
         "predicate"
       ],
-      "example": "Oosaka + shusshin desu"
+      "example": "Oosaka + shusshin desu",
+      "weight": 3
     },
     {
       "name": "want-object",
@@ -2984,7 +2992,8 @@
         "object",
         "verb"
       ],
-      "example": "ramen + tabetai desu"
+      "example": "ramen + tabetai desu",
+      "weight": 3
     },
     {
       "name": "want-go",
@@ -3011,7 +3020,8 @@
         "destination",
         "verb"
       ],
-      "example": "Nihon + ikitai desu"
+      "example": "Nihon + ikitai desu",
+      "weight": 3
     },
     {
       "name": "frequency-action",
@@ -3108,7 +3118,8 @@
         "copula",
         "questionMarker"
       ],
-      "example": "kore + nan + ka?"
+      "example": "kore + nan + ka?",
+      "weight": 3
     },
     {
       "name": "what-do",
@@ -3144,7 +3155,8 @@
       "polarity": [
         "affirmative",
         "negative"
-      ]
+      ],
+      "weight": 3
     },
     {
       "name": "where-go",
@@ -3180,7 +3192,8 @@
       "polarity": [
         "affirmative",
         "negative"
-      ]
+      ],
+      "weight": 3
     },
     {
       "name": "what-want-to-eat-or-drink",
@@ -3214,7 +3227,8 @@
         "verb",
         "questionMarker"
       ],
-      "example": "nani + tabetai desu + ka?"
+      "example": "nani + tabetai desu + ka?",
+      "weight": 3
     },
     {
       "name": "do-you-do-sport",

@@ -637,10 +637,12 @@
           t.slots.some(s => s.fixed == null && s !== verbSlot && typeof s.from !== 'string' && !(staticPools[s.role] || []).length);
         if (disabled) warnings.push(`${t.name}: DISABLED (unsatisfiable required slot)`);
 
+        const weight = (typeof t.weight === 'number' && t.weight > 0) ? t.weight : 1;
+
         return {
           raw: t, name: t.name, slotByRole, verbSlot, verbCandidates, staticPools, fixedCandidates,
           displayOrder, resolutionOrder, requiredRoles, optionalRoles,
-          minCards: requiredRoles.length, maxCards: t.slots.length, disabled
+          minCards: requiredRoles.length, maxCards: t.slots.length, disabled, weight
         };
       }
 
@@ -766,7 +768,14 @@
         let pool = templates.filter(t => !t.disabled && t.minCards <= target && target <= t.maxCards && t.name !== bannedName);
         if (!pool.length) pool = templates.filter(t => !t.disabled && t.name !== bannedName);
         if (!pool.length) pool = templates.filter(t => !t.disabled);
-        return pool.length ? pool[Math.floor(rng() * pool.length)] : null;
+        if (!pool.length) return null;
+        const totalWeight = pool.reduce((sum, t) => sum + t.weight, 0);
+        let r = rng() * totalWeight;
+        for (const t of pool) {
+          r -= t.weight;
+          if (r <= 0) return t;
+        }
+        return pool[pool.length - 1];
       }
 
       function resolveTemplate(tpl, target) {
