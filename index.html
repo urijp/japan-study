@@ -568,6 +568,7 @@
           verbCandidates = verbs.filter(v => {
             if (t.verbFilter && t.verbFilter.indexOf(v.id) === -1) return false;
             if (t.verbFilterHas && !(t.verbFilterHas in v.raw)) return false;
+            if (v.raw.objectRequired && !verbDrivenSlots.some(vd => vd.argRole === 'object')) return false;
             if (!t.verbFilterArgsOptional) {
               for (const r of requiredArgs) if (!v.argByRole[r]) return false;
             }
@@ -941,7 +942,9 @@
         templates.forEach(t => { templateHits[t.name] = 0; });
         // Grammar knowledge, not vocabulary: the fixed set of Japanese particles this
         // dataset ever attaches to a piece (see makePiece) - a card must never equal one.
-        const particleValues = ['wa', 'ga', 'o', 'ni', 'de', 'to', 'no', 'mo'];
+        // 'mo' ('también') is deliberately NOT here: it's a promoted-to-card marker (like
+        // 'ka?'), never used as bare glue, so it's fine as a card's jp value.
+        const particleValues = ['wa', 'ga', 'o', 'ni', 'de', 'to', 'no'];
         let prevFp = null, repeatCollisions = 0;
 
         for (let i = 0; i < n; i++) {
@@ -1208,8 +1211,10 @@
     predicate: 'predicado', copula: 'verbo', direction: 'dirección',
     number: 'número', unit: 'unidad', phrase: 'expresión',
     person: 'quién', name: 'nombre', title: 'título',
-    // demonstrative and questionMarker are always the exact same fixed word with no pool
-    // variety, so a caption could only repeat or mislabel it — omitted on purpose.
+    duration: 'cuánto tiempo', modifier: 'de qué', area: 'de dónde', topicPlace: 'lugar',
+    // demonstrative, questionMarker, sequence, tag, also and approx are always the exact
+    // same fixed word (or an allowed[] list with a single member) with no pool variety,
+    // so a caption could only repeat or mislabel it — omitted on purpose.
   };
 
   function toFlashcard(piece) {

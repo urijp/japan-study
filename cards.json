@@ -1810,5 +1810,215 @@
     "spanish": "Leer",
     "japanese": "yomimasu",
     "image": "images/302.svg"
+  },
+  {
+    "id": 303,
+    "spanish": "A las siete",
+    "japanese": "shichiji",
+    "image": "images/303.svg"
+  },
+  {
+    "id": 304,
+    "spanish": "A las ocho",
+    "japanese": "hachiji",
+    "image": "images/304.svg"
+  },
+  {
+    "id": 305,
+    "spanish": "A las once",
+    "japanese": "juuichiji",
+    "image": "images/305.svg"
+  },
+  {
+    "id": 306,
+    "spanish": "Una hora",
+    "japanese": "ichijikan",
+    "image": "images/306.svg"
+  },
+  {
+    "id": 307,
+    "spanish": "Tres horas",
+    "japanese": "sanjikan",
+    "image": "images/307.svg"
+  },
+  {
+    "id": 308,
+    "spanish": "Cinco minutos",
+    "japanese": "gofun",
+    "image": "images/308.svg"
+  },
+  {
+    "id": 309,
+    "spanish": "Gato",
+    "japanese": "neko",
+    "image": "images/309.svg"
+  },
+  {
+    "id": 310,
+    "spanish": "Siguiente / próximo",
+    "japanese": "tsugi",
+    "image": "images/310.svg"
+  },
+  {
+    "id": 311,
+    "spanish": "La próxima semana",
+    "japanese": "raishuu",
+    "image": "images/311.svg"
+  },
+  {
+    "id": 312,
+    "spanish": "Cada semana",
+    "japanese": "maishuu",
+    "image": "images/312.svg"
+  },
+  {
+    "id": 313,
+    "spanish": "Ya casi / dentro de poco",
+    "japanese": "mou sugu",
+    "image": "images/313.svg"
+  },
+  {
+    "id": 314,
+    "spanish": "Alrededor de / aproximadamente",
+    "japanese": "goro",
+    "image": "images/314.svg"
+  },
+  {
+    "id": 315,
+    "spanish": "¿Verdad? / ¿no?",
+    "japanese": "ne",
+    "image": "images/315.svg"
+  },
+  {
+    "id": 316,
+    "spanish": "También / énfasis",
+    "japanese": "mo",
+    "image": "images/316.svg"
+  },
+  {
+    "id": 317,
+    "spanish": "Énfasis (informar al oyente)",
+    "japanese": "yo",
+    "image": "images/317.svg"
+  },
+  {
+    "id": 318,
+    "spanish": "Cuánto (tiempo, aproximado)",
+    "japanese": "dono gurai",
+    "image": "images/318.svg"
+  },
+  {
+    "id": 319,
+    "spanish": "No es / no está",
+    "japanese": "ja nai desu",
+    "image": "images/319.svg"
+  },
+  {
+    "id": 320,
+    "spanish": "Tampoco es",
+    "japanese": "demo nai desu",
+    "image": "images/320.svg"
+  },
+  {
+    "id": 321,
+    "spanish": "Tardar / llevar (tiempo)",
+    "japanese": "kakarimasu",
+    "image": "images/321.svg"
+  },
+  {
+    "id": 322,
+    "spanish": "Largo (tiempo)",
+    "japanese": "nagai",
+    "image": "images/322.svg"
+  },
+  {
+    "id": 323,
+    "spanish": "Corto (tiempo)",
+    "japanese": "mijikai",
+    "image": "images/323.svg"
+  },
+  {
+    "id": 324,
+    "spanish": "Kioto",
+    "japanese": "Kyoto",
+    "image": "images/324.svg"
+  },
+  {
+    "id": 325,
+    "spanish": "Ueno",
+    "japanese": "Ueno",
+    "image": "images/325.svg"
+  },
+  {
+    "id": 326,
+    "spanish": "Parque",
+    "japanese": "kouen",
+    "image": "images/326.svg"
+  },
+  {
+    "id": 327,
+    "spanish": "Final de la línea / última parada",
+    "japanese": "shuuten",
+    "image": "images/327.svg"
+  },
+  {
+    "id": 328,
+    "spanish": "Correo electrónico / email",
+    "japanese": "meeru",
+    "image": "images/328.svg"
+  },
+  {
+    "id": 329,
+    "spanish": "Radio",
+    "japanese": "rajio",
+    "image": "images/329.svg"
+  },
+  {
+    "id": 330,
+    "spanish": "Ducha",
+    "japanese": "shawaa",
+    "image": "images/330.svg"
+  },
+  {
+    "id": 331,
+    "spanish": "Voleibol",
+    "japanese": "bareebooru",
+    "image": "images/331.svg"
+  },
+  {
+    "id": 332,
+    "spanish": "Preparar / cocinar",
+    "japanese": "tsukurimasu",
+    "image": "images/332.svg"
+  },
+  {
+    "id": 333,
+    "spanish": "Salir de casa",
+    "japanese": "dekakemasu",
+    "image": "images/333.svg"
+  },
+  {
+    "id": 334,
+    "spanish": "Nadar",
+    "japanese": "oyogimasu",
+    "image": "images/334.svg"
+  },
+  {
+    "id": 335,
+    "spanish": "Correr",
+    "japanese": "hashirimasu",
+    "image": "images/335.svg"
+  },
+  {
+    "id": 336,
+    "spanish": "Ducharse",
+    "japanese": "abimasu",
+    "image": "images/336.svg"
+  },
+  {
+    "id": 337,
+    "spanish": "Minuto(s)",
+    "japanese": "fun / pun",
+    "image": "images/337.svg"
   }
 ]

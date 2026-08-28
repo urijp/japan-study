@@ -147,13 +147,26 @@
         ]
       },
       {
-        "es": "a las siete",
-        "jp": "shichi-ji",
+        "es": "la próxima semana",
+        "jp": "raishuu",
+        "timeRef": [
+          "nonpast"
+        ]
+      },
+      {
+        "es": "cada semana",
+        "jp": "maishuu",
         "timeRef": [
           "past",
           "nonpast"
-        ],
-        "particle": "ni"
+        ]
+      },
+      {
+        "es": "ya casi / dentro de poco",
+        "jp": "mou sugu",
+        "timeRef": [
+          "nonpast"
+        ]
       }
     ],
     "place": [
@@ -187,7 +200,8 @@
         "jp": "eki",
         "tags": [
           "destination",
-          "actionLocation"
+          "actionLocation",
+          "facility"
         ]
       },
       {
@@ -195,7 +209,8 @@
         "jp": "mise",
         "tags": [
           "destination",
-          "actionLocation"
+          "actionLocation",
+          "facility"
         ]
       },
       {
@@ -203,7 +218,8 @@
         "jp": "resutoran",
         "tags": [
           "destination",
-          "actionLocation"
+          "actionLocation",
+          "facility"
         ]
       },
       {
@@ -211,7 +227,8 @@
         "jp": "hoteru",
         "tags": [
           "destination",
-          "actionLocation"
+          "actionLocation",
+          "facility"
         ]
       },
       {
@@ -253,7 +270,8 @@
         "jp": "doujou",
         "tags": [
           "destination",
-          "actionLocation"
+          "actionLocation",
+          "facility"
         ]
       },
       {
@@ -261,7 +279,8 @@
         "jp": "kuukou",
         "tags": [
           "destination",
-          "actionLocation"
+          "actionLocation",
+          "facility"
         ]
       },
       {
@@ -269,7 +288,8 @@
         "jp": "daigaku",
         "tags": [
           "destination",
-          "actionLocation"
+          "actionLocation",
+          "facility"
         ]
       },
       {
@@ -339,6 +359,41 @@
           "destination",
           "location",
           "country"
+        ]
+      },
+      {
+        "es": "Kioto",
+        "jp": "Kyoto",
+        "tags": [
+          "destination",
+          "location",
+          "city"
+        ]
+      },
+      {
+        "es": "Ueno",
+        "jp": "Ueno",
+        "tags": [
+          "destination",
+          "location",
+          "city"
+        ]
+      },
+      {
+        "es": "parque",
+        "jp": "kouen",
+        "tags": [
+          "destination",
+          "actionLocation",
+          "facility"
+        ]
+      },
+      {
+        "es": "final de la línea / última parada",
+        "jp": "shuuten",
+        "tags": [
+          "destination",
+          "actionLocation"
         ]
       }
     ],
@@ -673,6 +728,13 @@
           "possessable",
           "buyable"
         ]
+      },
+      {
+        "es": "ducha",
+        "jp": "shawaa",
+        "tags": [
+          "washable"
+        ]
       }
     ],
     "media": [
@@ -766,6 +828,20 @@
           "genre",
           "watchable"
         ]
+      },
+      {
+        "es": "correo electrónico / email",
+        "jp": "meeru",
+        "tags": [
+          "readable"
+        ]
+      },
+      {
+        "es": "radio",
+        "jp": "rajio",
+        "tags": [
+          "listenable"
+        ]
       }
     ],
     "sport": [
@@ -784,6 +860,10 @@
       {
         "es": "tenis",
         "jp": "tenisu"
+      },
+      {
+        "es": "voleibol",
+        "jp": "bareebooru"
       }
     ],
     "activity": [
@@ -1252,6 +1332,22 @@
           "person",
           "place"
         ]
+      },
+      {
+        "es": "largo (tiempo)",
+        "jp": "nagai",
+        "adjClass": "i",
+        "accepts": [
+          "duration"
+        ]
+      },
+      {
+        "es": "corto (tiempo)",
+        "jp": "mijikai",
+        "adjClass": "i",
+        "accepts": [
+          "duration"
+        ]
       }
     ],
     "state": [
@@ -1422,6 +1518,10 @@
         "es": "qué tipo de",
         "jp": "donna",
         "usage": "before a noun"
+      },
+      {
+        "es": "cuánto (tiempo, aprox.)",
+        "jp": "dono gurai"
       }
     ],
     "number": [
@@ -1470,12 +1570,43 @@
         "es": "desear",
         "jp": "hoshii desu",
         "predicate": true
+      },
+      {
+        "es": "no es / no está",
+        "jp": "ja nai desu",
+        "predicate": true
+      },
+      {
+        "es": "tampoco es",
+        "jp": "demo nai desu",
+        "predicate": true
+      },
+      {
+        "es": "tardar / llevar (tiempo)",
+        "jp": "kakarimasu",
+        "predicate": true
       }
     ],
     "marker": [
       {
         "es": "?",
         "jp": "ka?"
+      },
+      {
+        "es": "alrededor de / aproximadamente",
+        "jp": "goro"
+      },
+      {
+        "es": "¿verdad? / ¿no?",
+        "jp": "ne"
+      },
+      {
+        "es": "también / énfasis",
+        "jp": "mo"
+      },
+      {
+        "es": "énfasis (informar al oyente)",
+        "jp": "yo"
       }
     ],
     "unit": [
@@ -1624,12 +1755,56 @@
       {
         "es": "¿Puedo usar esto?",
         "jp": "kore o tsukatte mo ii desu ka?"
+      },
+      {
+        "es": "Ya casi / falta poco / será enseguida",
+        "jp": "mou sugu desu"
       }
     ],
     "title": [
       {
         "es": "señor/señora (honorífico)",
         "jp": "san"
+      }
+    ],
+    "clockTime": [
+      {
+        "es": "a las siete",
+        "jp": "shichiji"
+      },
+      {
+        "es": "a las ocho",
+        "jp": "hachiji"
+      },
+      {
+        "es": "a las once",
+        "jp": "juuichiji"
+      }
+    ],
+    "duration": [
+      {
+        "es": "una hora",
+        "jp": "ichijikan"
+      },
+      {
+        "es": "tres horas",
+        "jp": "sanjikan"
+      },
+      {
+        "es": "cinco minutos",
+        "jp": "gofun"
+      }
+    ],
+    "animal": [
+      {
+        "es": "gato",
+        "jp": "neko"
+      }
+    ],
+    "sequence": [
+      {
+        "es": "siguiente / próximo",
+        "jp": "tsugi"
       }
     ]
   },
@@ -2217,6 +2392,91 @@
           ]
         }
       ]
+    },
+    {
+      "es": "preparar / cocinar",
+      "forms": {
+        "nonpastAffirmative": "tsukurimasu",
+        "pastAffirmative": "tsukurimashita",
+        "nonpastNegative": "tsukurimasen",
+        "pastNegative": "tsukurimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "food"
+          ]
+        }
+      ],
+      "want": "tsukuritai desu"
+    },
+    {
+      "es": "salir de casa",
+      "forms": {
+        "nonpastAffirmative": "dekakemasu",
+        "pastAffirmative": "dekakemashita",
+        "nonpastNegative": "dekakemasen",
+        "pastNegative": "dekakemasen deshita"
+      }
+    },
+    {
+      "es": "nadar",
+      "forms": {
+        "nonpastAffirmative": "oyogimasu",
+        "pastAffirmative": "oyogimashita",
+        "nonpastNegative": "oyogimasen",
+        "pastNegative": "oyogimasen deshita"
+      },
+      "args": [
+        {
+          "role": "location",
+          "particle": "de",
+          "accepts": [
+            "place"
+          ]
+        }
+      ],
+      "want": "oyogitai desu"
+    },
+    {
+      "es": "correr",
+      "forms": {
+        "nonpastAffirmative": "hashirimasu",
+        "pastAffirmative": "hashirimashita",
+        "nonpastNegative": "hashirimasen",
+        "pastNegative": "hashirimasen deshita"
+      },
+      "args": [
+        {
+          "role": "location",
+          "particle": "de",
+          "accepts": [
+            "place"
+          ]
+        }
+      ],
+      "want": "hashiritai desu"
+    },
+    {
+      "es": "ducharse",
+      "forms": {
+        "nonpastAffirmative": "abimasu",
+        "pastAffirmative": "abimashita",
+        "nonpastNegative": "abimasen",
+        "pastNegative": "abimasen deshita"
+      },
+      "args": [
+        {
+          "role": "object",
+          "particle": "o",
+          "accepts": [
+            "object:washable"
+          ]
+        }
+      ],
+      "objectRequired": true
     }
   ],
   "templates": [
@@ -3237,6 +3497,13 @@
       ],
       "slots": [
         {
+          "role": "time",
+          "from": [
+            "time"
+          ],
+          "optional": true
+        },
+        {
           "role": "sport",
           "from": [
             "sport"
@@ -3255,15 +3522,17 @@
         }
       ],
       "order": [
+        "time",
         "sport",
         "verb",
         "questionMarker"
       ],
-      "example": "sakkaa + shimasu + ka?",
+      "example": "raishuu + sakkaa + shimasu + ka?",
       "polarity": [
         "affirmative",
         "negative"
-      ]
+      ],
+      "tenseFrom": "time"
     },
     {
       "name": "state-with-adverb",
@@ -3890,6 +4159,577 @@
         "questionMarker"
       ],
       "example": "donna + dorama + suki desu"
+    },
+    {
+      "name": "adverb-object-verb",
+      "slots": [
+        {
+          "role": "frequency",
+          "from": [
+            "adverb"
+          ],
+          "allowed": [
+            "itsumo",
+            "yoku",
+            "tokidoki"
+          ]
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "object"
+        }
+      ],
+      "order": [
+        "frequency",
+        "object",
+        "verb"
+      ],
+      "example": "itsumo + terebi + o + mimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "time-action",
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ]
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "order": [
+        "time",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "raishuu + oyogimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "clock-time-action",
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "clockTime"
+          ]
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "literals": {
+        "marker": "ni"
+      },
+      "order": [
+        "time",
+        "marker",
+        "verb"
+      ],
+      "example": "hachiji + ni + okimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ],
+      "weight": 3
+    },
+    {
+      "name": "clock-time-object-action",
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "clockTime"
+          ]
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "object"
+        }
+      ],
+      "literals": {
+        "marker": "ni"
+      },
+      "order": [
+        "time",
+        "marker",
+        "object",
+        "verb"
+      ],
+      "example": "hachiji + ni + terebi + o + mimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ],
+      "weight": 3
+    },
+    {
+      "name": "approx-time-action",
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "clockTime"
+          ]
+        },
+        {
+          "role": "approx",
+          "from": [
+            "marker"
+          ],
+          "allowed": [
+            "goro"
+          ]
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "order": [
+        "time",
+        "approx",
+        "verb"
+      ],
+      "example": "juuichiji + goro + nemasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "approx-time-object-action",
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "clockTime"
+          ]
+        },
+        {
+          "role": "approx",
+          "from": [
+            "marker"
+          ],
+          "allowed": [
+            "goro"
+          ]
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "object"
+        }
+      ],
+      "order": [
+        "time",
+        "approx",
+        "object",
+        "verb"
+      ],
+      "example": "juuichiji + goro + koohii + o + nomimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "what-time-action",
+      "slots": [
+        {
+          "role": "question",
+          "fixed": "nanji"
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "object"
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
+        }
+      ],
+      "literals": {
+        "marker": "ni"
+      },
+      "order": [
+        "question",
+        "marker",
+        "object",
+        "verb",
+        "questionMarker"
+      ],
+      "example": "nanji + ni + shawaa + o + abimasu + ka?",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "duration-statement",
+      "slots": [
+        {
+          "role": "duration",
+          "from": [
+            "duration"
+          ]
+        },
+        {
+          "role": "predicate",
+          "from": [
+            "predicate"
+          ],
+          "allowed": [
+            "kakarimasu"
+          ]
+        }
+      ],
+      "order": [
+        "duration",
+        "predicate"
+      ],
+      "example": "ichijikan + kakarimasu"
+    },
+    {
+      "name": "duration-question",
+      "slots": [
+        {
+          "role": "question",
+          "from": [
+            "question"
+          ],
+          "allowed": [
+            "dono gurai"
+          ]
+        },
+        {
+          "role": "predicate",
+          "from": [
+            "predicate"
+          ],
+          "allowed": [
+            "kakarimasu"
+          ]
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
+        }
+      ],
+      "order": [
+        "question",
+        "predicate",
+        "questionMarker"
+      ],
+      "example": "dono gurai + kakarimasu + ka?"
+    },
+    {
+      "name": "duration-adjective",
+      "slots": [
+        {
+          "role": "duration",
+          "from": [
+            "duration"
+          ]
+        },
+        {
+          "role": "adjective",
+          "from": [
+            "adjective"
+          ]
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        },
+        {
+          "role": "tag",
+          "fixed": "ne",
+          "optional": true
+        }
+      ],
+      "literals": {
+        "topic": "wa"
+      },
+      "order": [
+        "duration",
+        "topic",
+        "adjective",
+        "copula",
+        "tag"
+      ],
+      "example": "sanjikan + wa + nagai + desu + ne",
+      "weight": 1
+    },
+    {
+      "name": "noun-of-noun",
+      "slots": [
+        {
+          "role": "modifier",
+          "from": [
+            "animal"
+          ],
+          "particle": "no"
+        },
+        {
+          "role": "thing",
+          "from": [
+            "media"
+          ]
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        }
+      ],
+      "order": [
+        "modifier",
+        "thing",
+        "copula"
+      ],
+      "example": "neko + no + eiga + desu",
+      "weight": 3
+    },
+    {
+      "name": "place-of-place",
+      "slots": [
+        {
+          "role": "topicPlace",
+          "from": [
+            "locationWord"
+          ],
+          "particle": "wa"
+        },
+        {
+          "role": "area",
+          "from": [
+            "place:city",
+            "place:country"
+          ],
+          "particle": "no"
+        },
+        {
+          "role": "thing",
+          "from": [
+            "place:facility"
+          ]
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        }
+      ],
+      "order": [
+        "topicPlace",
+        "area",
+        "thing",
+        "copula"
+      ],
+      "example": "koko + wa + Ueno + no + kouen + desu"
+    },
+    {
+      "name": "next-is-place",
+      "slots": [
+        {
+          "role": "sequence",
+          "fixed": "tsugi",
+          "particle": "wa"
+        },
+        {
+          "role": "place",
+          "from": [
+            "place:city",
+            "place:country"
+          ]
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        }
+      ],
+      "order": [
+        "sequence",
+        "place",
+        "copula"
+      ],
+      "example": "tsugi + wa + Kyoto + desu"
+    },
+    {
+      "name": "noun-negation",
+      "slots": [
+        {
+          "role": "thing",
+          "from": [
+            "media"
+          ]
+        },
+        {
+          "role": "predicate",
+          "from": [
+            "predicate"
+          ],
+          "allowed": [
+            "ja nai desu"
+          ]
+        },
+        {
+          "role": "tag",
+          "fixed": "ne",
+          "optional": true
+        }
+      ],
+      "order": [
+        "thing",
+        "predicate",
+        "tag"
+      ],
+      "example": "akushon + ja nai desu + ne",
+      "weight": 3
+    },
+    {
+      "name": "noun-negation-either",
+      "slots": [
+        {
+          "role": "thing",
+          "from": [
+            "media"
+          ]
+        },
+        {
+          "role": "predicate",
+          "from": [
+            "predicate"
+          ],
+          "allowed": [
+            "demo nai desu"
+          ]
+        },
+        {
+          "role": "tag",
+          "fixed": "yo",
+          "optional": true
+        }
+      ],
+      "order": [
+        "thing",
+        "predicate",
+        "tag"
+      ],
+      "example": "komedi + demo nai desu + yo"
+    },
+    {
+      "name": "adjective-question",
+      "slots": [
+        {
+          "role": "adjective",
+          "from": [
+            "adjective"
+          ]
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
+        }
+      ],
+      "order": [
+        "adjective",
+        "copula",
+        "questionMarker"
+      ],
+      "example": "hayai + desu + ka?"
+    },
+    {
+      "name": "also-subject-action",
+      "slots": [
+        {
+          "role": "subject",
+          "from": [
+            "person"
+          ]
+        },
+        {
+          "role": "also",
+          "from": [
+            "marker"
+          ],
+          "allowed": [
+            "mo"
+          ]
+        },
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ],
+          "optional": true
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "order": [
+        "subject",
+        "also",
+        "time",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "watashi + mo + maishuu + hashirimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
     }
   ],
   "excluded": [
@@ -4181,7 +5021,11 @@
     "marker": "sentence-type markers (e.g. question) shown as their own card, not text glue",
     "unit": "currency/measure counters referenced only via fixed template slots",
     "idiom": "fixed idiomatic expressions (greetings, set phrases) shown whole, never decomposed - mirrors the 'excluded' list's documented reasoning",
-    "title": "honorific suffixes attached after a name, referenced only via fixed template slots"
+    "title": "honorific suffixes attached after a name, referenced only via fixed template slots",
+    "clockTime": "clock-face times (hachiji, juuichiji); pair with ni (exact) or goro (approx.)",
+    "duration": "elapsed-time durations (ichijikan, gofun); pairs with kakarimasu or duration-accepting adjectives",
+    "animal": "animal nouns",
+    "sequence": "ordering words (tsugi); referenced only via fixed template slots"
   },
   "resolver": {
     "category": "food -> all entries in vocab.food",
