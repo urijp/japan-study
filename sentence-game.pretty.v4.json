@@ -2740,58 +2740,6 @@
       ]
     },
     {
-      "name": "time-place-companion-object-verb",
-      "slots": [
-        {
-          "role": "time",
-          "from": [
-            "time"
-          ]
-        },
-        {
-          "role": "location",
-          "from": [
-            "place"
-          ],
-          "particle": "de"
-        },
-        {
-          "role": "companion",
-          "from": [
-            "person"
-          ],
-          "particle": "to"
-        },
-        {
-          "role": "object",
-          "from": "verb.args.object"
-        },
-        {
-          "role": "verb",
-          "from": [
-            "verbs"
-          ],
-          "requiresArgs": [
-            "object",
-            "location"
-          ]
-        }
-      ],
-      "order": [
-        "time",
-        "location",
-        "companion",
-        "object",
-        "verb"
-      ],
-      "tenseFrom": "time",
-      "example": "kinou + Times Square + tomodachi + eiga + mimashita",
-      "polarity": [
-        "affirmative",
-        "negative"
-      ]
-    },
-    {
       "name": "movement",
       "verbFilter": [
         "ir",
@@ -2799,13 +2747,6 @@
         "volver"
       ],
       "slots": [
-        {
-          "role": "time",
-          "from": [
-            "time"
-          ],
-          "optional": true
-        },
         {
           "role": "subject",
           "from": [
@@ -2836,7 +2777,6 @@
         }
       ],
       "order": [
-        "time",
         "subject",
         "companion",
         "destination",
@@ -2907,26 +2847,11 @@
       ],
       "slots": [
         {
-          "role": "time",
-          "from": [
-            "time"
-          ],
-          "optional": true
-        },
-        {
           "role": "location",
           "from": [
             "place"
           ],
           "particle": "de",
-          "optional": true
-        },
-        {
-          "role": "companion",
-          "from": [
-            "person"
-          ],
-          "particle": "to",
           "optional": true
         },
         {
@@ -2945,9 +2870,7 @@
         }
       ],
       "order": [
-        "time",
         "location",
-        "companion",
         "sport",
         "verb"
       ],
@@ -3066,16 +2989,6 @@
           ]
         },
         {
-          "role": "adverb",
-          "from": [
-            "adverb"
-          ],
-          "optional": true,
-          "recommended": [
-            "totemo"
-          ]
-        },
-        {
           "role": "adjective",
           "from": [
             "adjective"
@@ -3093,7 +3006,6 @@
         "possessor",
         "thing",
         "topic",
-        "adverb",
         "adjective",
         "copula"
       ],
@@ -3132,16 +3044,6 @@
           ]
         },
         {
-          "role": "adverb",
-          "from": [
-            "adverb"
-          ],
-          "optional": true,
-          "recommended": [
-            "totemo"
-          ]
-        },
-        {
           "role": "adjective",
           "from": [
             "adjective"
@@ -3159,7 +3061,6 @@
         "demonstrative",
         "thing",
         "topic",
-        "adverb",
         "adjective",
         "copula"
       ],
@@ -3770,18 +3671,6 @@
       "name": "place-possessive-like",
       "slots": [
         {
-          "role": "demonstrative",
-          "from": [
-            "demonstrative"
-          ],
-          "allowed": [
-            "kono",
-            "sono",
-            "ano"
-          ],
-          "optional": true
-        },
-        {
           "role": "place",
           "from": [
             "place"
@@ -3821,7 +3710,6 @@
         "subject": "ga"
       },
       "order": [
-        "demonstrative",
         "place",
         "thing",
         "subject",
@@ -3833,18 +3721,6 @@
     {
       "name": "place-possessive-adjective",
       "slots": [
-        {
-          "role": "demonstrative",
-          "from": [
-            "demonstrative"
-          ],
-          "allowed": [
-            "kono",
-            "sono",
-            "ano"
-          ],
-          "optional": true
-        },
         {
           "role": "place",
           "from": [
@@ -3866,16 +3742,6 @@
           ]
         },
         {
-          "role": "adverb",
-          "from": [
-            "adverb"
-          ],
-          "optional": true,
-          "recommended": [
-            "totemo"
-          ]
-        },
-        {
           "role": "adjective",
           "from": [
             "adjective"
@@ -3890,11 +3756,9 @@
         "topic": "wa"
       },
       "order": [
-        "demonstrative",
         "place",
         "thing",
         "topic",
-        "adverb",
         "adjective",
         "copula"
       ],
@@ -3938,18 +3802,6 @@
       "name": "price-statement",
       "slots": [
         {
-          "role": "demonstrative",
-          "from": [
-            "demonstrative"
-          ],
-          "allowed": [
-            "kono",
-            "sono",
-            "ano"
-          ],
-          "optional": true
-        },
-        {
           "role": "thing",
           "from": [
             "clothing",
@@ -3975,7 +3827,6 @@
         "topic": "wa"
       },
       "order": [
-        "demonstrative",
         "thing",
         "topic",
         "number",
@@ -4959,49 +4810,6 @@
       ]
     },
     {
-      "name": "next-transport-question",
-      "slots": [
-        {
-          "role": "sequence",
-          "fixed": "tsugi no"
-        },
-        {
-          "role": "transport",
-          "from": [
-            "transport"
-          ],
-          "particle": "wa"
-        },
-        {
-          "role": "destination",
-          "from": "verb.args.destination"
-        },
-        {
-          "role": "verb",
-          "from": [
-            "verbs"
-          ],
-          "requiresArg": "destination"
-        },
-        {
-          "role": "questionMarker",
-          "fixed": "ka?"
-        }
-      ],
-      "order": [
-        "sequence",
-        "transport",
-        "destination",
-        "verb",
-        "questionMarker"
-      ],
-      "example": "tsugi no + basu + wa + Kyoto + ni + ikimasu + ka?",
-      "polarity": [
-        "affirmative",
-        "negative"
-      ]
-    },
-    {
       "name": "subject-frequency-object-verb",
       "slots": [
         {
@@ -5045,6 +4853,367 @@
         "affirmative",
         "negative"
       ]
+    },
+    {
+      "name": "location-companion-object-verb",
+      "slots": [
+        {
+          "role": "location",
+          "from": [
+            "place"
+          ],
+          "particle": "de"
+        },
+        {
+          "role": "companion",
+          "from": [
+            "person"
+          ],
+          "particle": "to"
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArgs": [
+            "object",
+            "location"
+          ]
+        }
+      ],
+      "order": [
+        "location",
+        "companion",
+        "object",
+        "verb"
+      ],
+      "example": "Times Square + tomodachi + eiga + mimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "time-companion-object-verb",
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ]
+        },
+        {
+          "role": "companion",
+          "from": [
+            "person"
+          ],
+          "particle": "to"
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "object"
+        }
+      ],
+      "order": [
+        "time",
+        "companion",
+        "object",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "kinou + tomodachi + eiga + mimashita",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "next-transport-statement",
+      "slots": [
+        {
+          "role": "sequence",
+          "fixed": "tsugi no"
+        },
+        {
+          "role": "transport",
+          "from": [
+            "transport"
+          ],
+          "particle": "wa"
+        },
+        {
+          "role": "destination",
+          "from": "verb.args.destination"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "destination"
+        }
+      ],
+      "order": [
+        "sequence",
+        "transport",
+        "destination",
+        "verb"
+      ],
+      "example": "tsugi no + basu + wa + Kyoto + ni + ikimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "transport-destination-question",
+      "slots": [
+        {
+          "role": "transport",
+          "from": [
+            "transport"
+          ],
+          "particle": "wa"
+        },
+        {
+          "role": "destination",
+          "from": "verb.args.destination"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "destination"
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
+        }
+      ],
+      "order": [
+        "transport",
+        "destination",
+        "verb",
+        "questionMarker"
+      ],
+      "example": "basu + wa + Kyoto + ni + ikimasu + ka?",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "movement-time",
+      "verbFilter": [
+        "ir",
+        "venir",
+        "volver"
+      ],
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ],
+          "optional": true
+        },
+        {
+          "role": "subject",
+          "from": [
+            "person"
+          ],
+          "optional": true
+        },
+        {
+          "role": "destination",
+          "from": [
+            "place"
+          ],
+          "particle": "ni"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "order": [
+        "time",
+        "subject",
+        "destination",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "ashita + Juria + doujou + ikimasu",
+      "subjectParticle": "wa",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "training-with",
+      "verbFilter": [
+        "entrenar / practicar"
+      ],
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ],
+          "optional": true
+        },
+        {
+          "role": "companion",
+          "from": [
+            "person"
+          ],
+          "particle": "to",
+          "optional": true
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "order": [
+        "time",
+        "companion",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "kyou + Juria + renshuu shimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "noun-adjective-adverb",
+      "slots": [
+        {
+          "role": "thing",
+          "from": [
+            "object",
+            "clothing",
+            "food",
+            "drink",
+            "place",
+            "transport",
+            "media",
+            "social",
+            "concept",
+            "body",
+            "person"
+          ]
+        },
+        {
+          "role": "adverb",
+          "from": [
+            "adverb"
+          ],
+          "optional": true,
+          "recommended": [
+            "totemo"
+          ]
+        },
+        {
+          "role": "adjective",
+          "from": [
+            "adjective"
+          ]
+        },
+        {
+          "role": "copula",
+          "fixed": "desu"
+        }
+      ],
+      "literals": {
+        "topic": "wa"
+      },
+      "order": [
+        "thing",
+        "topic",
+        "adverb",
+        "adjective",
+        "copula"
+      ],
+      "example": "saifu + totemo + takai"
+    },
+    {
+      "name": "place-possessive-like-demonstrative",
+      "slots": [
+        {
+          "role": "demonstrative",
+          "from": [
+            "demonstrative"
+          ],
+          "allowed": [
+            "kono",
+            "sono",
+            "ano"
+          ],
+          "optional": true
+        },
+        {
+          "role": "place",
+          "from": [
+            "place"
+          ],
+          "particle": "no",
+          "recommendedTags": [
+            "actionLocation"
+          ]
+        },
+        {
+          "role": "thing",
+          "from": [
+            "clothing",
+            "object:possessable",
+            "social:possessable",
+            "concept",
+            "body"
+          ]
+        },
+        {
+          "role": "predicate",
+          "from": [
+            "predicate"
+          ],
+          "allowed": [
+            "suki desu",
+            "hoshii desu"
+          ]
+        }
+      ],
+      "literals": {
+        "subject": "ga"
+      },
+      "order": [
+        "demonstrative",
+        "place",
+        "thing",
+        "subject",
+        "predicate"
+      ],
+      "example": "ano + mise + fuku + hoshii desu"
     }
   ],
   "excluded": [

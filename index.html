@@ -504,7 +504,9 @@
   // --- SENTENCE ENGINE START (pure; no DOM, no globals; reads only its `raw` argument) ---
   const SentenceEngine = (function () {
     const FORM_KEYS = ['nonpastAffirmative', 'pastAffirmative', 'nonpastNegative', 'pastNegative'];
-    const TARGET_DIST = [[1, 0.08], [2, 0.17], [3, 0.30], [4, 0.28], [5, 0.17]];
+    // Capped at 4: no template declares more than 4 slots, so a "5" bucket would just
+    // misroute those rounds through selectTemplate's no-size-preference fallback.
+    const TARGET_DIST = [[1, 0.10], [2, 0.20], [3, 0.36], [4, 0.34]];
     const SOFT_PREF_P = 0.7;
     const MAX_ATTEMPTS = 25;
     const ROLE_TO_ARG = { activity: 'object', sport: 'object', thing: 'object' };
