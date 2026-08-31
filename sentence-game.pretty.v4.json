@@ -167,6 +167,22 @@
         "timeRef": [
           "nonpast"
         ]
+      },
+      {
+        "es": "sábado",
+        "jp": "doyoubi",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
+      },
+      {
+        "es": "domingo",
+        "jp": "nichiyoubi",
+        "timeRef": [
+          "past",
+          "nonpast"
+        ]
       }
     ],
     "place": [
@@ -488,6 +504,14 @@
         "tags": [
           "properName"
         ]
+      },
+      {
+        "es": "hermano mayor",
+        "jp": "ani"
+      },
+      {
+        "es": "hermana mayor",
+        "jp": "ane"
       }
     ],
     "food": [
@@ -586,6 +610,10 @@
       {
         "es": "metro",
         "jp": "chikatetsu"
+      },
+      {
+        "es": "autobús",
+        "jp": "basu"
       }
     ],
     "clothing": [
@@ -810,7 +838,8 @@
         "es": "juego",
         "jp": "geemu",
         "tags": [
-          "genre"
+          "genre",
+          "playable"
         ]
       },
       {
@@ -841,6 +870,51 @@
         "jp": "rajio",
         "tags": [
           "listenable"
+        ]
+      },
+      {
+        "es": "manga",
+        "jp": "manga",
+        "tags": [
+          "readable"
+        ]
+      },
+      {
+        "es": "vídeo",
+        "jp": "douga",
+        "tags": [
+          "watchable"
+        ]
+      },
+      {
+        "es": "anime",
+        "jp": "anime",
+        "tags": [
+          "watchable"
+        ]
+      },
+      {
+        "es": "amor / romance",
+        "jp": "renai",
+        "tags": [
+          "genre",
+          "watchable"
+        ]
+      },
+      {
+        "es": "anime romántico / de amor",
+        "jp": "renai anime",
+        "tags": [
+          "genre",
+          "watchable"
+        ]
+      },
+      {
+        "es": "anime de misterio",
+        "jp": "misuterii anime",
+        "tags": [
+          "genre",
+          "watchable"
         ]
       }
     ],
@@ -894,6 +968,10 @@
       {
         "es": "trabajo",
         "jp": "shigoto"
+      },
+      {
+        "es": "yoga",
+        "jp": "yoga"
       }
     ],
     "language": [
@@ -1440,6 +1518,10 @@
         "es": "fuertemente",
         "jp": "tsuyoku",
         "derivedFrom": "tsuyoi"
+      },
+      {
+        "es": "solo / en solitario",
+        "jp": "hitori de"
       }
     ],
     "connector": [
@@ -1805,6 +1887,10 @@
       {
         "es": "siguiente / próximo",
         "jp": "tsugi"
+      },
+      {
+        "es": "siguiente / próximo (antes de sustantivo)",
+        "jp": "tsugi no"
       }
     ]
   },
@@ -2030,7 +2116,8 @@
           "particle": "o",
           "accepts": [
             "sport",
-            "activity"
+            "activity",
+            "media:playable"
           ]
         }
       ],
@@ -2477,6 +2564,24 @@
         }
       ],
       "objectRequired": true
+    },
+    {
+      "es": "jugar / pasar el rato",
+      "forms": {
+        "nonpastAffirmative": "asobimasu",
+        "pastAffirmative": "asobimashita",
+        "nonpastNegative": "asobimasen",
+        "pastNegative": "asobimasen deshita"
+      },
+      "args": [
+        {
+          "role": "companion",
+          "particle": "to",
+          "accepts": [
+            "person"
+          ]
+        }
+      ]
     }
   ],
   "templates": [
@@ -4726,6 +4831,216 @@
       ],
       "tenseFrom": "time",
       "example": "watashi + mo + maishuu + hashirimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "frequency-companion-verb",
+      "slots": [
+        {
+          "role": "frequency",
+          "from": [
+            "adverb"
+          ],
+          "allowed": [
+            "itsumo",
+            "yoku",
+            "tokidoki"
+          ]
+        },
+        {
+          "role": "companion",
+          "from": [
+            "person"
+          ],
+          "particle": "to"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "verbFilterArgsOptional": true,
+      "order": [
+        "frequency",
+        "companion",
+        "verb"
+      ],
+      "example": "yoku + ani + to + asobimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "time-topic-object-verb",
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ],
+          "particle": "wa"
+        },
+        {
+          "role": "manner",
+          "from": [
+            "adverb"
+          ],
+          "allowed": [
+            "hitori de"
+          ],
+          "optional": true
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "object"
+        }
+      ],
+      "order": [
+        "time",
+        "manner",
+        "object",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "doyoubi + wa + geemu + o + shimasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "time-topic-companion-verb",
+      "slots": [
+        {
+          "role": "time",
+          "from": [
+            "time"
+          ],
+          "particle": "wa"
+        },
+        {
+          "role": "companion",
+          "from": [
+            "person"
+          ],
+          "particle": "to"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ]
+        }
+      ],
+      "verbFilterArgsOptional": true,
+      "order": [
+        "time",
+        "companion",
+        "verb"
+      ],
+      "tenseFrom": "time",
+      "example": "doyoubi + wa + ani + to + dekakemasu",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "next-transport-question",
+      "slots": [
+        {
+          "role": "sequence",
+          "fixed": "tsugi no"
+        },
+        {
+          "role": "transport",
+          "from": [
+            "transport"
+          ],
+          "particle": "wa"
+        },
+        {
+          "role": "destination",
+          "from": "verb.args.destination"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "destination"
+        },
+        {
+          "role": "questionMarker",
+          "fixed": "ka?"
+        }
+      ],
+      "order": [
+        "sequence",
+        "transport",
+        "destination",
+        "verb",
+        "questionMarker"
+      ],
+      "example": "tsugi no + basu + wa + Kyoto + ni + ikimasu + ka?",
+      "polarity": [
+        "affirmative",
+        "negative"
+      ]
+    },
+    {
+      "name": "subject-frequency-object-verb",
+      "slots": [
+        {
+          "role": "subject",
+          "from": [
+            "person"
+          ],
+          "particle": "wa"
+        },
+        {
+          "role": "frequency",
+          "from": [
+            "adverb"
+          ],
+          "allowed": [
+            "itsumo",
+            "yoku",
+            "tokidoki"
+          ]
+        },
+        {
+          "role": "object",
+          "from": "verb.args.object"
+        },
+        {
+          "role": "verb",
+          "from": [
+            "verbs"
+          ],
+          "requiresArg": "object"
+        }
+      ],
+      "order": [
+        "subject",
+        "frequency",
+        "object",
+        "verb"
+      ],
+      "example": "Erika + wa + yoku + renai anime + o + mimasu",
       "polarity": [
         "affirmative",
         "negative"

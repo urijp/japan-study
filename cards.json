@@ -2020,5 +2020,95 @@
     "spanish": "Minuto(s)",
     "japanese": "fun / pun",
     "image": "images/337.svg"
+  },
+  {
+    "id": 338,
+    "spanish": "Sábado",
+    "japanese": "doyoubi",
+    "image": "images/338.svg"
+  },
+  {
+    "id": 339,
+    "spanish": "Domingo",
+    "japanese": "nichiyoubi",
+    "image": "images/339.svg"
+  },
+  {
+    "id": 340,
+    "spanish": "Solo / en solitario",
+    "japanese": "hitori de",
+    "image": "images/340.svg"
+  },
+  {
+    "id": 341,
+    "spanish": "Hermano mayor",
+    "japanese": "ani",
+    "image": "images/341.svg"
+  },
+  {
+    "id": 342,
+    "spanish": "Hermana mayor",
+    "japanese": "ane",
+    "image": "images/342.svg"
+  },
+  {
+    "id": 343,
+    "spanish": "Siguiente / próximo (antes de sustantivo)",
+    "japanese": "tsugi no",
+    "image": "images/343.svg"
+  },
+  {
+    "id": 344,
+    "spanish": "Manga",
+    "japanese": "manga",
+    "image": "images/344.svg"
+  },
+  {
+    "id": 345,
+    "spanish": "Vídeo",
+    "japanese": "douga",
+    "image": "images/345.svg"
+  },
+  {
+    "id": 346,
+    "spanish": "Anime",
+    "japanese": "anime",
+    "image": "images/346.svg"
+  },
+  {
+    "id": 347,
+    "spanish": "Amor / romance",
+    "japanese": "renai",
+    "image": "images/347.svg"
+  },
+  {
+    "id": 348,
+    "spanish": "Anime romántico / de amor",
+    "japanese": "renai anime",
+    "image": "images/348.svg"
+  },
+  {
+    "id": 349,
+    "spanish": "Anime de misterio",
+    "japanese": "misuterii anime",
+    "image": "images/349.svg"
+  },
+  {
+    "id": 350,
+    "spanish": "Autobús",
+    "japanese": "basu",
+    "image": "images/350.svg"
+  },
+  {
+    "id": 351,
+    "spanish": "Yoga",
+    "japanese": "yoga",
+    "image": "images/351.svg"
+  },
+  {
+    "id": 352,
+    "spanish": "Jugar / pasar el rato",
+    "japanese": "asobimasu",
+    "image": "images/352.svg"
   }
 ]
